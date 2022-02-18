@@ -135,6 +135,10 @@
   transition: height 250ms ease, left 250ms ease;
 }
 
+.serverIcon .disable.pill {
+  display: none;
+}
+
 /* Variants */
 .green.serverIcon .text {
   color: #3ba55d;

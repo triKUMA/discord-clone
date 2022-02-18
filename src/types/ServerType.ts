@@ -1,4 +1,4 @@
 export interface ServerType {
   name: string;
-  imgSrc?: string;
+  imgSrc: string;
 }

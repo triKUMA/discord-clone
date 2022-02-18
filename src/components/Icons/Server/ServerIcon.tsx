@@ -9,6 +9,7 @@ interface ServerIconProps {
   variant?: "green" | "discord";
   onClick?: () => void;
   notification?: boolean;
+  disablePill?: boolean;
 }
 
 function ServerIcon(props: ServerIconProps) {
@@ -23,7 +24,10 @@ function ServerIcon(props: ServerIconProps) {
     <div className={"serverIcon" + (props.variant ? ` ${props.variant}` : "")}>
       <button
         className={"wrapper" + (active ? " active" : "")}
-        onClick={() => setActive(true)}
+        onClick={() => {
+          setActive(true);
+          props.onClick && props.onClick();
+        }}
         onBlur={() => setActive(false)}
       >
         {(props.imgSrc && <img src={props.imgSrc} alt="" className="img" />) ||
@@ -35,7 +39,10 @@ function ServerIcon(props: ServerIconProps) {
       </button>
       <div
         className={
-          "pill" + (props.notification ? " small" : "") + (active ? " big" : "")
+          "pill" +
+          (props.notification ? " small" : "") +
+          (active ? " big" : "") +
+          (props.disablePill ? " disable" : "")
         }
       />
     </div>

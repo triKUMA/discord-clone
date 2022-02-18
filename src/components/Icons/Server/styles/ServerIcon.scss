@@ -114,6 +114,10 @@
 
     transition: height 250ms ease, left 250ms ease;
   }
+
+  .disable.pill {
+    display: none;
+  }
 }
 
 /* Variants */
