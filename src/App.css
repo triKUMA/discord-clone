@@ -1,0 +1,13 @@
+:root {
+  --serverList-width: 4.5rem;
+  --sidebar-width: 15rem;
+  --header-height: 3rem;
+}
+
+.App {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+
+  display: flex;
+}

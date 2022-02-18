@@ -1,0 +1,22 @@
+.sidebar {
+  $bg-col: #2f3136;
+
+  min-width: var(--sidebar-width);
+  height: 100vh;
+  background-color: $bg-col;
+
+  header {
+    min-height: var(--header-height);
+    width: 100%;
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: var(--header-height);
+      min-width: 100%;
+      height: 3px;
+      background-image: linear-gradient(rgba(0, 0, 0, 0.2), transparent);
+    }
+  }
+}

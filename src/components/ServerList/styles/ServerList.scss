@@ -1,0 +1,9 @@
+.serverList {
+  $bg-col: #202225;
+
+  min-width: var(--serverList-width);
+  height: 100vh;
+  background-color: $bg-col;
+  overflow-y: scroll;
+  scrollbar-width: none;
+}
