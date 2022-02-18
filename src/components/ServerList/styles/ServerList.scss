@@ -19,3 +19,48 @@
     border-radius: 10rem;
   }
 }
+
+.downloadModal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100vw;
+  min-height: 100vh;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  animation: fadeIn 250ms;
+
+  .mainArea {
+    min-width: 61.5vw;
+    min-height: 89.25vh;
+    background-color: white;
+    border-radius: 0.3rem;
+    z-index: 100;
+    position: relative;
+    animation: popIn 250ms ease;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes popIn {
+  0% {
+    transform: scale(0, 0);
+  }
+  90% {
+    transform: scale(1.015, 1.015);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}

@@ -9,6 +9,7 @@ import { useState } from "react";
 import { ServerType } from "../../types/ServerType";
 
 function ServerList() {
+  const [downloadModal, setDownloadModal] = useState(false);
   const [friends, setFriends] = useState<ServerType[]>([]);
   const [servers, setServers] = useState<ServerType[]>([]);
 
@@ -53,8 +54,20 @@ function ServerList() {
       <ServerIcon
         icon={HiOutlineDownload}
         text="Download Apps"
+        onClick={() => setDownloadModal(true)}
         variant="green"
       />
+
+      {downloadModal && (
+        <div
+          className="downloadModal"
+          onClick={(e) => {
+            setDownloadModal(false);
+          }}
+        >
+          <div className="mainArea"></div>
+        </div>
+      )}
     </div>
   );
 }
