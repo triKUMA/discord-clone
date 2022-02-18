@@ -1,0 +1,152 @@
+.serverIcon {
+  $bg-col: #36393f;
+
+  min-width: var(--serverList-width);
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+  .wrapper {
+    $size: 3rem;
+    width: $size;
+    height: $size;
+    border-radius: 10rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+
+    transition: border-radius 500ms ease-in;
+
+    &:hover,
+    &:focus,
+    &.active {
+      border-radius: 1rem;
+
+      transition: border-radius 200ms ease;
+
+      .text {
+        color: white;
+        background-color: var(--discord-colour);
+
+        transition: color 100ms ease-out, background-color 100ms ease-out;
+      }
+
+      .iconWrapper {
+        background-color: var(--discord-colour);
+        color: white;
+
+        transition: color 100ms ease-out, background-color 100ms ease-out;
+      }
+    }
+  }
+
+  .text {
+    width: 100%;
+    height: 100%;
+    background-color: $bg-col;
+    color: lightgrey;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: clip;
+
+    transition: color 100ms ease-in 25ms, background-color 100ms ease-in 25ms;
+  }
+
+  .iconWrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $bg-col;
+    color: lightgrey;
+
+    transition: color 100ms ease-in 25ms, background-color 100ms ease-in 25ms;
+  }
+
+  .icon {
+    $size: 1.5rem;
+    width: $size;
+    height: $size;
+  }
+
+  .img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .pill {
+    width: 0.5rem;
+    height: 0rem;
+    position: absolute;
+    left: -0.75rem;
+    border-radius: 10rem;
+    background-color: white;
+
+    transition: height 250ms ease, left 250ms ease;
+
+    &.small {
+      left: -0.25rem;
+      height: 0.5rem;
+
+      transition: height 250ms ease, left 250ms ease;
+    }
+
+    &.big {
+      left: -0.25rem;
+      height: 2.5rem;
+
+      transition: height 250ms ease, left 250ms ease;
+    }
+  }
+
+  .wrapper:hover + .pill:not(.big) {
+    left: -0.25rem;
+    height: 1.25rem;
+
+    transition: height 250ms ease, left 250ms ease;
+  }
+}
+
+/* Variants */
+.green.serverIcon {
+  $green: #3ba55d;
+
+  .text {
+    color: $green;
+  }
+
+  .iconWrapper {
+    color: $green;
+  }
+
+  .wrapper {
+    &:hover,
+    &:focus,
+    &.active {
+      .text {
+        background-color: $green;
+      }
+
+      .iconWrapper {
+        background-color: $green;
+      }
+    }
+  }
+}
+
+.discord.serverIcon {
+  .icon {
+    $size: 1.75rem;
+    width: $size;
+    height: $size;
+  }
+}

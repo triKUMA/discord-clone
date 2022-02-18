@@ -2,12 +2,12 @@
   --serverList-width: 4.5rem;
   --sidebar-width: 15rem;
   --header-height: 3rem;
+  --discord-colour: #5865f2;
 }
 
 .App {
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-
   display: flex;
 }

@@ -6,4 +6,16 @@
   background-color: $bg-col;
   overflow-y: scroll;
   scrollbar-width: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-block: 0.75rem;
+  gap: 0.5rem;
+
+  .separator {
+    min-height: 2px;
+    width: 2rem;
+    background-color: #2d2f32;
+    border-radius: 10rem;
+  }
 }
