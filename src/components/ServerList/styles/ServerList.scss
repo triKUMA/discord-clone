@@ -22,10 +22,112 @@
 
 .dlAppsModal {
   background-color: white;
-  min-width: 59rem;
-  min-height: 41.75rem;
+  // min-width: 59rem;
+  // min-height: 41.75rem;
+  padding: 2rem 10rem;
 
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  > p {
+    padding-block: 2rem;
+    color: #060607;
+    font-size: 1.25rem;
+    font-weight: 700;
+  }
+
+  .dlAppWrapper {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .dlApp {
+    width: 12.5rem;
+    height: 16rem;
+    padding: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 0.5rem;
+    border: 2px solid #747f8d;
+
+    transition: border-color var(--colourTransition-toBase),
+      transform 500ms ease;
+
+    .icon {
+      box-sizing: content-box;
+      $size: 6rem;
+      width: $size;
+      height: $size;
+      margin: 1.75rem;
+      color: #4f5660;
+
+      transition: color var(--colourTransition-toBase);
+
+      &.macos {
+        padding-block: 1rem;
+        border-radius: 15rem;
+        background-color: #4f5660;
+        color: white;
+
+        transition: background-color var(--colourTransition-toBase);
+      }
+
+      &.android {
+        margin-bottom: 0;
+        margin-top: 2.75rem;
+      }
+    }
+
+    .contentWrapper {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+
+      > p {
+        margin-bottom: 1rem;
+        text-align: center;
+        font-size: 1.25rem;
+        font-weight: 700;
+      }
+
+      > .buttonWrapper {
+        display: flex;
+        gap: 0.75rem;
+      }
+
+      .button {
+        background-color: #747f8d;
+      }
+    }
+
+    &:hover {
+      border: 2px solid var(--discord-colour);
+      transform: scale(1.025, 1.025);
+
+      transition: border-color var(--colourTransition-toAlt),
+        transform 500ms ease;
+
+      .icon {
+        color: var(--discord-colour);
+
+        transition: color var(--colourTransition-toAlt);
+
+        &.macos {
+          background-color: var(--discord-colour);
+          color: white;
+
+          transition: background-color var(--colourTransition-toAlt);
+        }
+      }
+
+      .button,
+      .button:hover {
+        background-color: var(--discord-colour);
+      }
+    }
+  }
 }

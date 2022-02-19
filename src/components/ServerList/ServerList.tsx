@@ -5,10 +5,12 @@ import { useState } from "react";
 import { ServerType } from "../../types/ServerType";
 import Modal from "../general/Modal/Modal";
 import Button from "../general/Button/Button";
-import { FaDiscord } from "react-icons/fa";
-import { AiOutlinePlus, AiFillGift } from "react-icons/ai";
+import { FaDiscord, FaLinux, FaApple } from "react-icons/fa";
+import { AiOutlinePlus } from "react-icons/ai";
 import { IoCompassSharp } from "react-icons/io5";
 import { HiOutlineDownload } from "react-icons/hi";
+import { BsWindows } from "react-icons/bs";
+import { SiMacos, SiAndroid } from "react-icons/si";
 
 function ServerList() {
   const [downloadModal, setDownloadModal] = useState(false);
@@ -67,7 +69,69 @@ function ServerList() {
         }}
       >
         <div className="dlAppsModal">
-          <Button icon={AiFillGift} text="Gift" size="lg" />
+          <div className="dlAppWrapper">
+            <div className="dlApp">
+              <SiMacos className="icon macos" />
+              <div className="contentWrapper">
+                <p>macOS</p>
+                <Button
+                  text="Download"
+                  size="md"
+                  className="dlApp-button"
+                  span
+                />
+              </div>
+            </div>
+            <div className="dlApp">
+              <BsWindows className="icon" />
+              <div className="contentWrapper">
+                <p>Windows</p>
+                <Button
+                  text="Download"
+                  size="md"
+                  className="dlApp-button"
+                  span
+                />
+              </div>
+            </div>
+            <div className="dlApp">
+              <FaLinux className="icon" />
+              <div className="contentWrapper">
+                <p>Linux</p>
+                <div className="buttonWrapper">
+                  <Button text="Deb" size="md" className="dlApp-button" span />
+                  <Button text="Tar" size="md" className="dlApp-button" span />
+                </div>
+              </div>
+            </div>
+          </div>
+          <p>Or on the go</p>
+          <div className="dlAppWrapper">
+            <div className="dlApp">
+              <FaApple className="icon" />
+              <div className="contentWrapper">
+                <p>Apple iOS</p>
+                <Button
+                  text="Download"
+                  size="md"
+                  className="dlApp-button"
+                  span
+                />
+              </div>
+            </div>
+            <div className="dlApp">
+              <SiAndroid className="icon android" />
+              <div className="contentWrapper">
+                <p>Android</p>
+                <Button
+                  text="Download"
+                  size="md"
+                  className="dlApp-button"
+                  span
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </Modal>
     </div>

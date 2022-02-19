@@ -51,8 +51,8 @@
 }
 
 .disable.modal-container {
-  -webkit-animation: fadeOut 250ms ease;
-          animation: fadeOut 250ms ease;
+  -webkit-animation: fadeOut 100ms ease;
+          animation: fadeOut 100ms ease;
 }
 
 .disable.modal-container .modal {

@@ -19,7 +19,7 @@ function Modal(props: ModalProps) {
     props.handleDisable();
     setTimeout(() => {
       setModalActive(false);
-    }, 150);
+    }, 75);
   }
 
   return (
