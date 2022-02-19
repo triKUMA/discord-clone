@@ -2,9 +2,12 @@
   --serverList-width: 4.5rem;
   --sidebar-width: 15rem;
   --header-height: 3rem;
-  --discord-colour: #5865f2;
   --colourTransition-toBase: 100ms ease-in 10ms;
   --colourTransition-toAlt: 100ms ease-out;
+  --border-radius: 0.25rem;
+  --discord-colour: #5865f2;
+  --danger-colour: #ed4245;
+  --success-colour: #3ba55d;
 }
 
 .App {

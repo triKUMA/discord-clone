@@ -1,0 +1,125 @@
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--border-radius);
+
+  transition: background-color var(--colourTransition-toBase);
+
+  &:hover {
+    transition: background-color var(--colourTransition-toAlt);
+  }
+
+  .icon {
+    $size: 1rem;
+    width: $size;
+    height: $size;
+    margin-right: 0.25rem;
+  }
+
+  .text {
+    font-weight: 600;
+  }
+
+  /* Size Variants */
+  &.sm {
+    padding: 0.45rem 1rem;
+  }
+  &.md {
+    padding: 0.5rem 1.25rem;
+  }
+  &.lg {
+    padding: 0.75rem 1.25rem;
+  }
+
+  /* Span Variant (will fill all available width) */
+  &.span {
+    width: 100%;
+  }
+}
+
+/* Style Variants */
+.dark.button {
+  $dark: #4f545c;
+
+  background-color: $dark;
+  border: 1px solid $dark;
+  color: #f6f6f7;
+
+  &:hover:not(.disabled) {
+    background-color: #5d6269;
+  }
+
+  &.outline {
+    color: $dark;
+  }
+}
+
+.light.button {
+  $light: white;
+
+  background-color: $light;
+  border: 1px solid $light;
+  color: var(--discord-colour);
+
+  &.outline {
+    color: $light;
+  }
+}
+
+.green.button {
+  $green: var(--success-colour);
+
+  background-color: $green;
+  border: 1px solid $green;
+  color: #f6f6f7;
+
+  &.outline {
+    color: $green;
+  }
+}
+
+.discord.button {
+  $discord: var(--discord-colour);
+
+  background-color: $discord;
+  border: 1px solid $discord;
+  color: #f6f6f7;
+
+  &:hover:not(.disabled) {
+    background-color: #4752c4;
+  }
+
+  &.outline {
+    color: $discord;
+  }
+}
+
+.red.button {
+  $red: var(--danger-colour);
+
+  background-color: $red;
+  border: 1px solid $red;
+  color: #f6f6f7;
+
+  &:hover:not(.disabled) {
+    background-color: #c03537;
+  }
+
+  &.outline {
+    color: $red;
+  }
+}
+
+.outline.button {
+  background: none;
+
+  .text {
+    font-weight: 400;
+  }
+}
+
+.disabled.button {
+  cursor: not-allowed;
+  opacity: 0.75;
+}

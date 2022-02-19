@@ -1,13 +1,14 @@
 import ServerIcon from "./ServerIcon";
 import "./styles/ServerList.css";
-import { FaDiscord } from "react-icons/fa";
-import { AiOutlinePlus } from "react-icons/ai";
-import { IoCompassSharp } from "react-icons/io5";
-import { HiOutlineDownload } from "react-icons/hi";
 import { RandServer } from "../../helper/RandomData";
 import { useState } from "react";
 import { ServerType } from "../../types/ServerType";
-import Modal from "../Modal/Modal";
+import Modal from "../general/Modal/Modal";
+import Button from "../general/Button/Button";
+import { FaDiscord } from "react-icons/fa";
+import { AiOutlinePlus, AiFillGift } from "react-icons/ai";
+import { IoCompassSharp } from "react-icons/io5";
+import { HiOutlineDownload } from "react-icons/hi";
 
 function ServerList() {
   const [downloadModal, setDownloadModal] = useState(false);
@@ -65,7 +66,9 @@ function ServerList() {
           setDownloadModal(false);
         }}
       >
-        <div className="dlAppsModal"></div>
+        <div className="dlAppsModal">
+          <Button icon={AiFillGift} text="Gift" size="lg" />
+        </div>
       </Modal>
     </div>
   );
