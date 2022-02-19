@@ -3,6 +3,8 @@
   --sidebar-width: 15rem;
   --header-height: 3rem;
   --discord-colour: #5865f2;
+  --colourTransition-toBase: 100ms ease-in 10ms;
+  --colourTransition-toAlt: 100ms ease-out;
 }
 
 .App {

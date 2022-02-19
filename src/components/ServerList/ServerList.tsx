@@ -1,4 +1,4 @@
-import ServerIcon from "../Icons/Server/ServerIcon";
+import ServerIcon from "./ServerIcon";
 import "./styles/ServerList.css";
 import { FaDiscord } from "react-icons/fa";
 import { AiOutlinePlus } from "react-icons/ai";
@@ -7,6 +7,7 @@ import { HiOutlineDownload } from "react-icons/hi";
 import { RandServer } from "../../helper/RandomData";
 import { useState } from "react";
 import { ServerType } from "../../types/ServerType";
+import Modal from "../Modal/Modal";
 
 function ServerList() {
   const [downloadModal, setDownloadModal] = useState(false);
@@ -58,16 +59,14 @@ function ServerList() {
         variant="green"
       />
 
-      {downloadModal && (
-        <div
-          className="downloadModal"
-          onClick={(e) => {
-            setDownloadModal(false);
-          }}
-        >
-          <div className="mainArea"></div>
-        </div>
-      )}
+      <Modal
+        active={downloadModal}
+        handleDisable={() => {
+          setDownloadModal(false);
+        }}
+      >
+        <div className="dlAppsModal"></div>
+      </Modal>
     </div>
   );
 }

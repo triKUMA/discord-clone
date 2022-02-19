@@ -31,14 +31,16 @@
         color: white;
         background-color: var(--discord-colour);
 
-        transition: color 100ms ease-out, background-color 100ms ease-out;
+        transition: color var(--colourTransition-toAlt),
+          background-color var(--colourTransition-toAlt);
       }
 
       .iconWrapper {
         background-color: var(--discord-colour);
         color: white;
 
-        transition: color 100ms ease-out, background-color 100ms ease-out;
+        transition: color var(--colourTransition-toAlt),
+          background-color var(--colourTransition-toAlt);
       }
     }
   }
@@ -56,7 +58,8 @@
     overflow: hidden;
     text-overflow: clip;
 
-    transition: color 100ms ease-in 25ms, background-color 100ms ease-in 25ms;
+    transition: color var(--colourTransition-toBase),
+      background-color var(--colourTransition-toBase);
   }
 
   .iconWrapper {
@@ -68,7 +71,8 @@
     background-color: $bg-col;
     color: lightgrey;
 
-    transition: color 100ms ease-in 25ms, background-color 100ms ease-in 25ms;
+    transition: color var(--colourTransition-toBase),
+      background-color var(--colourTransition-toBase);
   }
 
   .icon {

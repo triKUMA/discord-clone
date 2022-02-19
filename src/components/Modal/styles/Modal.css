@@ -1,0 +1,150 @@
+.modal-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100vw;
+  min-height: 100vh;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  z-index: 100;
+  -webkit-animation: fadeIn 250ms ease;
+          animation: fadeIn 250ms ease;
+}
+
+.modal {
+  background-color: white;
+  border-radius: 0.35rem;
+  z-index: 100;
+  position: relative;
+  overflow: hidden;
+  -webkit-animation: popIn 250ms ease;
+          animation: popIn 250ms ease;
+}
+
+.modal .close-button {
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  min-width: 1.7rem;
+  min-height: 1.7rem;
+  padding: 0.15rem;
+  color: #a7aaaf;
+  cursor: pointer;
+  -webkit-transition: color var(--colourTransition-toBase);
+  transition: color var(--colourTransition-toBase);
+}
+
+.modal .close-button:hover {
+  color: #2e3338;
+  -webkit-transition: color var(--colourTransition-toAlt);
+  transition: color var(--colourTransition-toAlt);
+}
+
+.disable.modal-container {
+  -webkit-animation: fadeOut 250ms ease;
+          animation: fadeOut 250ms ease;
+}
+
+.disable.modal-container .modal {
+  -webkit-animation: popOut 250ms ease;
+          animation: popOut 250ms ease;
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes popIn {
+  0% {
+    -webkit-transform: scale(0, 0);
+            transform: scale(0, 0);
+  }
+  90% {
+    -webkit-transform: scale(1.015, 1.015);
+            transform: scale(1.015, 1.015);
+  }
+  100% {
+    -webkit-transform: scale(1, 1);
+            transform: scale(1, 1);
+  }
+}
+
+@keyframes popIn {
+  0% {
+    -webkit-transform: scale(0, 0);
+            transform: scale(0, 0);
+  }
+  90% {
+    -webkit-transform: scale(1.015, 1.015);
+            transform: scale(1.015, 1.015);
+  }
+  100% {
+    -webkit-transform: scale(1, 1);
+            transform: scale(1, 1);
+  }
+}
+
+@-webkit-keyframes popOut {
+  0% {
+    -webkit-transform: scale(1, 1);
+            transform: scale(1, 1);
+  }
+  100% {
+    -webkit-transform: scale(0, 0);
+            transform: scale(0, 0);
+  }
+}
+
+@keyframes popOut {
+  0% {
+    -webkit-transform: scale(1, 1);
+            transform: scale(1, 1);
+  }
+  100% {
+    -webkit-transform: scale(0, 0);
+            transform: scale(0, 0);
+  }
+}
+/*# sourceMappingURL=Modal.css.map */

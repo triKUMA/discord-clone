@@ -5,11 +5,11 @@
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .serverIcon .wrapper {
@@ -20,34 +20,44 @@
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   overflow: hidden;
   -webkit-transition: border-radius 500ms ease-in;
   transition: border-radius 500ms ease-in;
 }
 
-.serverIcon .wrapper:hover, .serverIcon .wrapper:focus, .serverIcon .wrapper.active {
+.serverIcon .wrapper:hover,
+.serverIcon .wrapper:focus,
+.serverIcon .wrapper.active {
   border-radius: 1rem;
   -webkit-transition: border-radius 200ms ease;
   transition: border-radius 200ms ease;
 }
 
-.serverIcon .wrapper:hover .text, .serverIcon .wrapper:focus .text, .serverIcon .wrapper.active .text {
+.serverIcon .wrapper:hover .text,
+.serverIcon .wrapper:focus .text,
+.serverIcon .wrapper.active .text {
   color: white;
   background-color: var(--discord-colour);
-  -webkit-transition: color 100ms ease-out, background-color 100ms ease-out;
-  transition: color 100ms ease-out, background-color 100ms ease-out;
+  -webkit-transition: color var(--colourTransition-toAlt),
+    background-color var(--colourTransition-toAlt);
+  transition: color var(--colourTransition-toAlt),
+    background-color var(--colourTransition-toAlt);
 }
 
-.serverIcon .wrapper:hover .iconWrapper, .serverIcon .wrapper:focus .iconWrapper, .serverIcon .wrapper.active .iconWrapper {
+.serverIcon .wrapper:hover .iconWrapper,
+.serverIcon .wrapper:focus .iconWrapper,
+.serverIcon .wrapper.active .iconWrapper {
   background-color: var(--discord-colour);
   color: white;
-  -webkit-transition: color 100ms ease-out, background-color 100ms ease-out;
-  transition: color 100ms ease-out, background-color 100ms ease-out;
+  -webkit-transition: color var(--colourTransition-toAlt),
+    background-color var(--colourTransition-toAlt);
+  transition: color var(--colourTransition-toAlt),
+    background-color var(--colourTransition-toAlt);
 }
 
 .serverIcon .text {
@@ -60,16 +70,18 @@
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: clip;
-  -webkit-transition: color 100ms ease-in 25ms, background-color 100ms ease-in 25ms;
-  transition: color 100ms ease-in 25ms, background-color 100ms ease-in 25ms;
+  -webkit-transition: color var(--colourTransition-toBase),
+    background-color var(--colourTransition-toBase);
+  transition: color var(--colourTransition-toBase),
+    background-color var(--colourTransition-toBase);
 }
 
 .serverIcon .iconWrapper {
@@ -79,15 +91,17 @@
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   background-color: #36393f;
   color: lightgrey;
-  -webkit-transition: color 100ms ease-in 25ms, background-color 100ms ease-in 25ms;
-  transition: color 100ms ease-in 25ms, background-color 100ms ease-in 25ms;
+  -webkit-transition: color var(--colourTransition-toBase),
+    background-color var(--colourTransition-toBase);
+  transition: color var(--colourTransition-toBase),
+    background-color var(--colourTransition-toBase);
 }
 
 .serverIcon .icon {
@@ -99,7 +113,7 @@
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 .serverIcon .pill {
@@ -147,11 +161,15 @@
   color: #3ba55d;
 }
 
-.green.serverIcon .wrapper:hover .text, .green.serverIcon .wrapper:focus .text, .green.serverIcon .wrapper.active .text {
+.green.serverIcon .wrapper:hover .text,
+.green.serverIcon .wrapper:focus .text,
+.green.serverIcon .wrapper.active .text {
   background-color: #3ba55d;
 }
 
-.green.serverIcon .wrapper:hover .iconWrapper, .green.serverIcon .wrapper:focus .iconWrapper, .green.serverIcon .wrapper.active .iconWrapper {
+.green.serverIcon .wrapper:hover .iconWrapper,
+.green.serverIcon .wrapper:focus .iconWrapper,
+.green.serverIcon .wrapper.active .iconWrapper {
   background-color: #3ba55d;
 }
 

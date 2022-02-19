@@ -1,0 +1,89 @@
+.modal-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100vw;
+  min-height: 100vh;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  animation: fadeIn 250ms ease;
+}
+
+.modal {
+  background-color: white;
+  border-radius: 0.35rem;
+  z-index: 100;
+  position: relative;
+  overflow: hidden;
+  animation: popIn 250ms ease;
+
+  .close-button {
+    box-sizing: content-box;
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    min-width: 1.7rem;
+    min-height: 1.7rem;
+    padding: 0.15rem;
+    color: #a7aaaf;
+    cursor: pointer;
+
+    transition: color var(--colourTransition-toBase);
+
+    &:hover {
+      color: #2e3338;
+
+      transition: color var(--colourTransition-toAlt);
+    }
+  }
+}
+
+.disable.modal-container {
+  animation: fadeOut 250ms ease;
+
+  .modal {
+    animation: popOut 250ms ease;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes popIn {
+  0% {
+    transform: scale(0, 0);
+  }
+  90% {
+    transform: scale(1.015, 1.015);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
+
+@keyframes popOut {
+  0% {
+    transform: scale(1, 1);
+  }
+  100% {
+    transform: scale(0, 0);
+  }
+}
