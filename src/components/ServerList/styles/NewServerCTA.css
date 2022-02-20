@@ -1,0 +1,100 @@
+.newServerCTA {
+  background-color: white;
+  min-width: 27.5rem;
+  max-width: 27.5rem;
+  -webkit-transition: min-width 250ms ease, max-width 250ms ease;
+  transition: min-width 250ms ease, max-width 250ms ease;
+}
+
+.newServerCTA .pageChange {
+  min-height: 4rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: 1px solid #ebebec;
+  border-radius: 0.5rem;
+}
+
+.newServerCTA .pageChange .icon {
+  min-width: 2.5rem;
+  min-height: 2.5rem;
+  margin-left: 1.25rem;
+  margin-right: 0.75rem;
+}
+
+.newServerCTA .pageChange .content {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  text-align: left;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.newServerCTA .pageChange .title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #2e3338;
+}
+
+.newServerCTA .pageChange .continueIcon {
+  width: 2.5rem;
+  height: 2.5rem;
+  color: #4f5660;
+  margin-right: 0.75rem;
+}
+
+.newServerCTA .page1 .header {
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.newServerCTA .page1 .header .title {
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+  font-size: 1.55rem;
+  color: #060607;
+}
+
+.newServerCTA .page1 .header .desc {
+  color: #4f5660;
+  font-size: 0.95rem;
+}
+
+.newServerCTA .page1 .pageChangeWrapper {
+  max-height: 20rem;
+  overflow: scroll;
+  scrollbar-width: thin;
+  padding-inline: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 0.5rem;
+}
+
+.newServerCTA .page1 .footer {
+  padding: 1rem;
+  background-color: #f6f6f7;
+}
+
+.newServerCTA .page1 .footer .title {
+  color: #060607;
+  text-align: center;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+/*# sourceMappingURL=NewServerCTA.css.map */

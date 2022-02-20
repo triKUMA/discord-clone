@@ -55,6 +55,22 @@
   }
 }
 
+.grey.button {
+  $grey: #747f8d;
+
+  background-color: $grey;
+  border: 1px solid $grey;
+  color: #f6f6f7;
+
+  &:hover:not(.disabled) {
+    background-color: #5e6772;
+  }
+
+  &.outline {
+    color: $grey;
+  }
+}
+
 .light.button {
   $light: white;
 

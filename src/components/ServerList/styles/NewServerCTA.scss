@@ -1,0 +1,90 @@
+.newServerCTA {
+  $spacing: 1rem;
+
+  background-color: white;
+  $width: 27.5rem;
+  min-width: $width;
+  max-width: $width;
+
+  transition: min-width 250ms ease, max-width 250ms ease;
+
+  .pageChange {
+    min-height: 4rem;
+    display: flex;
+    align-items: center;
+    border: 1px solid #ebebec;
+    border-radius: 0.5rem;
+
+    .icon {
+      $size: 2.5rem;
+      min-width: $size;
+      min-height: $size;
+      margin-left: 1.25rem;
+      margin-right: 0.75rem;
+    }
+
+    .content {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+      justify-content: center;
+    }
+
+    .title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #2e3338;
+    }
+
+    .continueIcon {
+      $size: 2.5rem;
+      width: $size;
+      height: $size;
+      color: #4f5660;
+      margin-right: 0.75rem;
+    }
+  }
+
+  .page1 {
+    .header {
+      padding: 1.5rem;
+      text-align: center;
+
+      .title {
+        margin-bottom: 0.5rem;
+        font-weight: 700;
+        font-size: 1.55rem;
+        color: #060607;
+      }
+
+      .desc {
+        color: #4f5660;
+        font-size: 0.95rem;
+      }
+    }
+
+    .pageChangeWrapper {
+      max-height: 20rem;
+      overflow: scroll;
+      scrollbar-width: thin;
+      padding-inline: $spacing;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .footer {
+      padding: $spacing;
+      background-color: #f6f6f7;
+
+      .title {
+        color: #060607;
+        text-align: center;
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+      }
+    }
+  }
+}

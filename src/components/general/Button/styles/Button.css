@@ -61,6 +61,20 @@
   color: #4f545c;
 }
 
+.grey.button {
+  background-color: #747f8d;
+  border: 1px solid #747f8d;
+  color: #f6f6f7;
+}
+
+.grey.button:hover:not(.disabled) {
+  background-color: #5e6772;
+}
+
+.grey.button.outline {
+  color: #747f8d;
+}
+
 .light.button {
   background-color: white;
   border: 1px solid white;

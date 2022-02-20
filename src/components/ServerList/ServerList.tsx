@@ -9,22 +9,17 @@ import { FaDiscord } from "react-icons/fa";
 import { AiOutlinePlus } from "react-icons/ai";
 import { IoCompassSharp } from "react-icons/io5";
 import { HiOutlineDownload } from "react-icons/hi";
+import NewServerCTA from "./NewServerCTA";
 
 function ServerList() {
   const [dlAppsModal, setDLAppsModal] = useState(false);
+  const [newServerModal, setNewServerModal] = useState(false);
   const [friends, setFriends] = useState<ServerType[]>([]);
   const [servers, setServers] = useState<ServerType[]>([]);
 
   return (
     <div className="serverList">
-      <ServerIcon
-        icon={FaDiscord}
-        text="Home"
-        onClick={() => {
-          setFriends(friends.concat(RandServer()));
-        }}
-        variant="discord"
-      />
+      <ServerIcon icon={FaDiscord} text="Home" variant="discord" />
 
       {friends.map((item) => (
         <ServerIcon imgSrc={item.imgSrc} text={item.name} />
@@ -40,7 +35,7 @@ function ServerList() {
         icon={AiOutlinePlus}
         text="Add a Server"
         onClick={() => {
-          setServers(servers.concat(RandServer()));
+          setNewServerModal(true);
         }}
         disablePill
         variant="green"
@@ -60,6 +55,17 @@ function ServerList() {
         variant="green"
       />
 
+      {/* New Server Modal */}
+      <Modal
+        active={newServerModal}
+        handleDisable={() => {
+          setNewServerModal(false);
+        }}
+      >
+        <NewServerCTA />
+      </Modal>
+
+      {/* Download Apps Modal */}
       <Modal
         active={dlAppsModal}
         handleDisable={() => {

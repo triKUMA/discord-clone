@@ -33,6 +33,7 @@ function DownloadApp(props: DownloadAppProps) {
               text={item.text}
               onClick={item.onClick}
               size="md"
+              colour="grey"
               className="dlApp-button"
               span
             />

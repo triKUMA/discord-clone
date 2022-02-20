@@ -7,7 +7,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   text: string;
   span?: boolean;
   size?: "sm" | "md" | "lg";
-  colour?: "dark" | "light" | "green" | "discord" | "red";
+  colour?: "dark" | "grey" | "light" | "green" | "discord" | "red";
   variant?: "outline";
   disabled?: boolean;
 }
