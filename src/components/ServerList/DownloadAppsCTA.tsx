@@ -53,7 +53,14 @@ function DownloadAppsCTA() {
           icon={SiMacos}
           iconVariant="macos"
           title="macOS"
-          buttons={[{ text: "Download", onClick: () => {} }]}
+          buttons={[
+            {
+              text: "Download",
+              onClick: () => {
+                window.open("https://discord.com/api/download?platform=osx");
+              },
+            },
+          ]}
           id={1}
           activeID={activeApp}
           handleHover={() => setActiveApp(1)}
@@ -61,7 +68,14 @@ function DownloadAppsCTA() {
         <DownloadApp
           icon={BsWindows}
           title="Windows"
-          buttons={[{ text: "Download", onClick: () => {} }]}
+          buttons={[
+            {
+              text: "Download",
+              onClick: () => {
+                window.open("https://discord.com/api/download?platform=win");
+              },
+            },
+          ]}
           id={2}
           activeID={activeApp}
           handleHover={() => setActiveApp(2)}
@@ -70,8 +84,22 @@ function DownloadAppsCTA() {
           icon={FaLinux}
           title="Linux"
           buttons={[
-            { text: "Deb", onClick: () => {} },
-            { text: "Tar", onClick: () => {} },
+            {
+              text: "Deb",
+              onClick: () => {
+                window.open(
+                  "https://discord.com/api/download?platform=linux&format=deb"
+                );
+              },
+            },
+            {
+              text: "Tar",
+              onClick: () => {
+                window.open(
+                  "https://discord.com/api/download?platform=linux&format=tar.gz"
+                );
+              },
+            },
           ]}
           id={3}
           activeID={activeApp}
@@ -83,7 +111,14 @@ function DownloadAppsCTA() {
         <DownloadApp
           icon={FaApple}
           title="Apple iOS"
-          buttons={[{ text: "Download", onClick: () => {} }]}
+          buttons={[
+            {
+              text: "Download",
+              onClick: () => {
+                window.open("https://itunes.apple.com/app/discord/id985746746");
+              },
+            },
+          ]}
           id={4}
           activeID={activeApp}
           handleHover={() => setActiveApp(4)}
@@ -92,7 +127,16 @@ function DownloadAppsCTA() {
           icon={SiAndroid}
           iconVariant="android"
           title="Android"
-          buttons={[{ text: "Download", onClick: () => {} }]}
+          buttons={[
+            {
+              text: "Download",
+              onClick: () => {
+                window.open(
+                  "https://play.google.com/store/apps/details?id=com.discord"
+                );
+              },
+            },
+          ]}
           id={5}
           activeID={activeApp}
           handleHover={() => setActiveApp(5)}
