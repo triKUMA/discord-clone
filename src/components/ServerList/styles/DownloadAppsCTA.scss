@@ -83,7 +83,8 @@
       }
     }
 
-    &:hover {
+    &:hover,
+    &.active {
       border: 2px solid var(--discord-colour);
       transform: scale(1.025, 1.025);
 

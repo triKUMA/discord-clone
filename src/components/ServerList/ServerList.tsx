@@ -11,7 +11,7 @@ import { IoCompassSharp } from "react-icons/io5";
 import { HiOutlineDownload } from "react-icons/hi";
 
 function ServerList() {
-  const [downloadModal, setDownloadModal] = useState(false);
+  const [dlAppsModal, setDLAppsModal] = useState(false);
   const [friends, setFriends] = useState<ServerType[]>([]);
   const [servers, setServers] = useState<ServerType[]>([]);
 
@@ -56,14 +56,14 @@ function ServerList() {
       <ServerIcon
         icon={HiOutlineDownload}
         text="Download Apps"
-        onClick={() => setDownloadModal(true)}
+        onClick={() => setDLAppsModal(true)}
         variant="green"
       />
 
       <Modal
-        active={downloadModal}
+        active={dlAppsModal}
         handleDisable={() => {
-          setDownloadModal(false);
+          setDLAppsModal(false);
         }}
       >
         <DownloadAppsCTA />

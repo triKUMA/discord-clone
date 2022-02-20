@@ -111,7 +111,7 @@
   background-color: #747f8d;
 }
 
-.dlAppsModal .dlApp:hover {
+.dlAppsModal .dlApp:hover, .dlAppsModal .dlApp.active {
   border: 2px solid var(--discord-colour);
   -webkit-transform: scale(1.025, 1.025);
           transform: scale(1.025, 1.025);
@@ -121,13 +121,13 @@
   transition: border-color var(--colourTransition-toAlt), transform 500ms ease, -webkit-transform 500ms ease;
 }
 
-.dlAppsModal .dlApp:hover .icon {
+.dlAppsModal .dlApp:hover .icon, .dlAppsModal .dlApp.active .icon {
   color: var(--discord-colour);
   -webkit-transition: color var(--colourTransition-toAlt);
   transition: color var(--colourTransition-toAlt);
 }
 
-.dlAppsModal .dlApp:hover .icon.macos {
+.dlAppsModal .dlApp:hover .icon.macos, .dlAppsModal .dlApp.active .icon.macos {
   background-color: var(--discord-colour);
   color: white;
   -webkit-transition: background-color var(--colourTransition-toAlt);
@@ -135,7 +135,8 @@
 }
 
 .dlAppsModal .dlApp:hover .button,
-.dlAppsModal .dlApp:hover .button:hover {
+.dlAppsModal .dlApp:hover .button:hover, .dlAppsModal .dlApp.active .button,
+.dlAppsModal .dlApp.active .button:hover {
   background-color: var(--discord-colour);
 }
 /*# sourceMappingURL=DownloadAppsCTA.css.map */

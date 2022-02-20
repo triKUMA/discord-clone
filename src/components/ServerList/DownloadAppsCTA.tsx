@@ -4,17 +4,24 @@ import { FaApple, FaLinux } from "react-icons/fa";
 import { SiAndroid, SiMacos } from "react-icons/si";
 import Button from "../general/Button/Button";
 import { IconType } from "react-icons";
+import { useState } from "react";
 
 interface DownloadAppProps {
   icon: IconType;
   iconVariant?: "macos" | "android";
   title: string;
   buttons: { text: string; onClick: () => void }[];
+  id: number;
+  activeID: number;
+  handleHover: () => void;
 }
 
 function DownloadApp(props: DownloadAppProps) {
   return (
-    <div className="dlApp">
+    <div
+      className={"dlApp" + (props.id === props.activeID ? " active" : "")}
+      onMouseEnter={props.handleHover}
+    >
       <props.icon
         className={"icon" + (props.iconVariant ? ` ${props.iconVariant}` : "")}
       />
@@ -37,6 +44,8 @@ function DownloadApp(props: DownloadAppProps) {
 }
 
 function DownloadAppsCTA() {
+  const [activeApp, setActiveApp] = useState(2);
+
   return (
     <div className="dlAppsModal">
       <div className="dlAppWrapper">
@@ -45,11 +54,17 @@ function DownloadAppsCTA() {
           iconVariant="macos"
           title="macOS"
           buttons={[{ text: "Download", onClick: () => {} }]}
+          id={1}
+          activeID={activeApp}
+          handleHover={() => setActiveApp(1)}
         />
         <DownloadApp
           icon={BsWindows}
           title="Windows"
           buttons={[{ text: "Download", onClick: () => {} }]}
+          id={2}
+          activeID={activeApp}
+          handleHover={() => setActiveApp(2)}
         />
         <DownloadApp
           icon={FaLinux}
@@ -58,6 +73,9 @@ function DownloadAppsCTA() {
             { text: "Deb", onClick: () => {} },
             { text: "Tar", onClick: () => {} },
           ]}
+          id={3}
+          activeID={activeApp}
+          handleHover={() => setActiveApp(3)}
         />
       </div>
       <p>Or on the go</p>
@@ -66,12 +84,18 @@ function DownloadAppsCTA() {
           icon={FaApple}
           title="Apple iOS"
           buttons={[{ text: "Download", onClick: () => {} }]}
+          id={4}
+          activeID={activeApp}
+          handleHover={() => setActiveApp(4)}
         />
         <DownloadApp
           icon={SiAndroid}
           iconVariant="android"
           title="Android"
           buttons={[{ text: "Download", onClick: () => {} }]}
+          id={5}
+          activeID={activeApp}
+          handleHover={() => setActiveApp(5)}
         />
       </div>
     </div>
