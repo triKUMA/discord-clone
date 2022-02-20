@@ -1,0 +1,141 @@
+.dlAppsModal {
+  background-color: white;
+  padding: 2rem 10rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.dlAppsModal > p {
+  padding-block: 2rem;
+  color: #060607;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.dlAppsModal .dlAppWrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 1rem;
+}
+
+.dlAppsModal .dlApp {
+  width: 12.5rem;
+  height: 16rem;
+  padding: 0.75rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  border-radius: 0.5rem;
+  border: 2px solid #747f8d;
+  -webkit-transition: border-color var(--colourTransition-toBase), -webkit-transform 500ms ease;
+  transition: border-color var(--colourTransition-toBase), -webkit-transform 500ms ease;
+  transition: border-color var(--colourTransition-toBase), transform 500ms ease;
+  transition: border-color var(--colourTransition-toBase), transform 500ms ease, -webkit-transform 500ms ease;
+}
+
+.dlAppsModal .dlApp .icon {
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+  width: 6rem;
+  height: 6rem;
+  margin: 1.75rem;
+  color: #4f5660;
+  -webkit-transition: color var(--colourTransition-toBase);
+  transition: color var(--colourTransition-toBase);
+}
+
+.dlAppsModal .dlApp .icon.macos {
+  width: 5.85rem;
+  height: 5.85rem;
+  padding-block: 0.75rem;
+  border-radius: 10rem;
+  background-color: #4f5660;
+  color: white;
+  -webkit-transition: background-color var(--colourTransition-toBase);
+  transition: background-color var(--colourTransition-toBase);
+}
+
+.dlAppsModal .dlApp .icon.android {
+  margin-bottom: 0;
+  margin-top: 2.75rem;
+}
+
+.dlAppsModal .dlApp .contentWrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+}
+
+.dlAppsModal .dlApp .contentWrapper > p {
+  margin-bottom: 1rem;
+  text-align: center;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.dlAppsModal .dlApp .contentWrapper > .buttonWrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 0.75rem;
+}
+
+.dlAppsModal .dlApp .contentWrapper .button {
+  background-color: #747f8d;
+}
+
+.dlAppsModal .dlApp:hover {
+  border: 2px solid var(--discord-colour);
+  -webkit-transform: scale(1.025, 1.025);
+          transform: scale(1.025, 1.025);
+  -webkit-transition: border-color var(--colourTransition-toAlt), -webkit-transform 500ms ease;
+  transition: border-color var(--colourTransition-toAlt), -webkit-transform 500ms ease;
+  transition: border-color var(--colourTransition-toAlt), transform 500ms ease;
+  transition: border-color var(--colourTransition-toAlt), transform 500ms ease, -webkit-transform 500ms ease;
+}
+
+.dlAppsModal .dlApp:hover .icon {
+  color: var(--discord-colour);
+  -webkit-transition: color var(--colourTransition-toAlt);
+  transition: color var(--colourTransition-toAlt);
+}
+
+.dlAppsModal .dlApp:hover .icon.macos {
+  background-color: var(--discord-colour);
+  color: white;
+  -webkit-transition: background-color var(--colourTransition-toAlt);
+  transition: background-color var(--colourTransition-toAlt);
+}
+
+.dlAppsModal .dlApp:hover .button,
+.dlAppsModal .dlApp:hover .button:hover {
+  background-color: var(--discord-colour);
+}
+/*# sourceMappingURL=DownloadAppsCTA.css.map */
