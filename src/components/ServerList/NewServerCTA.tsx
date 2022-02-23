@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./styles/NewServerCTA.css";
 import { BiChevronRight } from "react-icons/bi";
 import { FaCamera } from "react-icons/fa";
@@ -42,7 +42,7 @@ interface PageProps {
       | "local community";
     targetAudience?: null | "small" | "large";
     name?: string;
-    imgSrc?: null | string;
+    iconSrc?: null | string;
   }) => void;
 }
 
@@ -192,18 +192,22 @@ function NewServerPage2(props: PageProps) {
 function NewServerPage3(
   props: PageProps & { activeUser: UserType; createServer: () => void }
 ) {
-  const [serverName, setServerName] = useState(
-    props.activeUser.displayName + "'s server"
-  );
   const [serverIconSrc, setServerIconSrc] = useState("");
 
-  function setServerImg(files: FileList | null) {
+  useEffect(() => {
+    props.setDetails({
+      name: props.activeUser.displayName + "'s server",
+    });
+  }, []);
+
+  function setServerIcon(files: FileList | null) {
     if (files !== null) {
       let fReader = new FileReader();
       fReader.readAsDataURL(files[0]);
       fReader.onloadend = (e) => {
         if (e.target !== null && typeof e.target.result === "string") {
           setServerIconSrc(e.target.result);
+          props.setDetails({ iconSrc: e.target.result });
         }
       };
     }
@@ -233,7 +237,7 @@ function NewServerPage3(
           <input
             type="file"
             onInput={(e) => {
-              setServerImg(e.currentTarget.files);
+              setServerIcon(e.currentTarget.files);
             }}
           />
         </div>
@@ -243,8 +247,7 @@ function NewServerPage3(
           type="text"
           defaultValue={props.activeUser.displayName + "'s server"}
           onInput={(e) => {
-            setServerName(e.currentTarget.value);
-            console.log(e.currentTarget.value);
+            props.setDetails({ name: e.currentTarget.value });
           }}
         />
         <p className="guidelines">
@@ -277,10 +280,6 @@ function NewServerPage3(
                 colour="discord"
                 size="md"
                 onClick={() => {
-                  props.setDetails({
-                    name: serverName,
-                    imgSrc: serverIconSrc,
-                  });
                   props.createServer();
                   ctx.closeModal();
                 }}
@@ -367,6 +366,7 @@ function NewServerCTA(props: NewServerCTAProps) {
           changePage={nextPage}
           setDetails={setDetails}
           createServer={() => {
+            console.log(serverDetails);
             dispatch(addServerFromPrototype(serverDetails));
           }}
         />

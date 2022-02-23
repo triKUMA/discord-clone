@@ -8,7 +8,6 @@ import Sidebar from "./components/Sidebar/Sidebar";
 function App() {
   const activeUser = useSelector((state: StoreType) => {
     if (state.users.activeUser === null) {
-      console.log("no active user");
       return null;
     } else {
       const activeUser = state.users.users.find(
@@ -17,7 +16,6 @@ function App() {
           user.identity.discriminator === state.users.activeUser?.discriminator
       );
 
-      console.log(activeUser);
       return typeof activeUser !== "undefined" ? activeUser : null;
     }
   });
