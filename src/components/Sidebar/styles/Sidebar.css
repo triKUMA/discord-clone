@@ -1,6 +1,6 @@
 .sidebar {
   min-width: var(--sidebar-width);
-  height: 100vh;
+  height: 100%;
   background-color: #2f3136;
 }
 

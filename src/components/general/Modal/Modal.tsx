@@ -2,7 +2,7 @@ import { createContext, ReactNode, useEffect, useState } from "react";
 import "./styles/Modal.css";
 import { IoMdClose } from "react-icons/io";
 
-export const ModalContext = createContext({ closeModal: () => {} });
+const ModalContext = createContext({ closeModal: () => {} });
 
 interface ModalProps {
   active: boolean;
@@ -48,3 +48,5 @@ function Modal(props: ModalProps) {
 }
 
 export default Modal;
+
+export const ModalCtx = ModalContext.Consumer;

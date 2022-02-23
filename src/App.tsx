@@ -7,8 +7,13 @@ function App() {
   return (
     <div className="App">
       <ServerList />
-      <Sidebar />
-      <ChannelFeed />
+      <div className="mainArea-wrapper">
+        <div className="test"></div>
+        <div className="mainArea">
+          <Sidebar />
+          <ChannelFeed />
+        </div>
+      </div>
     </div>
   );
 }

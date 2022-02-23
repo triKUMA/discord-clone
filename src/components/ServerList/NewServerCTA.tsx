@@ -4,7 +4,7 @@ import "./styles/NewServerCTA.css";
 import { BiChevronRight } from "react-icons/bi";
 import { FaCamera } from "react-icons/fa";
 import Button from "../general/Button/Button";
-import { ModalContext } from "../general/Modal/Modal";
+import { ModalCtx } from "../general/Modal/Modal";
 
 interface PageChangeProps {
   iconSrc: string;
@@ -263,7 +263,7 @@ function NewServerPage3(props: PageProps & { displayDetails: () => void }) {
           >
             Back
           </button>
-          <ModalContext.Consumer>
+          <ModalCtx>
             {(ctx) => (
               <Button
                 text="Create"
@@ -280,7 +280,7 @@ function NewServerPage3(props: PageProps & { displayDetails: () => void }) {
                 }}
               />
             )}
-          </ModalContext.Consumer>
+          </ModalCtx>
         </div>
       </div>
     </div>

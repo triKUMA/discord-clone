@@ -16,3 +16,17 @@
   overflow: hidden;
   display: flex;
 }
+
+.App .mainArea-wrapper {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #202225;
+}
+
+.App .mainArea {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}

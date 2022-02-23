@@ -1,8 +1,7 @@
 .sidebar {
   $bg-col: #2f3136;
-
   min-width: var(--sidebar-width);
-  height: 100vh;
+  height: 100%;
   background-color: $bg-col;
 
   header {
