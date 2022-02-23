@@ -1,6 +1,8 @@
-import { ReactNode, useEffect, useState } from "react";
+import { createContext, ReactNode, useEffect, useState } from "react";
 import "./styles/Modal.css";
 import { IoMdClose } from "react-icons/io";
+
+export const ModalContext = createContext({ closeModal: () => {} });
 
 interface ModalProps {
   active: boolean;
@@ -22,32 +24,27 @@ function Modal(props: ModalProps) {
     }, 75);
   }
 
-  return (
-    <>
-      {modalActive && (
-        <div
-          className={
-            "modal-container" + (!props.active && modalActive ? " disable" : "")
-          }
-          onClick={() => disableModal()}
-          id={"modal"}
-        >
-          <div
-            className="modal"
-            onClick={(e) => {
-              e.stopPropagation();
-            }}
-          >
-            {props.children}
-            <IoMdClose
-              className="close-button"
-              onClick={() => disableModal()}
-            />
-          </div>
-        </div>
-      )}
-    </>
-  );
+  return modalActive ? (
+    <div
+      className={
+        "modal-container" + (!props.active && modalActive ? " disable" : "")
+      }
+      onClick={() => disableModal()}
+      id={"modal"}
+    >
+      <div
+        className="modal"
+        onClick={(e) => {
+          e.stopPropagation();
+        }}
+      >
+        <ModalContext.Provider value={{ closeModal: () => disableModal() }}>
+          {props.children}
+        </ModalContext.Provider>
+        <IoMdClose className="close-button" onClick={() => disableModal()} />
+      </div>
+    </div>
+  ) : null;
 }
 
 export default Modal;

@@ -4,6 +4,7 @@ import "./styles/NewServerCTA.css";
 import { BiChevronRight } from "react-icons/bi";
 import { FaCamera } from "react-icons/fa";
 import Button from "../general/Button/Button";
+import { ModalContext } from "../general/Modal/Modal";
 
 interface PageChangeProps {
   iconSrc: string;
@@ -186,8 +187,8 @@ function NewServerPage2(props: PageProps) {
 }
 
 function NewServerPage3(props: PageProps & { displayDetails: () => void }) {
-  const [name, setName] = useState("tri/KUMA" + "'s server");
-  const [imgSrc, setImgSrc] = useState("");
+  const [serverName, setServerName] = useState("tri/KUMA" + "'s server");
+  const [serverImgSrc, setServerImgSrc] = useState("");
 
   function setServerImg(files: FileList | null) {
     if (files !== null) {
@@ -195,7 +196,7 @@ function NewServerPage3(props: PageProps & { displayDetails: () => void }) {
       fReader.readAsDataURL(files[0]);
       fReader.onloadend = (e) => {
         if (e.target !== null && typeof e.target.result === "string") {
-          setImgSrc(e.target.result);
+          setServerImgSrc(e.target.result);
         }
       };
     }
@@ -212,14 +213,14 @@ function NewServerPage3(props: PageProps & { displayDetails: () => void }) {
       </div>
       <div className="serverDetails-wrapper">
         <div className="icon-wrapper">
-          {imgSrc === "" ? (
+          {serverImgSrc === "" ? (
             <div className="icon">
               <FaCamera className="camera" />
               <p>Upload</p>
             </div>
           ) : (
             <div className="img-wrapper">
-              <img src={imgSrc} alt="" />
+              <img src={serverImgSrc} alt="" />
             </div>
           )}
           <input
@@ -231,10 +232,12 @@ function NewServerPage3(props: PageProps & { displayDetails: () => void }) {
         </div>
         <p className="section-title">Server name</p>
         <input
+          id="serverNameInput"
           type="text"
-          defaultValue={name}
+          defaultValue={"tri/KUMA" + "'s server"}
           onInput={(e) => {
-            setName(e.currentTarget.value);
+            setServerName(e.currentTarget.value);
+            console.log(e.currentTarget.value);
           }}
         />
         <p className="guidelines">
@@ -260,15 +263,24 @@ function NewServerPage3(props: PageProps & { displayDetails: () => void }) {
           >
             Back
           </button>
-          <Button
-            text="Create"
-            colour="discord"
-            size="md"
-            onClick={() => {
-              props.setDetails({ name: name, imgSrc: imgSrc });
-              props.displayDetails();
-            }}
-          />
+          <ModalContext.Consumer>
+            {(ctx) => (
+              <Button
+                text="Create"
+                colour="discord"
+                size="md"
+                onClick={() => {
+                  console.log("Name: " + serverName);
+                  props.setDetails({
+                    name: serverName,
+                    imgSrc: serverImgSrc,
+                  });
+                  props.displayDetails();
+                  ctx.closeModal();
+                }}
+              />
+            )}
+          </ModalContext.Consumer>
         </div>
       </div>
     </div>
@@ -350,16 +362,18 @@ function NewServerCTA() {
           changePage={nextPage}
           setDetails={setDetails}
           displayDetails={() => {
-            const details: string =
-              "Template: " +
-              serverDetails.template +
-              "\n\nTarget Audience: " +
-              serverDetails.targetAudience +
-              "\n\nName: " +
-              serverDetails.name +
-              "\n\nServer Image: " +
-              serverDetails.imgSrc;
-            alert(details);
+            setTimeout(() => {
+              const details: string =
+                "Template: " +
+                serverDetails.template +
+                "\n\nTarget Audience: " +
+                serverDetails.targetAudience +
+                "\n\nName: " +
+                serverDetails.name +
+                "\n\nServer Image: " +
+                serverDetails.imgSrc;
+              console.log(details);
+            }, 100);
           }}
         />
       ) : (
