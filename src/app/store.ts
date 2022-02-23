@@ -1,7 +1,11 @@
 import { combineReducers, createStore } from "@reduxjs/toolkit";
-import { userReducer } from "../features/user/userSlice";
+import { serversReducer } from "../features/servers/serversSlice";
+import { usersReducer } from "../features/users/usersSlice";
 
-const reducers = combineReducers({ user: userReducer });
+const reducers = combineReducers({
+  users: usersReducer,
+  servers: serversReducer,
+});
 
 export const store = createStore(reducers);
 

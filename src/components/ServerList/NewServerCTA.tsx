@@ -1,10 +1,13 @@
 import { useState } from "react";
-import { IconType } from "react-icons";
 import "./styles/NewServerCTA.css";
 import { BiChevronRight } from "react-icons/bi";
 import { FaCamera } from "react-icons/fa";
 import Button from "../general/Button/Button";
 import { ModalCtx } from "../general/Modal/Modal";
+import { ServerPrototypeType } from "../../types/ServerType";
+import { UserIdentifierType, UserType } from "../../types/UserType";
+import { useDispatch } from "react-redux";
+import { addServerFromPrototype } from "../../features/servers/serversSlice";
 
 interface PageChangeProps {
   iconSrc: string;
@@ -186,9 +189,13 @@ function NewServerPage2(props: PageProps) {
   );
 }
 
-function NewServerPage3(props: PageProps & { displayDetails: () => void }) {
-  const [serverName, setServerName] = useState("tri/KUMA" + "'s server");
-  const [serverImgSrc, setServerImgSrc] = useState("");
+function NewServerPage3(
+  props: PageProps & { activeUser: UserType; createServer: () => void }
+) {
+  const [serverName, setServerName] = useState(
+    props.activeUser.displayName + "'s server"
+  );
+  const [serverIconSrc, setServerIconSrc] = useState("");
 
   function setServerImg(files: FileList | null) {
     if (files !== null) {
@@ -196,7 +203,7 @@ function NewServerPage3(props: PageProps & { displayDetails: () => void }) {
       fReader.readAsDataURL(files[0]);
       fReader.onloadend = (e) => {
         if (e.target !== null && typeof e.target.result === "string") {
-          setServerImgSrc(e.target.result);
+          setServerIconSrc(e.target.result);
         }
       };
     }
@@ -213,14 +220,14 @@ function NewServerPage3(props: PageProps & { displayDetails: () => void }) {
       </div>
       <div className="serverDetails-wrapper">
         <div className="icon-wrapper">
-          {serverImgSrc === "" ? (
+          {serverIconSrc === "" ? (
             <div className="icon">
               <FaCamera className="camera" />
               <p>Upload</p>
             </div>
           ) : (
             <div className="img-wrapper">
-              <img src={serverImgSrc} alt="" />
+              <img src={serverIconSrc} alt="" />
             </div>
           )}
           <input
@@ -234,7 +241,7 @@ function NewServerPage3(props: PageProps & { displayDetails: () => void }) {
         <input
           id="serverNameInput"
           type="text"
-          defaultValue={"tri/KUMA" + "'s server"}
+          defaultValue={props.activeUser.displayName + "'s server"}
           onInput={(e) => {
             setServerName(e.currentTarget.value);
             console.log(e.currentTarget.value);
@@ -270,12 +277,11 @@ function NewServerPage3(props: PageProps & { displayDetails: () => void }) {
                 colour="discord"
                 size="md"
                 onClick={() => {
-                  console.log("Name: " + serverName);
                   props.setDetails({
                     name: serverName,
-                    imgSrc: serverImgSrc,
+                    imgSrc: serverIconSrc,
                   });
-                  props.displayDetails();
+                  props.createServer();
                   ctx.closeModal();
                 }}
               />
@@ -291,27 +297,18 @@ function NewServerPage4(props: PageProps) {
   return <div className="page4"></div>;
 }
 
-interface ServerPrototype {
-  template:
-    | null
-    | "gaming"
-    | "school"
-    | "study"
-    | "friends"
-    | "creators"
-    | "local community";
-  targetAudience: null | "small" | "large";
-  name: string;
-  imgSrc: null | string;
+interface NewServerCTAProps {
+  activeUser: UserType;
 }
 
-function NewServerCTA() {
+function NewServerCTA(props: NewServerCTAProps) {
   const [page, setPage] = useState(1);
-  const [serverDetails, setServerDetails] = useState<ServerPrototype>({
+  const [serverDetails, setServerDetails] = useState<ServerPrototypeType>({
     template: null,
     targetAudience: null,
     name: "",
-    imgSrc: null,
+    iconSrc: null,
+    creator: props.activeUser.identity,
   });
 
   const nextPage = (index: number) => {
@@ -329,9 +326,10 @@ function NewServerCTA() {
       | "local community";
     targetAudience?: null | "small" | "large";
     name?: string;
-    imgSrc?: null | string;
+    iconSrc?: null | string;
+    creator?: UserIdentifierType;
   }) {
-    const newServerDetails: ServerPrototype = {
+    const newServerDetails: ServerPrototypeType = {
       template:
         typeof details.template !== "undefined"
           ? details.template
@@ -342,38 +340,34 @@ function NewServerCTA() {
           : serverDetails.targetAudience,
       name:
         typeof details.name !== "undefined" ? details.name : serverDetails.name,
-      imgSrc:
-        typeof details.imgSrc !== "undefined"
-          ? details.imgSrc
-          : serverDetails.imgSrc,
+      iconSrc:
+        typeof details.iconSrc !== "undefined"
+          ? details.iconSrc
+          : serverDetails.iconSrc,
+      creator:
+        typeof details.creator !== "undefined"
+          ? details.creator
+          : serverDetails.creator,
     };
 
     setServerDetails(newServerDetails);
   }
 
+  const dispatch = useDispatch();
+
   return (
-    <div className={"newServerCTA" + (" activePage-" + page)}>
+    <div className={`newServerCTA activePage-${page}`}>
       {page === 1 ? (
         <NewServerPage1 changePage={nextPage} setDetails={setDetails} />
       ) : page === 2 ? (
         <NewServerPage2 changePage={nextPage} setDetails={setDetails} />
       ) : page === 3 ? (
         <NewServerPage3
+          activeUser={props.activeUser}
           changePage={nextPage}
           setDetails={setDetails}
-          displayDetails={() => {
-            setTimeout(() => {
-              const details: string =
-                "Template: " +
-                serverDetails.template +
-                "\n\nTarget Audience: " +
-                serverDetails.targetAudience +
-                "\n\nName: " +
-                serverDetails.name +
-                "\n\nServer Image: " +
-                serverDetails.imgSrc;
-              console.log(details);
-            }, 100);
+          createServer={() => {
+            dispatch(addServerFromPrototype(serverDetails));
           }}
         />
       ) : (

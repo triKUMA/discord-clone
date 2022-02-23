@@ -1,5 +1,4 @@
 import "./styles/ServerList.css";
-import { RandServer } from "../../helper/RandomData";
 import { useState } from "react";
 import { ServerType } from "../../types/ServerType";
 import Modal from "../general/Modal/Modal";
@@ -10,25 +9,30 @@ import { AiOutlinePlus } from "react-icons/ai";
 import { IoCompassSharp } from "react-icons/io5";
 import { HiOutlineDownload } from "react-icons/hi";
 import NewServerCTA from "./NewServerCTA";
+import { UserType } from "../../types/UserType";
+import { useSelector } from "react-redux";
+import { StoreType } from "../../app/store";
 
-function ServerList() {
+interface ServerListProps {
+  activeUser: UserType;
+}
+
+function ServerList(props: ServerListProps) {
   const [dlAppsModal, setDLAppsModal] = useState(false);
   const [newServerModal, setNewServerModal] = useState(false);
-  const [friends, setFriends] = useState<ServerType[]>([]);
-  const [servers, setServers] = useState<ServerType[]>([]);
+  const servers = useSelector((state: StoreType) => state.servers.servers);
 
   return (
     <div className="serverList">
       <ServerIcon icon={FaDiscord} text="Home" variant="discord" />
 
-      {friends.map((item) => (
-        <ServerIcon imgSrc={item.imgSrc} text={item.name} />
-      ))}
-
       <div className="separator" />
 
       {servers.map((item) => (
-        <ServerIcon imgSrc={item.imgSrc} text={item.name} />
+        <ServerIcon
+          imgSrc={item.iconSrc !== null ? item.iconSrc : undefined}
+          text={item.name}
+        />
       ))}
 
       <ServerIcon
@@ -62,7 +66,7 @@ function ServerList() {
           setNewServerModal(false);
         }}
       >
-        <NewServerCTA />
+        <NewServerCTA activeUser={props.activeUser} />
       </Modal>
 
       {/* Download Apps Modal */}
