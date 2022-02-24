@@ -27,8 +27,8 @@
       -ms-flex-pack: center;
           justify-content: center;
   overflow: hidden;
-  -webkit-transition: border-radius 500ms ease-in;
-  transition: border-radius 500ms ease-in;
+  -webkit-transition: border-radius 400ms ease-in;
+  transition: border-radius 400ms ease-in;
 }
 
 .serverIcon .wrapper:hover, .serverIcon .wrapper:focus, .serverIcon .wrapper.active {

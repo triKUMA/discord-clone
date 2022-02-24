@@ -42,10 +42,18 @@
       -ms-flex-pack: center;
           justify-content: center;
   cursor: pointer;
+  color: #f0c8d5;
+  -webkit-transition: color var(--colourTransition-toBase);
+  transition: color var(--colourTransition-toBase);
+}
+
+.notificationBanner .close:hover {
+  color: white;
+  -webkit-transition: color var(--colourTransition-toAlt);
+  transition: color var(--colourTransition-toAlt);
 }
 
 .notificationBanner .close .close-icon {
-  color: white;
   width: 1.25rem;
   height: 1.25rem;
 }

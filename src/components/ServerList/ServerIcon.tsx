@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { IconType } from "react-icons";
+import { TooltipCtx } from "../general/Tooltip/Tooltip";
 import "./styles/ServerIcon.css";
 
 interface ServerIconProps {
@@ -21,31 +22,50 @@ function ServerIcon(props: ServerIconProps) {
   }
 
   return (
-    <div className={"serverIcon" + (props.variant ? ` ${props.variant}` : "")}>
-      <button
-        className={"wrapper" + (active ? " active" : "")}
-        onClick={() => {
-          setActive(true);
-          props.onClick && props.onClick();
-        }}
-        onBlur={() => setActive(false)}
-      >
-        {(props.imgSrc && <img src={props.imgSrc} alt="" className="img" />) ||
-          (props.icon && (
-            <div className="iconWrapper">
-              <props.icon className="icon" />
-            </div>
-          )) || <p className="text">{ServerText(props.text)}</p>}
-      </button>
-      <div
-        className={
-          "pill" +
-          (props.notification ? " small" : "") +
-          (active ? " big" : "") +
-          (props.disablePill ? " disable" : "")
-        }
-      />
-    </div>
+    <TooltipCtx.Consumer>
+      {(ctx) => (
+        <div
+          className={"serverIcon" + (props.variant ? ` ${props.variant}` : "")}
+        >
+          <button
+            className={"wrapper" + (active ? " active" : "")}
+            onClick={() => {
+              setActive(true);
+              props.onClick && props.onClick();
+            }}
+            onBlur={() => setActive(false)}
+            onMouseEnter={(e) => {
+              ctx.setDetails({
+                text: props.text,
+                parent: e.currentTarget as HTMLElement,
+                parentSide: "right",
+                offset: 10,
+              });
+            }}
+            onMouseLeave={() => {
+              ctx.disableTooltip();
+            }}
+          >
+            {(props.imgSrc && (
+              <img src={props.imgSrc} alt="" className="img" />
+            )) ||
+              (props.icon && (
+                <div className="iconWrapper">
+                  <props.icon className="icon" />
+                </div>
+              )) || <p className="text">{ServerText(props.text)}</p>}
+          </button>
+          <div
+            className={
+              "pill" +
+              (props.notification ? " small" : "") +
+              (active ? " big" : "") +
+              (props.disablePill ? " disable" : "")
+            }
+          />
+        </div>
+      )}
+    </TooltipCtx.Consumer>
   );
 }
 

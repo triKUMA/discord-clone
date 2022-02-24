@@ -2,8 +2,8 @@
   --serverList-width: 4.5rem;
   --sidebar-width: 15rem;
   --header-height: 3rem;
-  --colourTransition-toBase: 100ms ease-in 10ms;
-  --colourTransition-toAlt: 100ms ease-out;
+  --colourTransition-toBase: 150ms ease-in 10ms;
+  --colourTransition-toAlt: 150ms ease-out;
   --border-radius: 0.25rem;
   --discord-colour: #5865f2;
   --danger-colour: #ed4245;
@@ -56,5 +56,72 @@
       transition: color var(--colourTransition-toAlt),
         background-color var(--colourTransition-toAlt);
     }
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes popIn {
+  0% {
+    transform: scale(0, 0);
+  }
+  90% {
+    transform: scale(1.015, 1.015);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
+
+@keyframes popOut {
+  0% {
+    transform: scale(1, 1);
+  }
+  100% {
+    transform: scale(0, 0);
+  }
+}
+
+@keyframes fadePopIn {
+  0% {
+    opacity: 0;
+    transform: scale(0, 0);
+  }
+  90% {
+    transform: scale(1.015, 1.015);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1, 1);
+  }
+}
+
+@keyframes fadePopOut {
+  0% {
+    opacity: 1;
+    transform: scale(1, 1);
+  }
+  10% {
+    transform: scale(1.015, 1.015);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0, 0);
   }
 }
