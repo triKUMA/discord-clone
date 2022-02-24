@@ -1,11 +1,7 @@
-export interface UserIdentifierType {
-  id: number;
-  discriminator: number;
-}
-
 export interface UserType {
-  identity: UserIdentifierType;
+  id: string;
   username: string;
+  discriminator: number;
   displayName: string;
   iconSrc: string | null;
   status: "online" | "idle" | "do not disturb" | "invisible" | "offline";

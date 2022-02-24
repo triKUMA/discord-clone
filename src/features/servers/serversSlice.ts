@@ -1,19 +1,20 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { ServerPrototypeType, ServerType } from "../../types/ServerType";
+import { v4 as uuidv4 } from "uuid";
 
 interface ServersSliceType {
   servers: ServerType[];
-  activeServer: number;
+  activeServer: string | null;
 }
 
 const serversSliceInitState: ServersSliceType = {
   servers: [],
-  activeServer: 0,
+  activeServer: null,
 };
 
 function createServerFromPrototype(prototype: ServerPrototypeType): ServerType {
   let newServer: ServerType = {
-    id: 1,
+    id: uuidv4(),
     name: prototype.name,
     iconSrc: prototype.iconSrc,
     channels: [],
@@ -182,8 +183,6 @@ function createServerFromPrototype(prototype: ServerPrototypeType): ServerType {
       break;
   }
 
-  console.log(newServer);
-
   return newServer;
 }
 
@@ -193,18 +192,26 @@ const serversSlice = createSlice({
   reducers: {
     addServer: (state: ServersSliceType, action: PayloadAction<ServerType>) => {
       state.servers = state.servers.concat(action.payload);
+      state.activeServer = action.payload.id;
     },
     addServerFromPrototype: (
       state: ServersSliceType,
       action: PayloadAction<ServerPrototypeType>
     ) => {
-      state.servers = state.servers.concat(
-        createServerFromPrototype(action.payload)
-      );
+      const newServer = createServerFromPrototype(action.payload);
+      state.servers = state.servers.concat(newServer);
+      state.activeServer = newServer.id;
+    },
+    setActiveServer: (
+      state: ServersSliceType,
+      action: PayloadAction<string>
+    ) => {
+      state.activeServer = action.payload;
     },
   },
 });
 
-export const { addServer, addServerFromPrototype } = serversSlice.actions;
+export const { addServer, addServerFromPrototype, setActiveServer } =
+  serversSlice.actions;
 
 export const serversReducer = serversSlice.reducer;

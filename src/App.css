@@ -2,8 +2,8 @@
   --serverList-width: 4.5rem;
   --sidebar-width: 15rem;
   --header-height: 3rem;
-  --colourTransition-toBase: 150ms ease-in 10ms;
-  --colourTransition-toAlt: 150ms ease-out;
+  --colourTransition-toBase: 100ms ease-in 10ms;
+  --colourTransition-toAlt: 100ms ease-out;
   --border-radius: 0.25rem;
   --discord-colour: #5865f2;
   --danger-colour: #ed4245;

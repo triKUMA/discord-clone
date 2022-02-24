@@ -1,12 +1,11 @@
 import { ChannelCategoryType, ChannelType } from "./ChannelType";
-import { UserIdentifierType } from "./UserType";
 
 export interface ServerType {
-  id: number;
+  id: string;
   name: string;
   iconSrc: string | null;
   channels: (ChannelType | ChannelCategoryType)[];
-  members: UserIdentifierType[];
+  members: string[];
 }
 
 export interface ServerPrototypeType {
@@ -21,5 +20,5 @@ export interface ServerPrototypeType {
   targetAudience: null | "small" | "large";
   name: string;
   iconSrc: null | string;
-  creator: UserIdentifierType;
+  creator: string;
 }

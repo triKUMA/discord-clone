@@ -5,7 +5,7 @@ import { FaCamera } from "react-icons/fa";
 import Button from "../general/Button/Button";
 import { ModalCtx } from "../general/Modal/Modal";
 import { ServerPrototypeType } from "../../types/ServerType";
-import { UserIdentifierType, UserType } from "../../types/UserType";
+import { UserType } from "../../types/UserType";
 import { useDispatch } from "react-redux";
 import { addServerFromPrototype } from "../../features/servers/serversSlice";
 
@@ -43,6 +43,7 @@ interface PageProps {
     targetAudience?: null | "small" | "large";
     name?: string;
     iconSrc?: null | string;
+    creator?: string;
   }) => void;
 }
 
@@ -307,7 +308,7 @@ function NewServerCTA(props: NewServerCTAProps) {
     targetAudience: null,
     name: "",
     iconSrc: null,
-    creator: props.activeUser.identity,
+    creator: props.activeUser.id,
   });
 
   const nextPage = (index: number) => {
@@ -326,7 +327,7 @@ function NewServerCTA(props: NewServerCTAProps) {
     targetAudience?: null | "small" | "large";
     name?: string;
     iconSrc?: null | string;
-    creator?: UserIdentifierType;
+    creator?: string;
   }) {
     const newServerDetails: ServerPrototypeType = {
       template:

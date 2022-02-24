@@ -1,7 +1,5 @@
-import { UserIdentifierType } from "./UserType";
-
 export interface PostType {
-  id: number;
+  id: string;
   text: string;
   date: Date;
   edited: boolean;
@@ -11,6 +9,6 @@ export interface PostType {
 }
 
 export interface PostGroupType {
-  user: UserIdentifierType;
+  user: string;
   posts: PostType[];
 }

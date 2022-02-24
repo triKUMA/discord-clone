@@ -1,23 +1,24 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { UserIdentifierType, UserType } from "../../types/UserType";
+import { UserType } from "../../types/UserType";
 
 interface UsersSliceType {
   users: UserType[];
-  activeUser: UserIdentifierType | null;
+  activeUser: string | null;
 }
 
 const usersSliceInitState: UsersSliceType = {
   users: [
     {
-      identity: { id: 1, discriminator: 1 },
+      id: "1",
       username: "triKUMA",
+      discriminator: 1,
       displayName: "tri/KUMA",
       iconSrc: null,
       status: "online",
       customStatusMessage: null,
     },
   ],
-  activeUser: { id: 1, discriminator: 1 },
+  activeUser: "1",
 };
 
 const usersSlice = createSlice({
@@ -27,10 +28,7 @@ const usersSlice = createSlice({
     addUser: (state: UsersSliceType, action: PayloadAction<UserType>) => {
       state.users = state.users.concat(action.payload);
     },
-    setActiveUser: (
-      state: UsersSliceType,
-      action: PayloadAction<UserIdentifierType>
-    ) => {
+    setActiveUser: (state: UsersSliceType, action: PayloadAction<string>) => {
       state.activeUser = action.payload;
     },
   },

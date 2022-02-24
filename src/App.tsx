@@ -13,12 +13,22 @@ function App() {
       return null;
     } else {
       const activeUser = state.users.users.find(
-        (user) =>
-          user.identity.id === state.users.activeUser?.id &&
-          user.identity.discriminator === state.users.activeUser?.discriminator
+        (user) => user.id === state.users.activeUser
       );
 
       return typeof activeUser !== "undefined" ? activeUser : null;
+    }
+  });
+
+  const activeServer = useSelector((state: StoreType) => {
+    if (state.servers.activeServer === null) {
+      return null;
+    } else {
+      const activeServer = state.servers.servers.find(
+        (server) => server.id === state.servers.activeServer
+      );
+
+      return typeof activeServer !== "undefined" ? activeServer : null;
     }
   });
 
@@ -39,7 +49,7 @@ function App() {
               <button>Take me there</button>
             </NotificationBanner>
             <div className="mainArea">
-              <Sidebar />
+              <Sidebar activeServer={activeServer} />
               <ChannelFeed />
             </div>
           </div>
