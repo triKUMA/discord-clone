@@ -1,6 +1,5 @@
 import "./styles/ServerList.css";
 import { useState } from "react";
-import { ServerType } from "../../types/ServerType";
 import Modal from "../general/Modal/Modal";
 import DownloadAppsCTA from "./DownloadAppsCTA";
 import ServerIcon from "./ServerIcon";

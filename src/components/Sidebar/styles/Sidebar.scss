@@ -9,7 +9,7 @@
     width: 100%;
     position: relative;
 
-    &::after {
+    &::before {
       content: "";
       position: absolute;
       top: var(--header-height);

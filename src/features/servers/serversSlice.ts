@@ -44,6 +44,8 @@ function createServerFromPrototype(prototype: ServerPrototypeType): ServerType {
       break;
   }
 
+  console.log(newServer);
+
   return newServer;
 }
 

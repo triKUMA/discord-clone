@@ -10,7 +10,7 @@
   position: relative;
 }
 
-.sidebar header::after {
+.sidebar header::before {
   content: "";
   position: absolute;
   top: var(--header-height);

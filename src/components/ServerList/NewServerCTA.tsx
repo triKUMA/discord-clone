@@ -366,7 +366,6 @@ function NewServerCTA(props: NewServerCTAProps) {
           changePage={nextPage}
           setDetails={setDetails}
           createServer={() => {
-            console.log(serverDetails);
             dispatch(addServerFromPrototype(serverDetails));
           }}
         />

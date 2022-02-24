@@ -4,6 +4,9 @@ import { StoreType } from "./app/store";
 import ChannelFeed from "./components/ChannelFeed/ChannelFeed";
 import ServerList from "./components/ServerList/ServerList";
 import Sidebar from "./components/Sidebar/Sidebar";
+import NitroIcon from "./components/general/NitroIcon/NitroIcon";
+import { useState } from "react";
+import { IoClose } from "react-icons/io5";
 
 function App() {
   const activeUser = useSelector((state: StoreType) => {
@@ -20,6 +23,8 @@ function App() {
     }
   });
 
+  const [displayBanner, setDisplayBanner] = useState(true);
+
   return (
     <div className="App">
       {activeUser === null ? (
@@ -28,7 +33,26 @@ function App() {
         <>
           <ServerList activeUser={activeUser} />
           <div className="mainArea-wrapper">
-            <div className="test"></div>
+            {displayBanner ? (
+              <div className="testNotificationBanner">
+                <div className="details">
+                  <NitroIcon className="icon" />
+                  <p className="text">
+                    Hey, you have something waiting for you in your gift
+                    inventory! Don't forget to claim it before it's lost.
+                  </p>
+                  <button>Take me there</button>
+                  <div
+                    className="close"
+                    onClick={() => {
+                      setDisplayBanner(false);
+                    }}
+                  >
+                    <IoClose className="close-icon" />
+                  </div>
+                </div>
+              </div>
+            ) : null}
             <div className="mainArea">
               <Sidebar />
               <ChannelFeed />

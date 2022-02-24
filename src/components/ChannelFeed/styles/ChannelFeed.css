@@ -10,7 +10,7 @@
   position: relative;
 }
 
-.channelFeed header::after {
+.channelFeed header::before {
   content: "";
   position: absolute;
   top: var(--header-height);
