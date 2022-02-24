@@ -1,0 +1,60 @@
+:root {
+  --serverList-width: 4.5rem;
+  --sidebar-width: 15rem;
+  --header-height: 3rem;
+  --colourTransition-toBase: 150ms ease-in 10ms;
+  --colourTransition-toAlt: 150ms ease-out;
+  --border-radius: 0.25rem;
+  --discord-colour: #5865f2;
+  --danger-colour: #ed4245;
+  --success-colour: #3ba55d;
+}
+
+.App {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+
+  .mainArea-wrapper {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #202225;
+  }
+
+  .mainArea {
+    width: 100%;
+    height: 100%;
+    display: flex;
+  }
+}
+
+.notificationBanner {
+  .text {
+    margin-inline: 0.5rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+  }
+
+  button {
+    padding: 0.15rem 0.5rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border: 1px solid white;
+    border-radius: var(--border-radius);
+    color: white;
+
+    transition: color var(--colourTransition-toBase),
+      background-color var(--colourTransition-toBase);
+
+    &:hover {
+      background-color: white;
+      color: #e292aa;
+
+      transition: color var(--colourTransition-toAlt),
+        background-color var(--colourTransition-toAlt);
+    }
+  }
+}
