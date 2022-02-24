@@ -4,9 +4,8 @@ import { StoreType } from "./app/store";
 import ChannelFeed from "./components/ChannelFeed/ChannelFeed";
 import ServerList from "./components/ServerList/ServerList";
 import Sidebar from "./components/Sidebar/Sidebar";
-import NitroIcon from "./components/general/NitroIcon/NitroIcon";
-import { useState } from "react";
 import NotificationBanner from "./components/general/NotificationBanner/NotificationBanner";
+import NitroIcon from "./components/general/NitroIcon/NitroIcon";
 
 function App() {
   const activeUser = useSelector((state: StoreType) => {

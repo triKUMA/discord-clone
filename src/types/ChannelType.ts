@@ -4,9 +4,9 @@ export interface ChannelType {
   type: "text" | "voice";
   name: string;
   feed: PostGroupType[];
-  parent: null | ChannelCategoryType;
 }
 
 export interface ChannelCategoryType {
+  name: string;
   channels: ChannelType[];
 }
