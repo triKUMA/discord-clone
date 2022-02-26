@@ -61,7 +61,7 @@
   color: #d7d7d8;
 }
 
-.sidebar .invitePeopleCTA {
+.sidebar .serverCTA {
   padding: 1rem;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -77,14 +77,14 @@
   position: relative;
 }
 
-.sidebar .invitePeopleCTA > .text {
+.sidebar .serverCTA > .text {
   margin-block: 1rem;
   color: #d0d1d2;
   text-align: center;
   font-size: 0.85rem;
 }
 
-.sidebar .invitePeopleCTA .close {
+.sidebar .serverCTA .close {
   position: absolute;
   top: calc(1rem / 1.5);
   right: 1rem;
@@ -93,7 +93,7 @@
   color: #b9bbbe;
 }
 
-.sidebar .invitePeopleCTA .close:hover {
+.sidebar .serverCTA .close:hover {
   color: white;
 }
 

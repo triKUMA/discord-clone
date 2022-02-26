@@ -6,19 +6,31 @@ import ServerList from "./components/ServerList/ServerList";
 import Sidebar from "./components/Sidebar/Sidebar";
 import NotificationBanner from "./components/general/NotificationBanner/NotificationBanner";
 import NitroIcon from "./components/general/NitroIcon/NitroIcon";
-import Tooltip, { TooltipCtx } from "./components/general/Tooltip/Tooltip";
+import Tooltip, {
+  TooltipCtx,
+  TooltipProps,
+} from "./components/general/Tooltip/Tooltip";
 import { useState } from "react";
+import ContextMenu, {
+  ContextMenuCtx,
+  ContextMenuProps,
+} from "./components/general/ContextMenu/ContextMenu";
+import { ContextMenuItemGroupProps } from "./components/general/ContextMenu/ContextMenuItemGroup";
+import { MdDetails } from "react-icons/md";
 
 function App() {
-  const [tooltipText, setTooltipText] = useState<string | null>("Tooltip");
-  const [tooltipParent, setTooltipParent] = useState<HTMLElement | null>(null);
-  const [tooltipParentSide, setTooltipParentSide] = useState<
-    "left" | "right" | "top" | "bottom"
-  >("right");
-  const [tooltipOffset, setTooltipOffset] = useState<number | undefined>(
-    undefined
-  );
-  const [tooltipActive, setTooltipActive] = useState(false);
+  const [displayBanner, setDisplayBanner] = useState(false);
+
+  // Context Menu Properties
+  const [contextMenuDetails, setContextMenuDetails] =
+    useState<ContextMenuProps>({ parent: null, event: null, items: [] });
+
+  // Tooltip Properties
+  const [tooltipDetails, setTooltipDetails] = useState<TooltipProps>({
+    text: "",
+    parent: null,
+    parentSide: "right",
+  });
 
   const activeUser = useSelector((state: StoreType) => {
     if (state.users.activeUser === null) {
@@ -45,47 +57,73 @@ function App() {
   });
 
   return (
-    <div className="App">
-      <TooltipCtx.Provider
+    <div
+      className="App"
+      onContextMenu={(e) => {
+        e.preventDefault();
+      }}
+    >
+      <ContextMenuCtx.Provider
         value={{
-          setDetails: (details) => {
-            setTooltipText(details.text);
-            setTooltipParent(details.parent);
-            setTooltipParentSide(details.parentSide);
-            setTooltipOffset(details.offset);
+          setMenuDetails: (details) => {
+            setContextMenuDetails(details);
           },
-          disableTooltip: () => {
-            setTooltipParent(null);
+          disableMenu: () => {
+            setContextMenuDetails({ parent: null, event: null, items: [] });
           },
         }}
       >
-        {activeUser === null ? (
-          <></>
-        ) : (
-          <>
-            <ServerList activeUser={activeUser} />
-            <div className="mainArea-wrapper">
-              <NotificationBanner>
-                <NitroIcon className="icon" />
-                <p className="text">
-                  Hey, you have something waiting for you in your gift
-                  inventory! Don't forget to claim it before it's lost.
-                </p>
-                <button>Take me there</button>
-              </NotificationBanner>
-              <div className="mainArea">
-                <Sidebar activeServer={activeServer} />
-                <ChannelFeed />
+        <TooltipCtx.Provider
+          value={{
+            setTooltipDetails: (details) => {
+              setTooltipDetails(details);
+            },
+            disableTooltip: () => {
+              setTooltipDetails({
+                text: "",
+                parent: null,
+                parentSide: "right",
+              });
+            },
+          }}
+        >
+          {activeUser === null ? (
+            <></>
+          ) : (
+            <>
+              <ServerList activeUser={activeUser} />
+              <div className="mainArea-wrapper">
+                {displayBanner && (
+                  <NotificationBanner>
+                    <NitroIcon className="icon" />
+                    <p className="text">
+                      Hey, you have something waiting for you in your gift
+                      inventory! Don't forget to claim it before it's lost.
+                    </p>
+                    <button>Take me there</button>
+                  </NotificationBanner>
+                )}
+                <div className="mainArea">
+                  <Sidebar activeServer={activeServer} />
+                  <ChannelFeed />
+                </div>
               </div>
-            </div>
-          </>
-        )}
-      </TooltipCtx.Provider>
+            </>
+          )}
+        </TooltipCtx.Provider>
+      </ContextMenuCtx.Provider>
+
+      {/* Global Singular Elements */}
+      <ContextMenu
+        parent={contextMenuDetails.parent}
+        event={contextMenuDetails.event}
+        items={contextMenuDetails.items}
+      />
       <Tooltip
-        text={tooltipText}
-        parent={tooltipParent}
-        parentSide={tooltipParentSide}
-        offset={tooltipOffset}
+        text={tooltipDetails.text}
+        parent={tooltipDetails.parent}
+        parentSide={tooltipDetails.parentSide}
+        offset={tooltipDetails.offset}
       />
     </div>
   );

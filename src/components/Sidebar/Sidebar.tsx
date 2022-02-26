@@ -54,6 +54,10 @@ function Sidebar(props: SidebarProps) {
     return typeof (item as ChannelType).type !== "undefined";
   }
 
+  function choose<T>(input: T[]): T {
+    return input[Math.floor(Math.random() * input.length)];
+  }
+
   return (
     <div className="sidebar">
       <button
@@ -77,23 +81,46 @@ function Sidebar(props: SidebarProps) {
       </button>
       {props.activeServer !== null && (
         <>
-          {displayInvitePeopleCTA && (
-            <div className="invitePeopleCTA">
-              <img src="./assets/Server/invite_friends.svg" alt="" />
-              <div className="text">
-                <p>An adventure begins.</p>
-                <p>Let's add some friends!</p>
-              </div>
+          {displayInvitePeopleCTA &&
+            choose([
+              /* Invite Friends CTA */
+              <div className="serverCTA">
+                <img src="./assets/Server/invite_friends.svg" alt="" />
+                <div className="text">
+                  <p>An adventure begins.</p>
+                  <p>Let's add some friends!</p>
+                </div>
 
-              <Button text="Invite People" size="sm" colour="discord" span />
-              <IoMdClose
-                className="close"
-                onClick={() => {
-                  setDisplayInvitePeopleCTA(false);
-                }}
-              />
-            </div>
-          )}
+                <Button text="Invite People" size="sm" colour="discord" span />
+                <IoMdClose
+                  className="close"
+                  onClick={() => {
+                    setDisplayInvitePeopleCTA(false);
+                  }}
+                />
+              </div>,
+              /* Boost Server CTA */
+              <div className="serverCTA">
+                <img src="./assets/Server/server_boosts.svg" alt="" />
+                <div className="text">
+                  <p>Server Boosts are her! Rally your</p>
+                  <p>friends to boost your server.</p>
+                </div>
+
+                <Button
+                  text={"See Levels & Perks"}
+                  size="sm"
+                  colour="discord"
+                  span
+                />
+                <IoMdClose
+                  className="close"
+                  onClick={() => {
+                    setDisplayInvitePeopleCTA(false);
+                  }}
+                />
+              </div>,
+            ])}
           <div className="channels-feed">
             {props.activeServer.channels.map((item) =>
               isChannel(item) ? (

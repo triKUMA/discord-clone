@@ -23,7 +23,7 @@ function ServerIcon(props: ServerIconProps) {
 
   return (
     <TooltipCtx.Consumer>
-      {(ctx) => (
+      {(tooltipCtx) => (
         <div
           className={"serverIcon" + (props.variant ? ` ${props.variant}` : "")}
         >
@@ -35,7 +35,7 @@ function ServerIcon(props: ServerIconProps) {
             }}
             onBlur={() => setActive(false)}
             onMouseEnter={(e) => {
-              ctx.setDetails({
+              tooltipCtx.setTooltipDetails({
                 text: props.text,
                 parent: e.currentTarget as HTMLElement,
                 parentSide: "right",
@@ -43,7 +43,7 @@ function ServerIcon(props: ServerIconProps) {
               });
             }}
             onMouseLeave={() => {
-              ctx.disableTooltip();
+              tooltipCtx.disableTooltip();
             }}
           >
             {(props.imgSrc && (

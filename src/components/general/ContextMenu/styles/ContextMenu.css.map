@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,YAAY,CAAC;EACX,QAAQ,EAAE,QAAQ;EAClB,OAAO,EAAE,GAAG;EACZ,KAAK,EAAE,KAAK;EACZ,MAAM,EAAE,KAAK;EACb,gBAAgB,EAAE,OAAO;EACzB,aAAa,EAAE,oBAAoB;CACpC",
+    "sources": [
+        "ContextMenu.scss"
+    ],
+    "names": [],
+    "file": "ContextMenu.css"
+}
