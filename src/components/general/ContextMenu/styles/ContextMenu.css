@@ -1,9 +1,16 @@
 .contextMenu {
   position: absolute;
   z-index: 200;
-  width: 10rem;
-  height: 10rem;
+  padding: 0.5rem;
+  min-width: 11.5rem;
   background-color: #18191c;
   border-radius: var(--border-radius);
+  overflow: hidden;
+  overflow-y: auto;
+}
+
+.contextMenu .separator {
+  margin: 0.25rem;
+  border-bottom: 1px solid #262729;
 }
 /*# sourceMappingURL=ContextMenu.css.map */

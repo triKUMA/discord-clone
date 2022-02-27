@@ -3,16 +3,33 @@ import "./styles/ContextMenuItem.css";
 
 export interface ContextMenuItemProps {
   text: string;
-  itemType?: "list" | "radio" | "checklist";
-  onClick: () => void;
-  colour?: "default" | "discord" | "red";
+  itemType?: "radio" | "checklist" | "expandable";
+  onClick?: () => void;
+  colour?: "discord" | "red";
   icon?: IconType;
   active?: boolean;
-  breakAfter?: boolean;
+  onMouseEnter?: () => void;
+  onMouseLeave?: () => void;
 }
 
 function ContextMenuItem(props: ContextMenuItemProps) {
-  return <div className="contextMenuItem"></div>;
+  return (
+    <button
+      className={
+        "contextMenuItem" +
+        (props.colour ? ` ${props.colour}` : "") +
+        (typeof props.active !== "undefined" && !props.active ? " disable" : "")
+      }
+      onClick={(e) => {
+        e.stopPropagation();
+        props.onClick && props.onClick();
+      }}
+      onMouseEnter={props.onMouseEnter}
+      onMouseLeave={props.onMouseLeave}
+    >
+      <p className="text">{props.text}</p>
+    </button>
+  );
 }
 
 export default ContextMenuItem;

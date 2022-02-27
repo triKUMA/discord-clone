@@ -299,10 +299,17 @@ function NewServerPage4(props: PageProps) {
 
 interface NewServerCTAProps {
   activeUser: UserType;
+  startingPage?: number;
 }
 
 function NewServerCTA(props: NewServerCTAProps) {
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(
+    typeof props.startingPage !== "undefined" &&
+      1 <= props.startingPage &&
+      props.startingPage <= 4
+      ? props.startingPage
+      : 1
+  );
   const [serverDetails, setServerDetails] = useState<ServerPrototypeType>({
     template: null,
     targetAudience: null,

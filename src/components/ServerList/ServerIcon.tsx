@@ -9,6 +9,7 @@ interface ServerIconProps {
   text: string;
   variant?: "green" | "discord";
   onClick?: () => void;
+  onContextMenu?: (e: React.MouseEvent) => void;
   notification?: boolean;
   disablePill?: boolean;
 }
@@ -32,6 +33,9 @@ function ServerIcon(props: ServerIconProps) {
             onClick={() => {
               setActive(true);
               props.onClick && props.onClick();
+            }}
+            onContextMenu={(e) => {
+              props.onContextMenu && props.onContextMenu(e);
             }}
             onBlur={() => setActive(false)}
             onMouseEnter={(e) => {

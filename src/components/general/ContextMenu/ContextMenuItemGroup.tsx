@@ -3,31 +3,30 @@ import ContextMenuItem, { ContextMenuItemProps } from "./ContextMenuItem";
 import ContextSubMenu, { ContextSubMenuProps } from "./ContextSubMenu";
 
 export interface ContextMenuItemGroupProps {
-  listType?: "list" | "radio" | "checklist";
-  items: (ContextMenuItemProps | ContextSubMenuProps)[];
+  groupType?: "radio" | "checklist";
+  groupItems: (ContextMenuItemProps | ContextSubMenuProps)[];
 }
 
 function ContextMenuItemGroup(props: ContextMenuItemGroupProps) {
   function isContextSubMenu(
     item: ContextMenuItemProps | ContextSubMenuProps
   ): item is ContextSubMenuProps {
-    return typeof (item as ContextSubMenuProps).items !== "undefined";
+    return typeof (item as ContextSubMenuProps).subMenuItems !== "undefined";
   }
 
   return (
     <div className="contextMenuItemGroup">
-      {props.items.map((item) => {
+      {props.groupItems.map((item, index) => {
         if (isContextSubMenu(item)) {
           return (
             <ContextSubMenu
               text={item.text}
-              itemType={item.itemType}
+              itemType="expandable"
               onClick={item.onClick}
-              items={item.items}
-              listType={item.listType}
+              subMenuItems={item.subMenuItems}
               colour={item.colour}
               active={item.active}
-              breakAfter={item.breakAfter}
+              key={index}
             />
           );
         } else {
@@ -35,10 +34,14 @@ function ContextMenuItemGroup(props: ContextMenuItemGroupProps) {
             <ContextMenuItem
               text={item.text}
               onClick={item.onClick}
-              itemType={item.itemType}
+              itemType={
+                typeof item.itemType !== "undefined"
+                  ? item.itemType
+                  : props.groupType
+              }
               active={item.active}
               colour={item.colour}
-              breakAfter={item.breakAfter}
+              key={index}
             />
           );
         }

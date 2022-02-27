@@ -15,15 +15,13 @@ import ContextMenu, {
   ContextMenuCtx,
   ContextMenuProps,
 } from "./components/general/ContextMenu/ContextMenu";
-import { ContextMenuItemGroupProps } from "./components/general/ContextMenu/ContextMenuItemGroup";
-import { MdDetails } from "react-icons/md";
 
 function App() {
   const [displayBanner, setDisplayBanner] = useState(false);
 
   // Context Menu Properties
   const [contextMenuDetails, setContextMenuDetails] =
-    useState<ContextMenuProps>({ parent: null, event: null, items: [] });
+    useState<ContextMenuProps>({ event: null, menuItems: [] });
 
   // Tooltip Properties
   const [tooltipDetails, setTooltipDetails] = useState<TooltipProps>({
@@ -69,7 +67,7 @@ function App() {
             setContextMenuDetails(details);
           },
           disableMenu: () => {
-            setContextMenuDetails({ parent: null, event: null, items: [] });
+            setContextMenuDetails({ event: null, menuItems: [] });
           },
         }}
       >
@@ -115,9 +113,8 @@ function App() {
 
       {/* Global Singular Elements */}
       <ContextMenu
-        parent={contextMenuDetails.parent}
         event={contextMenuDetails.event}
-        items={contextMenuDetails.items}
+        menuItems={contextMenuDetails.menuItems}
       />
       <Tooltip
         text={tooltipDetails.text}

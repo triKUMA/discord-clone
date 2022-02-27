@@ -1,1 +1,35 @@
-/* No CSS *//*# sourceMappingURL=ContextMenuItem.css.map */
+.contextMenuItem {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #a7a9ac;
+  height: 2rem;
+  padding-inline: 0.5rem;
+  border-radius: var(--border-radius);
+}
+
+.contextMenuItem:hover {
+  background-color: var(--discord-colour);
+  color: white;
+}
+
+.contextMenuItem .text {
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.discord.contextMenuItem {
+  color: var(--discord-colour);
+}
+
+.discord.contextMenuItem:hover {
+  background-color: var(--discord-colour);
+  color: white;
+}
+/*# sourceMappingURL=ContextMenuItem.css.map */
