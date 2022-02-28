@@ -5,6 +5,7 @@ import "./styles/ContextSubMenu.css";
 
 export interface ContextSubMenuProps extends ContextMenuItemProps {
   subMenuItems: ContextMenuItemGroupProps[];
+  dir?: "left" | "right";
   // ------- Inherited Values: -------
   // text: string;
   // itemType?: "radio" | "checklist" | "expandable";

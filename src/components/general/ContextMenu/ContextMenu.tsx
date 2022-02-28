@@ -40,8 +40,27 @@ function ContextMenu(props: ContextMenuProps) {
     if (menuActive) {
       const contextMenu = document.getElementById("contextMenu");
       if (contextMenu !== null) {
-        contextMenu.style.left = props.event!.x - 5 + "px";
-        contextMenu.style.top = props.event!.y - 5 + "px";
+        contextMenu.style.left = props.event!.x - 2 + "px";
+        contextMenu.style.top = props.event!.y - 2 + "px";
+
+        const boundBox = contextMenu.getBoundingClientRect();
+        const spacing = 8;
+
+        if (boundBox.left + boundBox.width > window.innerWidth - spacing) {
+          contextMenu.style.left =
+            window.innerWidth - spacing - boundBox.width + "px";
+        }
+        if (boundBox.left < spacing) {
+          contextMenu.style.left = spacing + "px";
+        }
+
+        if (boundBox.top + boundBox.height > window.innerHeight - spacing) {
+          contextMenu.style.top =
+            window.innerHeight - spacing - boundBox.height + "px";
+        }
+        if (boundBox.top < spacing) {
+          contextMenu.style.top = spacing + "px";
+        }
       }
     }
   }, [menuActive, props.event]);

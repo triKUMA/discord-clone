@@ -99,27 +99,27 @@ function Sidebar(props: SidebarProps) {
                   }}
                 />
               </div>,
-              /* Boost Server CTA */
-              <div className="serverCTA">
-                <img src="./assets/Server/server_boosts.svg" alt="" />
-                <div className="text">
-                  <p>Server Boosts are her! Rally your</p>
-                  <p>friends to boost your server.</p>
-                </div>
+              // /* Boost Server CTA */
+              // <div className="serverCTA">
+              //   <img src="./assets/Server/server_boosts.svg" alt="" />
+              //   <div className="text">
+              //     <p>Server Boosts are her! Rally your</p>
+              //     <p>friends to boost your server.</p>
+              //   </div>
 
-                <Button
-                  text={"See Levels & Perks"}
-                  size="sm"
-                  colour="discord"
-                  span
-                />
-                <IoMdClose
-                  className="close"
-                  onClick={() => {
-                    setDisplayInvitePeopleCTA(false);
-                  }}
-                />
-              </div>,
+              //   <Button
+              //     text={"See Levels & Perks"}
+              //     size="sm"
+              //     colour="discord"
+              //     span
+              //   />
+              //   <IoMdClose
+              //     className="close"
+              //     onClick={() => {
+              //       setDisplayInvitePeopleCTA(false);
+              //     }}
+              //   />
+              // </div>,
             ])}
           <div className="channels-feed">
             {props.activeServer.channels.map((item) =>
