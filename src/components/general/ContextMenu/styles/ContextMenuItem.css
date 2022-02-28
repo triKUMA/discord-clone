@@ -24,6 +24,12 @@
   font-weight: 600;
 }
 
+.contextMenuItem .icon {
+  width: 1.15rem;
+  height: 1.15rem;
+  margin-left: 0.5rem;
+}
+
 .discord.contextMenuItem {
   color: var(--discord-colour);
 }

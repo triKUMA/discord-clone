@@ -20,28 +20,34 @@ function ContextMenuItemGroup(props: ContextMenuItemGroupProps) {
         if (isContextSubMenu(item)) {
           return (
             <ContextSubMenu
+              subMenuItems={item.subMenuItems}
+              dir={item.dir}
               text={item.text}
               itemType="expandable"
               onClick={item.onClick}
-              subMenuItems={item.subMenuItems}
+              onMouseEnter={item.onMouseEnter}
+              onMouseLeave={item.onMouseLeave}
               colour={item.colour}
               active={item.active}
-              key={index}
+              disabled={item.disabled}
             />
           );
         } else {
           return (
             <ContextMenuItem
               text={item.text}
-              onClick={item.onClick}
+              icon={item.icon}
               itemType={
                 typeof item.itemType !== "undefined"
                   ? item.itemType
                   : props.groupType
               }
+              onClick={item.onClick}
+              onMouseEnter={item.onMouseEnter}
+              onMouseLeave={item.onMouseLeave}
               active={item.active}
               colour={item.colour}
-              key={index}
+              disabled={item.disabled}
             />
           );
         }

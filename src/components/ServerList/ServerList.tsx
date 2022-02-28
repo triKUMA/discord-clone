@@ -12,6 +12,7 @@ import { UserType } from "../../types/UserType";
 import { useSelector } from "react-redux";
 import { StoreType } from "../../app/store";
 import { ContextMenuCtx } from "../general/ContextMenu/ContextMenu";
+import { IoMdAdd } from "react-icons/io";
 
 interface ServerListProps {
   activeUser: UserType;

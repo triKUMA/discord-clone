@@ -6,13 +6,17 @@ import "./styles/ContextSubMenu.css";
 export interface ContextSubMenuProps extends ContextMenuItemProps {
   subMenuItems: ContextMenuItemGroupProps[];
   dir?: "left" | "right";
+  itemType: "expandable";
   // ------- Inherited Values: -------
   // text: string;
+  // icon?: IconType;
   // itemType?: "radio" | "checklist" | "expandable";
   // onClick: () => void;
+  // onMouseEnter?: () => void;
+  // onMouseLeave?: () => void;
   // colour?: "discord" | "red";
-  // icon?: IconType;
   // active?: boolean;
+  // disabled?: boolean;
 }
 
 function ContextSubMenu(props: ContextSubMenuProps) {
@@ -22,17 +26,20 @@ function ContextSubMenu(props: ContextSubMenuProps) {
     <div className="contextSubMenu">
       <ContextMenuItem
         text={props.text}
+        icon={props.icon}
         itemType="expandable"
         onClick={props.onClick}
-        colour={props.colour}
-        icon={props.icon}
-        active={props.active}
         onMouseEnter={() => {
           setSubMenuActive(true);
+          props.onMouseEnter && props.onMouseEnter();
         }}
         onMouseLeave={() => {
           setSubMenuActive(false);
+          props.onMouseLeave && props.onMouseLeave();
         }}
+        colour={props.colour}
+        active={props.active}
+        disabled={props.disabled}
       />
     </div>
   );

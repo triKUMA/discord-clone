@@ -16,6 +16,13 @@
     font-size: 0.85rem;
     font-weight: 600;
   }
+
+  .icon {
+    $size: 1.15rem;
+    width: $size;
+    height: $size;
+    margin-left: 0.5rem;
+  }
 }
 
 .discord.contextMenuItem {

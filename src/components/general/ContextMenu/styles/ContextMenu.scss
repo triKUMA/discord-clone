@@ -3,10 +3,12 @@
   z-index: 200;
   padding: 0.5rem;
   min-width: 11.5rem;
+  max-height: 100vh;
   background-color: #18191c;
   border-radius: var(--border-radius);
   overflow: hidden;
   overflow-y: auto;
+  scrollbar-width: thin;
 
   .separator {
     margin: 0.25rem;

@@ -30,6 +30,10 @@ function ContextMenu(props: ContextMenuProps) {
         setMenuActive(false);
       }
     });
+
+    window.addEventListener("resize", () => {
+      setMenuActive(false);
+    });
   }, []);
 
   useEffect(() => {
@@ -46,19 +50,29 @@ function ContextMenu(props: ContextMenuProps) {
         const boundBox = contextMenu.getBoundingClientRect();
         const spacing = 8;
 
-        if (boundBox.left + boundBox.width > window.innerWidth - spacing) {
+        if (boundBox.width > window.innerWidth - spacing * 2) {
+          contextMenu.style.left = spacing + "px";
+          contextMenu.style.maxWidth = window.innerWidth - spacing * 2 + "px";
+        } else if (
+          boundBox.left + boundBox.width >
+          window.innerWidth - spacing
+        ) {
           contextMenu.style.left =
             window.innerWidth - spacing - boundBox.width + "px";
-        }
-        if (boundBox.left < spacing) {
+        } else if (boundBox.left < spacing) {
           contextMenu.style.left = spacing + "px";
         }
 
-        if (boundBox.top + boundBox.height > window.innerHeight - spacing) {
+        if (boundBox.height > window.innerHeight - spacing * 2) {
+          contextMenu.style.top = spacing + "px";
+          contextMenu.style.maxHeight = window.innerHeight - spacing * 2 + "px";
+        } else if (
+          boundBox.top + boundBox.height >
+          window.innerHeight - spacing
+        ) {
           contextMenu.style.top =
             window.innerHeight - spacing - boundBox.height + "px";
-        }
-        if (boundBox.top < spacing) {
+        } else if (boundBox.top < spacing) {
           contextMenu.style.top = spacing + "px";
         }
       }
@@ -70,7 +84,7 @@ function ContextMenu(props: ContextMenuProps) {
       {props.menuItems.map((item, index) => {
         return (
           <>
-            <ContextMenuItemGroup groupItems={item.groupItems} key={index} />
+            <ContextMenuItemGroup groupItems={item.groupItems} />
             {index !== props.menuItems.length - 1 && (
               <div className="separator"></div>
             )}
