@@ -18,8 +18,23 @@ function ServerIcon(props: ServerIconProps) {
   const [active, setActive] = useState(false);
 
   function ServerText(input: string) {
-    let newText = input.charAt(0);
-    return newText;
+    let newText = input;
+    for (let i = 0; i < newText.length; i++) {
+      if (newText.charAt(i).match(/[a-zA-Z]/)) {
+        while (
+          i + 1 < newText.length &&
+          newText.charAt(i + 1).match(/[a-zA-Z]/)
+        ) {
+          if (i + 2 < newText.length) {
+            newText = newText.slice(0, i + 1) + newText.slice(i + 2);
+          } else {
+            newText = newText.slice(0, i + 1);
+          }
+        }
+      }
+    }
+
+    return newText.replaceAll(" ", "");
   }
 
   return (
