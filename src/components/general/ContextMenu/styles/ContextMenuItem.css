@@ -1,4 +1,6 @@
 .contextMenuItem {
+  width: 100%;
+  padding: 0.5rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -9,8 +11,6 @@
       -ms-flex-align: center;
           align-items: center;
   color: #a7a9ac;
-  height: 2rem;
-  padding-inline: 0.5rem;
   border-radius: var(--border-radius);
 }
 
@@ -37,5 +37,24 @@
 .discord.contextMenuItem:hover {
   background-color: var(--discord-colour);
   color: white;
+}
+
+.red.contextMenuItem {
+  color: var(--danger-colour);
+}
+
+.red.contextMenuItem:hover {
+  background-color: var(--danger-colour);
+  color: white;
+}
+
+.disabled.contextMenuItem {
+  color: #626467;
+  cursor: default;
+}
+
+.disabled.contextMenuItem:hover {
+  background: none;
+  color: #626467;
 }
 /*# sourceMappingURL=ContextMenuItem.css.map */

@@ -1,7 +1,10 @@
 import { useState } from "react";
 import ContextMenuItem, { ContextMenuItemProps } from "./ContextMenuItem";
-import { ContextMenuItemGroupProps } from "./ContextMenuItemGroup";
+import ContextMenuItemGroup, {
+  ContextMenuItemGroupProps,
+} from "./ContextMenuItemGroup";
 import "./styles/ContextSubMenu.css";
+import { FiChevronRight } from "react-icons/fi";
 
 export interface ContextSubMenuProps extends ContextMenuItemProps {
   subMenuItems: ContextMenuItemGroupProps[];
@@ -23,10 +26,10 @@ function ContextSubMenu(props: ContextSubMenuProps) {
   const [subMenuActive, setSubMenuActive] = useState(false);
 
   return (
-    <div className="contextSubMenu">
+    <div className="contextSubMenu-wrapper">
       <ContextMenuItem
         text={props.text}
-        icon={props.icon}
+        icon={FiChevronRight}
         itemType="expandable"
         onClick={props.onClick}
         onMouseEnter={() => {
@@ -34,13 +37,40 @@ function ContextSubMenu(props: ContextSubMenuProps) {
           props.onMouseEnter && props.onMouseEnter();
         }}
         onMouseLeave={() => {
-          setSubMenuActive(false);
           props.onMouseLeave && props.onMouseLeave();
+          setSubMenuActive(false);
         }}
         colour={props.colour}
-        active={props.active}
+        active={subMenuActive}
         disabled={props.disabled}
       />
+      {subMenuActive && props.subMenuItems.length > 0 && (
+        <div
+          className="contextSubMenu-spacer"
+          onMouseEnter={() => {
+            setSubMenuActive(true);
+          }}
+          onMouseLeave={() => {
+            setSubMenuActive(false);
+          }}
+        >
+          <div className="contextSubMenu">
+            {props.subMenuItems.map((item, index) => {
+              return (
+                <>
+                  <ContextMenuItemGroup
+                    groupType={item.groupType}
+                    groupItems={item.groupItems}
+                  />
+                  {index !== props.subMenuItems.length - 1 && (
+                    <div className="separator"></div>
+                  )}
+                </>
+              );
+            })}
+          </div>
+        </div>
+      )}
     </div>
   );
 }

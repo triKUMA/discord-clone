@@ -1,1 +1,39 @@
-/* No CSS *//*# sourceMappingURL=ContextSubMenu.css.map */
+.contextSubMenu-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.contextSubMenu-wrapper .active.contextMenuItem {
+  background-color: var(--discord-colour);
+  color: white;
+}
+
+.contextSubMenu-spacer {
+  position: absolute;
+  left: 100%;
+  top: 0;
+  z-index: 200;
+  padding-left: 0.75rem;
+}
+
+.contextSubMenu {
+  padding: 0.5rem;
+  min-width: 11.5rem;
+  max-height: 100vh;
+  background-color: #18191c;
+  border-radius: var(--border-radius);
+  scrollbar-width: thin;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.contextSubMenu .separator {
+  margin: 0.25rem;
+  border-bottom: 1px solid #262729;
+}
+/*# sourceMappingURL=ContextSubMenu.css.map */

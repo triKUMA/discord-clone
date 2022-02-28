@@ -38,15 +38,15 @@ function ContextMenuItemGroup(props: ContextMenuItemGroupProps) {
               text={item.text}
               icon={item.icon}
               itemType={
-                typeof item.itemType !== "undefined"
-                  ? item.itemType
-                  : props.groupType
+                typeof props.groupType !== "undefined"
+                  ? props.groupType
+                  : item.itemType
               }
               onClick={item.onClick}
               onMouseEnter={item.onMouseEnter}
               onMouseLeave={item.onMouseLeave}
-              active={item.active}
               colour={item.colour}
+              active={item.active}
               disabled={item.disabled}
             />
           );

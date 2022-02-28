@@ -1,10 +1,11 @@
 .contextMenuItem {
+  width: 100%;
+  padding: 0.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   color: #a7a9ac;
-  height: 2rem;
-  padding-inline: 0.5rem;
+
   border-radius: var(--border-radius);
 
   &:hover {
@@ -31,5 +32,26 @@
   &:hover {
     background-color: var(--discord-colour);
     color: white;
+  }
+}
+
+.red.contextMenuItem {
+  color: var(--danger-colour);
+
+  &:hover {
+    background-color: var(--danger-colour);
+    color: white;
+  }
+}
+
+.disabled.contextMenuItem {
+  $grey: #626467;
+
+  color: $grey;
+  cursor: default;
+
+  &:hover {
+    background: none;
+    color: $grey;
   }
 }

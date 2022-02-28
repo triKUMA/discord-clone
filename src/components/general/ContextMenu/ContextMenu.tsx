@@ -84,7 +84,10 @@ function ContextMenu(props: ContextMenuProps) {
       {props.menuItems.map((item, index) => {
         return (
           <>
-            <ContextMenuItemGroup groupItems={item.groupItems} />
+            <ContextMenuItemGroup
+              groupType={item.groupType}
+              groupItems={item.groupItems}
+            />
             {index !== props.menuItems.length - 1 && (
               <div className="separator"></div>
             )}

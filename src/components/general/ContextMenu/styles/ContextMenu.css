@@ -6,9 +6,14 @@
   max-height: 100vh;
   background-color: #18191c;
   border-radius: var(--border-radius);
-  overflow: hidden;
-  overflow-y: auto;
   scrollbar-width: thin;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .contextMenu .separator {

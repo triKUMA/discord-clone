@@ -1,6 +1,5 @@
 import { IconType } from "react-icons";
 import "./styles/ContextMenuItem.css";
-import { FiChevronRight } from "react-icons/fi";
 import { IoMdRadioButtonOff, IoMdRadioButtonOn } from "react-icons/io";
 import { MdCheckBoxOutlineBlank, MdCheckBox } from "react-icons/md";
 
@@ -8,7 +7,7 @@ export interface ContextMenuItemProps {
   text: string;
   icon?: IconType;
   itemType?: "radio" | "checklist" | "expandable";
-  onClick: () => void;
+  onClick?: () => void;
   onMouseEnter?: () => void;
   onMouseLeave?: () => void;
   colour?: "discord" | "red";
@@ -29,14 +28,20 @@ function ContextMenuItem(props: ContextMenuItemProps) {
         e.stopPropagation();
         props.onClick && props.onClick();
       }}
-      onMouseEnter={props.onMouseEnter}
-      onMouseLeave={props.onMouseLeave}
+      onMouseEnter={() => {
+        typeof props.disabled !== "undefined"
+          ? !props.disabled && props.onMouseEnter && props.onMouseEnter()
+          : props.onMouseEnter && props.onMouseEnter();
+      }}
+      onMouseLeave={() => {
+        typeof props.disabled !== "undefined"
+          ? !props.disabled && props.onMouseLeave && props.onMouseLeave()
+          : props.onMouseLeave && props.onMouseLeave();
+      }}
     >
       <p className="text">{props.text}</p>
 
-      {props.itemType === "expandable" ? (
-        <FiChevronRight className="icon" />
-      ) : props.itemType === "radio" ? (
+      {props.itemType === "radio" ? (
         !props.active ? (
           <IoMdRadioButtonOff className="icon" />
         ) : (
