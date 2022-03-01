@@ -1,9 +1,9 @@
 import { useSelector } from "react-redux";
 import "./App.css";
 import { StoreType } from "./app/store";
-import ChannelFeed from "./components/ChannelFeed/ChannelFeed";
+import ChannelFeed from "./components/ServerPage/ChannelFeed/ChannelFeed";
 import ServerList from "./components/ServerList/ServerList";
-import Sidebar from "./components/Sidebar/Sidebar";
+import ServerSidebar from "./components/ServerPage/ServerSidebar/ServerSidebar";
 import NotificationBanner from "./components/general/NotificationBanner/NotificationBanner";
 import NitroIcon from "./components/general/NitroIcon/NitroIcon";
 import Tooltip, {
@@ -102,7 +102,7 @@ function App() {
                   </NotificationBanner>
                 )}
                 <div className="mainArea">
-                  <Sidebar activeServer={activeServer} />
+                  <ServerSidebar activeServer={activeServer} />
                   <ChannelFeed />
                 </div>
               </div>

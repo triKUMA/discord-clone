@@ -34,7 +34,7 @@ function ServerIcon(props: ServerIconProps) {
       }
     }
 
-    return newText.replaceAll(" ", "");
+    return newText.replaceAll("'s", "").replaceAll(" ", "");
   }
 
   return (

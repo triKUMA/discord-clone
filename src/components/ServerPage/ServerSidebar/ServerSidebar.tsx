@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import { ServerType } from "../../types/ServerType";
-import Button from "../general/Button/Button";
-import "./styles/Sidebar.css";
+import { ServerType } from "../../../types/ServerType";
+import Button from "../../general/Button/Button";
+import "./styles/ServerSidebar.css";
 import { IoMdClose, IoMdAdd } from "react-icons/io";
 import { IoChevronDown, IoChevronForward } from "react-icons/io5";
-import { ChannelCategoryType, ChannelType } from "../../types/ChannelType";
+import { ChannelCategoryType, ChannelType } from "../../../types/ChannelType";
 import { BiHash } from "react-icons/bi";
 import { MdVolumeUp, MdPersonAddAlt1 } from "react-icons/md";
 import { RiSettings5Fill } from "react-icons/ri";
@@ -32,11 +32,11 @@ function Channel(props: ChannelProps) {
   );
 }
 
-interface SidebarProps {
+interface ServerSidebarProps {
   activeServer: ServerType | null;
 }
 
-function Sidebar(props: SidebarProps) {
+function ServerSidebar(props: ServerSidebarProps) {
   const [displayInvitePeopleCTA, setDisplayInvitePeopleCTA] = useState(false);
   const [headerMenuActive, setHeaderMenuActive] = useState(false);
 
@@ -59,7 +59,7 @@ function Sidebar(props: SidebarProps) {
   }
 
   return (
-    <div className="sidebar">
+    <div className="serverSidebar">
       <button
         className={"header" + (headerMenuActive ? " menu-active" : "")}
         onClick={() => {
@@ -147,4 +147,4 @@ function Sidebar(props: SidebarProps) {
   );
 }
 
-export default Sidebar;
+export default ServerSidebar;
