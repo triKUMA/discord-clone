@@ -14,14 +14,11 @@
   border-radius: var(--border-radius);
 }
 
-.contextMenuItem:hover {
-  background-color: var(--discord-colour);
-  color: white;
-}
-
 .contextMenuItem .text {
+  text-align: left;
   font-size: 0.85rem;
   font-weight: 600;
+  white-space: nowrap;
 }
 
 .contextMenuItem .icon {
@@ -30,12 +27,28 @@
   margin-left: 0.5rem;
 }
 
+.contextMenuItem:hover {
+  background-color: #4752c4;
+  color: white;
+}
+
+.contextMenuItem:hover .icon {
+  color: white;
+}
+
+.active.contextMenuItem .icon {
+  color: #8a92e9;
+}
+
+.active.contextMenuItem:hover .icon {
+  color: white;
+}
+
 .discord.contextMenuItem {
-  color: var(--discord-colour);
+  color: #8a92e9;
 }
 
 .discord.contextMenuItem:hover {
-  background-color: var(--discord-colour);
   color: white;
 }
 

@@ -2,9 +2,13 @@
   position: relative;
   width: 100%;
 
-  .active.contextMenuItem {
-    background-color: var(--discord-colour);
+  > .active.contextMenuItem {
+    background-color: #4752c4;
     color: white;
+
+    .icon {
+      color: white;
+    }
   }
 }
 
@@ -19,7 +23,6 @@
 .contextSubMenu {
   padding: 0.5rem;
   min-width: 11.5rem;
-  max-height: 100vh;
   background-color: #18191c;
   border-radius: var(--border-radius);
   scrollbar-width: thin;

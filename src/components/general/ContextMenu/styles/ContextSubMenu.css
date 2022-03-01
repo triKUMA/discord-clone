@@ -3,8 +3,12 @@
   width: 100%;
 }
 
-.contextSubMenu-wrapper .active.contextMenuItem {
-  background-color: var(--discord-colour);
+.contextSubMenu-wrapper > .active.contextMenuItem {
+  background-color: #4752c4;
+  color: white;
+}
+
+.contextSubMenu-wrapper > .active.contextMenuItem .icon {
   color: white;
 }
 
@@ -19,7 +23,6 @@
 .contextSubMenu {
   padding: 0.5rem;
   min-width: 11.5rem;
-  max-height: 100vh;
   background-color: #18191c;
   border-radius: var(--border-radius);
   scrollbar-width: thin;

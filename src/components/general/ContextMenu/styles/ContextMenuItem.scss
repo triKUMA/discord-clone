@@ -8,14 +8,11 @@
 
   border-radius: var(--border-radius);
 
-  &:hover {
-    background-color: var(--discord-colour);
-    color: white;
-  }
-
   .text {
+    text-align: left;
     font-size: 0.85rem;
     font-weight: 600;
+    white-space: nowrap;
   }
 
   .icon {
@@ -24,13 +21,34 @@
     height: $size;
     margin-left: 0.5rem;
   }
+
+  &:hover {
+    background-color: #4752c4;
+    color: white;
+
+    .icon {
+      color: white;
+    }
+  }
+}
+
+.active.contextMenuItem {
+  .icon {
+    color: #8a92e9;
+  }
+
+  &:hover {
+    .icon {
+      color: white;
+    }
+  }
 }
 
 .discord.contextMenuItem {
-  color: var(--discord-colour);
+  color: #8a92e9;
 
   &:hover {
-    background-color: var(--discord-colour);
+    // background-color: var(--discord-colour);
     color: white;
   }
 }

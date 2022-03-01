@@ -37,6 +37,124 @@ function ServerList(props: ServerListProps) {
             <ServerIcon
               imgSrc={item.iconSrc !== null ? item.iconSrc : undefined}
               text={item.name}
+              onContextMenu={(e) => {
+                contextMenuCtx.setMenuDetails({
+                  event: e.nativeEvent,
+                  menuItems: [
+                    {
+                      groupItems: [
+                        {
+                          text: "Mark as Read",
+                        },
+                      ],
+                    },
+                    {
+                      groupItems: [
+                        {
+                          text: "Invite People",
+                          colour: "discord",
+                        },
+                      ],
+                    },
+                    {
+                      groupItems: [
+                        {
+                          text: "Mute Server",
+                          subMenuItems: [
+                            {
+                              groupItems: [
+                                {
+                                  text: "For 15 Minutes",
+                                },
+                                {
+                                  text: "For 1 Hour",
+                                },
+                                {
+                                  text: "For 3 Hours",
+                                },
+                                {
+                                  text: "For 8 Hours",
+                                },
+                                {
+                                  text: "For 24 Hours",
+                                },
+                                {
+                                  text: "Until I turn it back on",
+                                },
+                              ],
+                            },
+                          ],
+                        },
+                        {
+                          text: "Notification Settings",
+                          subMenuItems: [
+                            {
+                              groupType: "radio" as "radio" | "checklist",
+                              groupItems: [
+                                {
+                                  text: "All Messages",
+                                },
+                                {
+                                  text: "Only @mentions",
+                                  active: true,
+                                },
+                                {
+                                  text: "Nothing",
+                                },
+                              ],
+                            },
+                            {
+                              groupType: "checklist" as "radio" | "checklist",
+                              groupItems: [
+                                {
+                                  text: "Supress @everyone and @here",
+                                },
+                                {
+                                  text: "Supress All Role @mentions",
+                                },
+                                {
+                                  text: "Supress New Event Badges",
+                                },
+                              ],
+                            },
+                            {
+                              groupType: "checklist" as "radio" | "checklist",
+                              groupItems: [
+                                {
+                                  text: "Mobile Push Notifications",
+                                  active: true,
+                                },
+                              ],
+                            },
+                          ],
+                        },
+                        {
+                          text: "Hide Muted Channels",
+                          itemType: "checklist",
+                        },
+                      ],
+                    },
+                    {
+                      groupItems: [
+                        {
+                          text: "Privacy Settings",
+                        },
+                        {
+                          text: "Edit Server Profile",
+                        },
+                      ],
+                    },
+                    {
+                      groupItems: [
+                        {
+                          text: "Leave Server",
+                          colour: "red",
+                        },
+                      ],
+                    },
+                  ],
+                });
+              }}
             />
           ))}
 
