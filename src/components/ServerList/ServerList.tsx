@@ -9,13 +9,16 @@ import { IoCompassSharp } from "react-icons/io5";
 import { HiOutlineDownload } from "react-icons/hi";
 import NewServerCTA from "./NewServerCTA";
 import { UserType } from "../../types/UserType";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { StoreType } from "../../app/store";
 import { ContextMenuCtx } from "../general/ContextMenu/ContextMenu";
 import { IoMdAdd } from "react-icons/io";
+import { setActiveServer } from "../../features/servers/serversSlice";
+import { ServerType } from "../../types/ServerType";
 
 interface ServerListProps {
   activeUser: UserType;
+  activeServer: ServerType | null;
 }
 
 function ServerList(props: ServerListProps) {
@@ -24,6 +27,7 @@ function ServerList(props: ServerListProps) {
   const [newServerModalStartingPage, setNewServerModalStartingPage] =
     useState(1);
   const servers = useSelector((state: StoreType) => state.servers.servers);
+  const dispatch = useDispatch();
 
   return (
     <ContextMenuCtx.Consumer>
@@ -37,6 +41,10 @@ function ServerList(props: ServerListProps) {
             <ServerIcon
               imgSrc={item.iconSrc !== null ? item.iconSrc : undefined}
               text={item.name}
+              activeServer={item.id === props.activeServer?.id}
+              onClick={() => {
+                dispatch(setActiveServer(item.id));
+              }}
               onContextMenu={(e) => {
                 contextMenuCtx.setMenuDetails({
                   event: e.nativeEvent,

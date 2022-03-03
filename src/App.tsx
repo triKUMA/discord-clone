@@ -89,7 +89,7 @@ function App() {
             <></>
           ) : (
             <>
-              <ServerList activeUser={activeUser} />
+              <ServerList activeUser={activeUser} activeServer={activeServer} />
               <div className="mainArea-wrapper">
                 {displayBanner && (
                   <NotificationBanner>
