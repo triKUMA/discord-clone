@@ -7,9 +7,7 @@ interface NitroIconProps {
 function NitroIcon(props: NitroIconProps) {
   return (
     <svg
-      className={
-        "premiumIcon-2HhTvp" + (props.className ? ` ${props.className}` : "")
-      }
+      className={"nitroIcon" + (props.className ? ` ${props.className}` : "")}
       aria-hidden="false"
       width="24"
       height="24"

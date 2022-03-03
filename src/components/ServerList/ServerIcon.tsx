@@ -12,7 +12,7 @@ interface ServerIconProps {
   onContextMenu?: (e: React.MouseEvent) => void;
   notification?: boolean;
   disablePill?: boolean;
-  activeServer?: boolean;
+  active?: boolean;
 }
 
 function ServerIcon(props: ServerIconProps) {
@@ -43,7 +43,7 @@ function ServerIcon(props: ServerIconProps) {
           className={"serverIcon" + (props.variant ? ` ${props.variant}` : "")}
         >
           <button
-            className={"wrapper" + (props.activeServer ? " active" : "")}
+            className={"wrapper" + (props.active ? " active" : "")}
             onClick={props.onClick}
             onContextMenu={(e) => {
               props.onContextMenu && props.onContextMenu(e);
@@ -74,7 +74,7 @@ function ServerIcon(props: ServerIconProps) {
               "pill" +
               (props.disablePill
                 ? " disable"
-                : props.activeServer
+                : props.active
                 ? " big"
                 : props.notification
                 ? " small"

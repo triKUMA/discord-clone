@@ -31,20 +31,20 @@
   transition: border-radius 400ms ease-in;
 }
 
-.serverIcon .wrapper:hover, .serverIcon .wrapper:focus, .serverIcon .wrapper.active {
+.serverIcon .wrapper:hover, .serverIcon .wrapper.active {
   border-radius: 1rem;
   -webkit-transition: border-radius 200ms ease;
   transition: border-radius 200ms ease;
 }
 
-.serverIcon .wrapper:hover .text, .serverIcon .wrapper:focus .text, .serverIcon .wrapper.active .text {
+.serverIcon .wrapper:hover .text, .serverIcon .wrapper.active .text {
   color: white;
   background-color: var(--discord-colour);
   -webkit-transition: color var(--colourTransition-toAlt), background-color var(--colourTransition-toAlt);
   transition: color var(--colourTransition-toAlt), background-color var(--colourTransition-toAlt);
 }
 
-.serverIcon .wrapper:hover .iconWrapper, .serverIcon .wrapper:focus .iconWrapper, .serverIcon .wrapper.active .iconWrapper {
+.serverIcon .wrapper:hover .iconWrapper, .serverIcon .wrapper.active .iconWrapper {
   background-color: var(--discord-colour);
   color: white;
   -webkit-transition: color var(--colourTransition-toAlt), background-color var(--colourTransition-toAlt);
@@ -148,11 +148,11 @@
   color: #3ba55d;
 }
 
-.green.serverIcon .wrapper:hover .text, .green.serverIcon .wrapper:focus .text, .green.serverIcon .wrapper.active .text {
+.green.serverIcon .wrapper:hover .text, .green.serverIcon .wrapper.active .text {
   background-color: #3ba55d;
 }
 
-.green.serverIcon .wrapper:hover .iconWrapper, .green.serverIcon .wrapper:focus .iconWrapper, .green.serverIcon .wrapper.active .iconWrapper {
+.green.serverIcon .wrapper:hover .iconWrapper, .green.serverIcon .wrapper.active .iconWrapper {
   background-color: #3ba55d;
 }
 

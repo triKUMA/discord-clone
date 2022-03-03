@@ -41,7 +41,7 @@ function ServerList(props: ServerListProps) {
             <ServerIcon
               imgSrc={item.iconSrc !== null ? item.iconSrc : undefined}
               text={item.name}
-              activeServer={item.id === props.activeServer?.id}
+              active={item.id === props.activeServer?.id}
               onClick={() => {
                 dispatch(setActiveServer(item.id));
               }}
@@ -169,6 +169,7 @@ function ServerList(props: ServerListProps) {
           <ServerIcon
             icon={AiOutlinePlus}
             text="Add a Server"
+            active={newServerModal}
             onClick={() => {
               setNewServerModalStartingPage(1);
               setNewServerModal(true);
@@ -214,6 +215,7 @@ function ServerList(props: ServerListProps) {
           <ServerIcon
             icon={HiOutlineDownload}
             text="Download Apps"
+            active={dlAppsModal}
             onClick={() => setDLAppsModal(true)}
             variant="green"
           />

@@ -40,9 +40,19 @@
   display: flex;
 }
 
+.notificationBanner {
+  padding-left: 1rem;
+  padding-right: 2.5rem;
+}
+
+.notificationBanner .nitroIcon {
+  min-width: 1.5rem;
+  min-height: 1.5rem;
+}
+
 .notificationBanner .text {
-  margin-inline: 0.5rem;
-  font-size: 0.85rem;
+  margin: 0.5rem 0.5rem;
+  font-size: 0.825rem;
   font-weight: 600;
 }
 
@@ -53,6 +63,7 @@
   border: 1px solid white;
   border-radius: var(--border-radius);
   color: white;
+  white-space: nowrap;
   -webkit-transition: color var(--colourTransition-toBase), background-color var(--colourTransition-toBase);
   transition: color var(--colourTransition-toBase), background-color var(--colourTransition-toBase);
 }

@@ -21,7 +21,6 @@
     transition: border-radius 400ms ease-in;
 
     &:hover,
-    &:focus,
     &.active {
       border-radius: 1rem;
 
@@ -138,7 +137,6 @@
 
   .wrapper {
     &:hover,
-    &:focus,
     &.active {
       .text {
         background-color: $green;

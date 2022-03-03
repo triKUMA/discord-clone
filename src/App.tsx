@@ -17,7 +17,7 @@ import ContextMenu, {
 } from "./components/general/ContextMenu/ContextMenu";
 
 function App() {
-  const [displayBanner, setDisplayBanner] = useState(false);
+  const [displayBanner, setDisplayBanner] = useState(true);
 
   // Context Menu Properties
   const [contextMenuDetails, setContextMenuDetails] =
