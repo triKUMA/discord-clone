@@ -10,7 +10,7 @@ export interface ContextMenuItemProps {
   onClick?: () => void;
   onMouseEnter?: () => void;
   onMouseLeave?: () => void;
-  colour?: "discord" | "red";
+  colour?: "discord" | "red" | "pink";
   active?: boolean;
   disabled?: boolean;
 }

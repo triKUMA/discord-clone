@@ -2,12 +2,16 @@ import { useEffect, useState } from "react";
 import { ServerType } from "../../../types/ServerType";
 import Button from "../../general/Button/Button";
 import "./styles/ServerSidebar.css";
+import { ChannelCategoryType, ChannelType } from "../../../types/ChannelType";
+import ContextMenuItem from "../../general/ContextMenu/ContextMenuItem";
 import { IoMdClose, IoMdAdd } from "react-icons/io";
 import { IoChevronDown, IoChevronForward } from "react-icons/io5";
-import { ChannelCategoryType, ChannelType } from "../../../types/ChannelType";
+import { RiSettings5Fill, RiShieldFlashFill } from "react-icons/ri";
+import { GiFloatingCrystal } from "react-icons/gi";
+import { BsBellFill, BsArrowLeftCircleFill } from "react-icons/bs";
+import { FaPen } from "react-icons/fa";
 import { BiHash } from "react-icons/bi";
 import { MdVolumeUp, MdPersonAddAlt1 } from "react-icons/md";
-import { RiSettings5Fill } from "react-icons/ri";
 
 interface ChannelProps {
   details: ChannelType;
@@ -41,6 +45,17 @@ function ServerSidebar(props: ServerSidebarProps) {
   const [headerMenuActive, setHeaderMenuActive] = useState(false);
 
   useEffect(() => {
+    document.addEventListener("mouseup", (e) => {
+      const headerContextMenu = document.getElementById("header-details");
+      const target = e.target as HTMLElement | null;
+
+      if (headerContextMenu !== null && !headerContextMenu.contains(target)) {
+        setHeaderMenuActive(false);
+      }
+    });
+  }, []);
+
+  useEffect(() => {
     setDisplayInvitePeopleCTA(
       props.activeServer !== null
         ? props.activeServer.members.length === 1
@@ -60,25 +75,59 @@ function ServerSidebar(props: ServerSidebarProps) {
 
   return (
     <div className="serverSidebar">
-      <button
+      <div
         className={"header" + (headerMenuActive ? " menu-active" : "")}
         onClick={() => {
           setHeaderMenuActive(!headerMenuActive);
         }}
       >
         {props.activeServer !== null && (
-          <>
-            <div className="header-details">
-              <p>{props.activeServer.name}</p>
-            </div>
+          <button className="header-details" id="header-details">
+            <p>{props.activeServer.name}</p>
             {headerMenuActive ? (
               <IoMdClose className="menu-icon" />
             ) : (
               <IoChevronDown className="menu-icon" />
             )}
-          </>
+            {headerMenuActive && (
+              <div className="headerContextMenu">
+                <ContextMenuItem
+                  text="Server Boost"
+                  icon={GiFloatingCrystal}
+                  colour="pink"
+                />
+                <div className="separator" />
+                <ContextMenuItem
+                  text="Invite People"
+                  icon={MdPersonAddAlt1}
+                  colour="discord"
+                />
+                <div className="separator" />
+                <ContextMenuItem
+                  text="Notification Settings"
+                  icon={BsBellFill}
+                />
+                <ContextMenuItem
+                  text="Privacy Settings"
+                  icon={RiShieldFlashFill}
+                />
+                <div className="separator" />
+                <ContextMenuItem text="Edit Server Profile" icon={FaPen} />
+                <ContextMenuItem
+                  text="Hide Muted Channels"
+                  itemType="checklist"
+                />
+                <div className="separator" />
+                <ContextMenuItem
+                  text="Leave Server"
+                  icon={BsArrowLeftCircleFill}
+                  colour="red"
+                />
+              </div>
+            )}
+          </button>
         )}
-      </button>
+      </div>
       {props.activeServer !== null && (
         <>
           {displayInvitePeopleCTA &&

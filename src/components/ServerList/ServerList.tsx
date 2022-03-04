@@ -12,7 +12,6 @@ import { UserType } from "../../types/UserType";
 import { useDispatch, useSelector } from "react-redux";
 import { StoreType } from "../../app/store";
 import { ContextMenuCtx } from "../general/ContextMenu/ContextMenu";
-import { IoMdAdd } from "react-icons/io";
 import { setActiveServer } from "../../features/servers/serversSlice";
 import { ServerType } from "../../types/ServerType";
 

@@ -61,6 +61,14 @@
   color: white;
 }
 
+.pink.contextMenuItem .icon {
+  color: #ff73fa;
+}
+
+.pink.contextMenuItem:hover .icon {
+  color: white;
+}
+
 .disabled.contextMenuItem {
   color: #626467;
   cursor: default;

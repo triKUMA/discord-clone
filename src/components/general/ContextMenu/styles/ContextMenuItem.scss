@@ -62,6 +62,18 @@
   }
 }
 
+.pink.contextMenuItem {
+  .icon {
+    color: #ff73fa;
+  }
+
+  &:hover {
+    .icon {
+      color: white;
+    }
+  }
+}
+
 .disabled.contextMenuItem {
   $grey: #626467;
 
