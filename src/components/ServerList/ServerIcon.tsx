@@ -53,6 +53,7 @@ function ServerIcon(props: ServerIconProps) {
                 text: props.text,
                 parent: e.currentTarget as HTMLElement,
                 parentSide: "right",
+                size: "md",
                 offset: 10,
               });
             }}

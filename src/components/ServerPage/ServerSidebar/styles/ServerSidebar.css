@@ -44,6 +44,9 @@
       -ms-flex-pack: justify;
           justify-content: space-between;
   position: relative;
+  background-color: transparent;
+  -webkit-transition: background-color var(--colourTransition-toBase);
+  transition: background-color var(--colourTransition-toBase);
 }
 
 .serverSidebar .header .header-details:hover, .serverSidebar .header .header-details.menu-active {
@@ -268,16 +271,18 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  gap: 0.5rem;
-  color: #b9bbbe;
+  color: #b6b8ba;
 }
 
 .serverSidebar .channel .channel-icons .icon {
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
   width: 1rem;
   height: 1rem;
+  padding: 0.1rem;
 }
 
 .serverSidebar .channel .channel-icons .icon:hover {
-  color: #d5d6d7;
+  color: #d7d8d9;
 }
 /*# sourceMappingURL=ServerSidebar.css.map */

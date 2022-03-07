@@ -28,6 +28,7 @@ function App() {
     text: "",
     parent: null,
     parentSide: "right",
+    size: "sm",
   });
 
   const activeUser = useSelector((state: StoreType) => {
@@ -81,6 +82,7 @@ function App() {
                 text: "",
                 parent: null,
                 parentSide: "right",
+                size: "sm",
               });
             },
           }}
@@ -120,6 +122,7 @@ function App() {
         text={tooltipDetails.text}
         parent={tooltipDetails.parent}
         parentSide={tooltipDetails.parentSide}
+        size={tooltipDetails.size}
         offset={tooltipDetails.offset}
       />
     </div>

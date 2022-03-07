@@ -22,7 +22,7 @@
     margin-left: 0.5rem;
   }
 
-  &:hover {
+  &:hover:not(.disabled) {
     background-color: #4752c4;
     color: white;
 
@@ -37,9 +37,10 @@
     color: #8a92e9;
   }
 
-  &:hover {
+  &:hover:not(.disabled) {
     .icon {
       color: white;
+      border: 1px solid red;
     }
   }
 }
@@ -47,7 +48,7 @@
 .discord.contextMenuItem {
   color: #8a92e9;
 
-  &:hover {
+  &:hover:not(.disabled) {
     // background-color: var(--discord-colour);
     color: white;
   }
@@ -56,7 +57,7 @@
 .red.contextMenuItem {
   color: var(--danger-colour);
 
-  &:hover {
+  &:hover:not(.disabled) {
     background-color: var(--danger-colour);
     color: white;
   }
@@ -67,7 +68,7 @@
     color: #ff73fa;
   }
 
-  &:hover {
+  &:hover:not(.disabled) {
     .icon {
       color: white;
     }
@@ -75,13 +76,6 @@
 }
 
 .disabled.contextMenuItem {
-  $grey: #626467;
-
-  color: $grey;
+  opacity: 0.75;
   cursor: default;
-
-  &:hover {
-    background: none;
-    color: $grey;
-  }
 }

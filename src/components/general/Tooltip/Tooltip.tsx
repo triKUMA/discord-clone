@@ -6,6 +6,7 @@ export interface TooltipProps {
   text: string;
   parent: HTMLElement | null;
   parentSide: "left" | "right" | "top" | "bottom";
+  size: "sm" | "md";
   offset?: number;
 }
 
@@ -79,7 +80,7 @@ function Tooltip(props: TooltipProps) {
   }, [props.parent]);
 
   return props.parent !== null ? (
-    <div className={`tooltip ${props.parentSide}`} id="tooltip">
+    <div className={`tooltip ${props.size} ${props.parentSide}`} id="tooltip">
       <div className="contents">
         <p className="text">{props.text}</p>
         <GoTriangleLeft className="triangle" />

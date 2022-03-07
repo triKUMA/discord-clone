@@ -31,6 +31,9 @@
       align-items: center;
       justify-content: space-between;
       position: relative;
+      background-color: transparent;
+
+      transition: background-color var(--colourTransition-toBase);
 
       &:hover,
       &.menu-active {
@@ -226,16 +229,17 @@
     .channel-icons {
       display: none;
       align-items: center;
-      gap: 0.5rem;
-      color: #b9bbbe;
+      color: #b6b8ba;
 
       .icon {
+        box-sizing: content-box;
         $size: 1rem;
         width: $size;
         height: $size;
+        padding: 0.1rem;
 
         &:hover {
-          color: #d5d6d7;
+          color: #d7d8d9;
         }
       }
     }

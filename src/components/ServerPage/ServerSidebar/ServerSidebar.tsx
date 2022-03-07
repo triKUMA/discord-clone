@@ -12,6 +12,7 @@ import { BsBellFill, BsArrowLeftCircleFill } from "react-icons/bs";
 import { FaPen } from "react-icons/fa";
 import { BiHash } from "react-icons/bi";
 import { MdVolumeUp, MdPersonAddAlt1 } from "react-icons/md";
+import { TooltipCtx } from "../../general/Tooltip/Tooltip";
 
 interface ChannelProps {
   details: ChannelType;
@@ -28,10 +29,40 @@ function Channel(props: ChannelProps) {
         )}
         <p className="name">{props.details.name}</p>
       </div>
-      <div className="channel-icons">
-        <MdPersonAddAlt1 className="icon" />
-        <RiSettings5Fill className="icon" />
-      </div>
+      <TooltipCtx.Consumer>
+        {(tooltipCtx) => (
+          <div className="channel-icons">
+            <MdPersonAddAlt1
+              className="icon"
+              onMouseEnter={(e) => {
+                tooltipCtx.setTooltipDetails({
+                  text: "Create Invite",
+                  parent: e.currentTarget as EventTarget as HTMLElement,
+                  parentSide: "top",
+                  size: "sm",
+                });
+              }}
+              onMouseLeave={() => {
+                tooltipCtx.disableTooltip();
+              }}
+            />
+            <RiSettings5Fill
+              className="icon"
+              onMouseEnter={(e) => {
+                tooltipCtx.setTooltipDetails({
+                  text: "Edit Channel",
+                  parent: e.currentTarget as EventTarget as HTMLElement,
+                  parentSide: "top",
+                  size: "sm",
+                });
+              }}
+              onMouseLeave={() => {
+                tooltipCtx.disableTooltip();
+              }}
+            />
+          </div>
+        )}
+      </TooltipCtx.Consumer>
     </button>
   );
 }
@@ -82,7 +113,12 @@ function ServerSidebar(props: ServerSidebarProps) {
         }}
       >
         {props.activeServer !== null && (
-          <button className="header-details" id="header-details">
+          <button
+            className={
+              "header-details" + (headerMenuActive ? " menu-active" : "")
+            }
+            id="header-details"
+          >
             <p>{props.activeServer.name}</p>
             {headerMenuActive ? (
               <IoMdClose className="menu-icon" />
@@ -106,6 +142,7 @@ function ServerSidebar(props: ServerSidebarProps) {
                 <ContextMenuItem
                   text="Notification Settings"
                   icon={BsBellFill}
+                  disabled={true}
                 />
                 <ContextMenuItem
                   text="Privacy Settings"
@@ -175,18 +212,36 @@ function ServerSidebar(props: ServerSidebarProps) {
               isChannel(item) ? (
                 <Channel details={item} />
               ) : (
-                <>
-                  <div className="channelCategory">
-                    <div className="details">
-                      <IoChevronDown className="expand-icon" />
-                      <p className="name">{item.name}</p>
-                    </div>
-                    <IoMdAdd className="add-icon" />
-                  </div>
-                  {item.channels.map((item) => (
-                    <Channel details={item} />
-                  ))}
-                </>
+                <TooltipCtx.Consumer>
+                  {(tooltipCtx) => (
+                    <>
+                      <div className="channelCategory">
+                        <div className="details">
+                          <IoChevronDown className="expand-icon" />
+                          <p className="name">{item.name}</p>
+                        </div>
+                        <IoMdAdd
+                          className="add-icon"
+                          onMouseEnter={(e) => {
+                            tooltipCtx.setTooltipDetails({
+                              text: "Create Channel",
+                              parent:
+                                e.currentTarget as EventTarget as HTMLElement,
+                              parentSide: "top",
+                              size: "sm",
+                            });
+                          }}
+                          onMouseLeave={() => {
+                            tooltipCtx.disableTooltip();
+                          }}
+                        />
+                      </div>
+                      {item.channels.map((item) => (
+                        <Channel details={item} />
+                      ))}
+                    </>
+                  )}
+                </TooltipCtx.Consumer>
               )
             )}
           </div>
