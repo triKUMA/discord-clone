@@ -52,6 +52,7 @@ function ServerList(props: ServerListProps) {
                       groupItems: [
                         {
                           text: "Mark as Read",
+                          disabled: true,
                         },
                       ],
                     },
@@ -60,6 +61,7 @@ function ServerList(props: ServerListProps) {
                         {
                           text: "Invite People",
                           colour: "discord",
+                          disabled: true,
                         },
                       ],
                     },
@@ -72,21 +74,27 @@ function ServerList(props: ServerListProps) {
                               groupItems: [
                                 {
                                   text: "For 15 Minutes",
+                                  disabled: true,
                                 },
                                 {
                                   text: "For 1 Hour",
+                                  disabled: true,
                                 },
                                 {
                                   text: "For 3 Hours",
+                                  disabled: true,
                                 },
                                 {
                                   text: "For 8 Hours",
+                                  disabled: true,
                                 },
                                 {
                                   text: "For 24 Hours",
+                                  disabled: true,
                                 },
                                 {
                                   text: "Until I turn it back on",
+                                  disabled: true,
                                 },
                               ],
                             },
@@ -100,13 +108,16 @@ function ServerList(props: ServerListProps) {
                               groupItems: [
                                 {
                                   text: "All Messages",
+                                  disabled: true,
                                 },
                                 {
                                   text: "Only @mentions",
                                   active: true,
+                                  disabled: true,
                                 },
                                 {
                                   text: "Nothing",
+                                  disabled: true,
                                 },
                               ],
                             },
@@ -115,12 +126,15 @@ function ServerList(props: ServerListProps) {
                               groupItems: [
                                 {
                                   text: "Supress @everyone and @here",
+                                  disabled: true,
                                 },
                                 {
                                   text: "Supress All Role @mentions",
+                                  disabled: true,
                                 },
                                 {
                                   text: "Supress New Event Badges",
+                                  disabled: true,
                                 },
                               ],
                             },
@@ -130,6 +144,7 @@ function ServerList(props: ServerListProps) {
                                 {
                                   text: "Mobile Push Notifications",
                                   active: true,
+                                  disabled: true,
                                 },
                               ],
                             },
@@ -138,6 +153,7 @@ function ServerList(props: ServerListProps) {
                         {
                           text: "Hide Muted Channels",
                           itemType: "checklist",
+                          disabled: true,
                         },
                       ],
                     },
@@ -145,9 +161,11 @@ function ServerList(props: ServerListProps) {
                       groupItems: [
                         {
                           text: "Privacy Settings",
+                          disabled: true,
                         },
                         {
                           text: "Edit Server Profile",
+                          disabled: true,
                         },
                       ],
                     },
@@ -156,6 +174,7 @@ function ServerList(props: ServerListProps) {
                         {
                           text: "Leave Server",
                           colour: "red",
+                          disabled: true,
                         },
                       ],
                     },
@@ -186,6 +205,7 @@ function ServerList(props: ServerListProps) {
                           setNewServerModal(true);
                           contextMenuCtx.disableMenu();
                         },
+                        disabled: true,
                       },
                       {
                         text: "Create a server",

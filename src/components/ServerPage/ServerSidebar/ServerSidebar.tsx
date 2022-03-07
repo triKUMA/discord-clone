@@ -131,12 +131,14 @@ function ServerSidebar(props: ServerSidebarProps) {
                   text="Server Boost"
                   icon={GiFloatingCrystal}
                   colour="pink"
+                  disabled={true}
                 />
                 <div className="separator" />
                 <ContextMenuItem
                   text="Invite People"
                   icon={MdPersonAddAlt1}
                   colour="discord"
+                  disabled={true}
                 />
                 <div className="separator" />
                 <ContextMenuItem
@@ -147,18 +149,25 @@ function ServerSidebar(props: ServerSidebarProps) {
                 <ContextMenuItem
                   text="Privacy Settings"
                   icon={RiShieldFlashFill}
+                  disabled={true}
                 />
                 <div className="separator" />
-                <ContextMenuItem text="Edit Server Profile" icon={FaPen} />
+                <ContextMenuItem
+                  text="Edit Server Profile"
+                  icon={FaPen}
+                  disabled={true}
+                />
                 <ContextMenuItem
                   text="Hide Muted Channels"
                   itemType="checklist"
+                  disabled={true}
                 />
                 <div className="separator" />
                 <ContextMenuItem
                   text="Leave Server"
                   icon={BsArrowLeftCircleFill}
                   colour="red"
+                  disabled={true}
                 />
               </div>
             )}

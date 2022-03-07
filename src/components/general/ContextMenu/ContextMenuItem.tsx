@@ -26,7 +26,7 @@ function ContextMenuItem(props: ContextMenuItemProps) {
       }
       onClick={(e) => {
         e.stopPropagation();
-        props.onClick && props.onClick();
+        !props.disabled && props.onClick && props.onClick();
       }}
       onMouseEnter={() => {
         typeof props.disabled !== "undefined"

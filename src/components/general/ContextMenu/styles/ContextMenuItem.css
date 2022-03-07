@@ -42,7 +42,6 @@
 
 .active.contextMenuItem:hover:not(.disabled) .icon {
   color: white;
-  border: 1px solid red;
 }
 
 .discord.contextMenuItem {
@@ -71,7 +70,7 @@
 }
 
 .disabled.contextMenuItem {
-  opacity: 0.75;
+  opacity: 0.5;
   cursor: default;
 }
 /*# sourceMappingURL=ContextMenuItem.css.map */
