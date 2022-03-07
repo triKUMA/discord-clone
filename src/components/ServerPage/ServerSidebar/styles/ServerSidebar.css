@@ -197,6 +197,10 @@
   color: #dcddde;
 }
 
+.serverSidebar .channelCategory .add-icon:hover + .details {
+  color: #dcddde;
+}
+
 .serverSidebar .channel {
   height: 2rem;
   width: calc(100% - 0.5rem);

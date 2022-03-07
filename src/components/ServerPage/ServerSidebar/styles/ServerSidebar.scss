@@ -166,6 +166,10 @@
 
       &:hover {
         color: #dcddde;
+
+        & + .details {
+          color: #dcddde;
+        }
       }
     }
   }

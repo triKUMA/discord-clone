@@ -216,10 +216,6 @@ function ServerSidebar(props: ServerSidebarProps) {
                   {(tooltipCtx) => (
                     <>
                       <div className="channelCategory">
-                        <div className="details">
-                          <IoChevronDown className="expand-icon" />
-                          <p className="name">{item.name}</p>
-                        </div>
                         <IoMdAdd
                           className="add-icon"
                           onMouseEnter={(e) => {
@@ -235,6 +231,10 @@ function ServerSidebar(props: ServerSidebarProps) {
                             tooltipCtx.disableTooltip();
                           }}
                         />
+                        <div className="details">
+                          <IoChevronDown className="expand-icon" />
+                          <p className="name">{item.name}</p>
+                        </div>
                       </div>
                       {item.channels.map((item) => (
                         <Channel details={item} />
