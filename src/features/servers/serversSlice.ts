@@ -208,10 +208,22 @@ const serversSlice = createSlice({
     ) => {
       state.activeServer = action.payload;
     },
+    removeServer: (state: ServersSliceType, action: PayloadAction<string>) => {
+      state.servers.splice(
+        state.servers.findIndex((server) => {
+          return server.id === action.payload;
+        }),
+        1
+      );
+    },
   },
 });
 
-export const { addServer, addServerFromPrototype, setActiveServer } =
-  serversSlice.actions;
+export const {
+  addServer,
+  addServerFromPrototype,
+  setActiveServer,
+  removeServer,
+} = serversSlice.actions;
 
 export const serversReducer = serversSlice.reducer;

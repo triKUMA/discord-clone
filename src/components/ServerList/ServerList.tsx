@@ -12,7 +12,10 @@ import { UserType } from "../../types/UserType";
 import { useDispatch, useSelector } from "react-redux";
 import { StoreType } from "../../app/store";
 import { ContextMenuCtx } from "../general/ContextMenu/ContextMenu";
-import { setActiveServer } from "../../features/servers/serversSlice";
+import {
+  removeServer,
+  setActiveServer,
+} from "../../features/servers/serversSlice";
 import { ServerType } from "../../types/ServerType";
 
 interface ServerListProps {
@@ -173,8 +176,12 @@ function ServerList(props: ServerListProps) {
                       groupItems: [
                         {
                           text: "Leave Server",
+                          onClick: () => {
+                            dispatch(setActiveServer(""));
+                            dispatch(removeServer(item.id));
+                            contextMenuCtx.disableMenu();
+                          },
                           colour: "red",
-                          disabled: true,
                         },
                       ],
                     },
