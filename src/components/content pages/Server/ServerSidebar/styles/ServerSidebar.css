@@ -1,5 +1,6 @@
 .serverSidebar {
   min-width: var(--sidebar-width);
+  max-width: var(--sidebar-width);
   height: 100%;
   background-color: #2f3136;
   display: flex;

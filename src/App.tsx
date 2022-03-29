@@ -18,6 +18,8 @@ import ContextMenu, {
 import ServerContent from "./components/content pages/Server/ServerContent";
 
 function App() {
+  const [displayBanner, setDisplayBanner] = useState(false);
+
   // Context Menu Properties
   const [contextMenuDetails, setContextMenuDetails] =
     useState<ContextMenuProps>({ event: null, menuItems: [] });
@@ -96,24 +98,45 @@ function App() {
         >
           {activeUser !== null && (
             <>
-              <ServerList activeUser={activeUser} activeServer={activeServer} />
-              {activeServerID === "home" ? (
-                <>
-                  <div className="testArea"></div>
-                </>
-              ) : activeServerID === "explore" ? (
-                <></>
-              ) : activeServer !== null ? (
-                <ServerContent
-                  activeServer={activeServer}
-                  activeUser={activeUser}
-                />
-              ) : (
-                <>
-                  <div className="sidebarPlaceholder" />
-                  <div className="feedPlaceholder" />
-                </>
-              )}
+              <div className="mainArea-wrapper">
+                {displayBanner && (
+                  <NotificationBanner>
+                    <NitroIcon className="icon" />
+                    <p className="text">
+                      Hey, you have something waiting for you in your gift
+                      inventory! Don't forget to claim it before it's lost.
+                    </p>
+                    <button>Take me there</button>
+                  </NotificationBanner>
+                )}
+                <div className="mainArea">
+                  <ServerList
+                    activeUser={activeUser}
+                    activeServer={activeServer}
+                  />
+                  {activeServerID === "home" ? (
+                    <>
+                      <div className="sidebarPlaceholder" />
+                      <div className="feedPlaceholder" />
+                    </>
+                  ) : activeServerID === "explore" ? (
+                    <>
+                      <div className="sidebarPlaceholder" />
+                      <div className="feedPlaceholder" />
+                    </>
+                  ) : activeServer !== null ? (
+                    <ServerContent
+                      activeServer={activeServer}
+                      activeUser={activeUser}
+                    />
+                  ) : (
+                    <>
+                      <div className="sidebarPlaceholder" />
+                      <div className="feedPlaceholder" />
+                    </>
+                  )}
+                </div>
+              </div>
             </>
           )}
         </TooltipCtx.Provider>

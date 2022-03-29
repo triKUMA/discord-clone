@@ -1,6 +1,7 @@
 .serverSidebar {
   $bg-col: #2f3136;
   min-width: var(--sidebar-width);
+  max-width: var(--sidebar-width);
   height: 100%;
   background-color: $bg-col;
   display: flex;
