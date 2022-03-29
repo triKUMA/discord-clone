@@ -1,9 +1,1 @@
-{
-    "version": 3,
-    "mappings": "AAAA,AAAA,qBAAqB,CAAC;EACpB,OAAO,EAAE,IAAI;EACb,cAAc,EAAE,MAAM;EACtB,GAAG,EAAE,GAAG;CACT",
-    "sources": [
-        "ContextMenuItemGroup.scss"
-    ],
-    "names": [],
-    "file": "ContextMenuItemGroup.css"
-}
+{"version":3,"sources":["ContextMenuItemGroup.scss","ContextMenuItemGroup.css"],"names":[],"mappings":"AAAA;EACE,aAAA;EACA,sBAAA;EACA,QAAA;ACCF","file":"ContextMenuItemGroup.css"}

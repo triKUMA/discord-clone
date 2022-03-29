@@ -1,47 +1,32 @@
 .button {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  align-items: center;
+  justify-content: center;
   border-radius: var(--border-radius);
-  -webkit-transition: background-color var(--colourTransition-toBase);
   transition: background-color var(--colourTransition-toBase);
   /* Size Variants */
   /* Span Variant (will fill all available width) */
 }
-
 .button:hover {
-  -webkit-transition: background-color var(--colourTransition-toAlt);
   transition: background-color var(--colourTransition-toAlt);
 }
-
 .button .icon {
   width: 1rem;
   height: 1rem;
   margin-right: 0.25rem;
 }
-
 .button .text {
   font-weight: 600;
 }
-
 .button.sm {
   padding: 0.45rem 1rem;
 }
-
 .button.md {
   padding: 0.6rem 1.25rem;
 }
-
 .button.lg {
   padding: 0.75rem 1.25rem;
 }
-
 .button.span {
   width: 100%;
 }
@@ -52,11 +37,9 @@
   border: 1px solid #4f545c;
   color: #f6f6f7;
 }
-
 .dark.button:hover:not(.disabled) {
   background-color: #5d6269;
 }
-
 .dark.button.outline {
   color: #4f545c;
 }
@@ -66,11 +49,9 @@
   border: 1px solid #747f8d;
   color: #f6f6f7;
 }
-
 .grey.button:hover:not(.disabled) {
   background-color: #5e6772;
 }
-
 .grey.button.outline {
   color: #747f8d;
 }
@@ -80,7 +61,6 @@
   border: 1px solid white;
   color: var(--discord-colour);
 }
-
 .light.button.outline {
   color: white;
 }
@@ -90,7 +70,6 @@
   border: 1px solid var(--success-colour);
   color: #f6f6f7;
 }
-
 .green.button.outline {
   color: var(--success-colour);
 }
@@ -100,11 +79,9 @@
   border: 1px solid var(--discord-colour);
   color: #f6f6f7;
 }
-
 .discord.button:hover:not(.disabled) {
   background-color: #4752c4;
 }
-
 .discord.button.outline {
   color: var(--discord-colour);
 }
@@ -114,11 +91,9 @@
   border: 1px solid var(--danger-colour);
   color: #f6f6f7;
 }
-
 .red.button:hover:not(.disabled) {
   background-color: #c03537;
 }
-
 .red.button.outline {
   color: var(--danger-colour);
 }
@@ -126,7 +101,6 @@
 .outline.button {
   background: none;
 }
-
 .outline.button .text {
   font-weight: 400;
 }
@@ -134,5 +108,4 @@
 .disabled.button {
   cursor: not-allowed;
   opacity: 0.75;
-}
-/*# sourceMappingURL=Button.css.map */
+}/*# sourceMappingURL=Button.css.map */

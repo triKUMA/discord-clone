@@ -29,6 +29,20 @@
     height: 100%;
     display: flex;
   }
+
+  .sidebarPlaceholder {
+    $bg-col: #2f3136;
+    min-width: var(--sidebar-width);
+    height: 100%;
+    background-color: $bg-col;
+  }
+
+  .feedPlaceholder {
+    $bg-col: #36393f;
+    width: 100%;
+    height: 100%;
+    background-color: $bg-col;
+  }
 }
 
 .notificationBanner {

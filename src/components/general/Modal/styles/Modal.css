@@ -5,15 +5,9 @@
   min-width: 100vw;
   min-height: 100vh;
   background-color: rgba(0, 0, 0, 0.75);
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  align-items: center;
+  justify-content: center;
   z-index: 100;
   -webkit-animation: fadeIn 250ms ease;
           animation: fadeIn 250ms ease;
@@ -27,10 +21,8 @@
   -webkit-animation: popIn 250ms ease;
           animation: popIn 250ms ease;
 }
-
 .modal .close-button {
-  -webkit-box-sizing: content-box;
-          box-sizing: content-box;
+  box-sizing: content-box;
   position: absolute;
   top: 0.75rem;
   right: 0.75rem;
@@ -39,13 +31,10 @@
   padding: 0.15rem;
   color: #a7aaaf;
   cursor: pointer;
-  -webkit-transition: color var(--colourTransition-toBase);
   transition: color var(--colourTransition-toBase);
 }
-
 .modal .close-button:hover {
   color: #2e3338;
-  -webkit-transition: color var(--colourTransition-toAlt);
   transition: color var(--colourTransition-toAlt);
 }
 
@@ -53,9 +42,7 @@
   -webkit-animation: fadeOut 100ms ease;
           animation: fadeOut 100ms ease;
 }
-
 .disable.modal-container .modal {
   -webkit-animation: popOut 250ms ease;
           animation: popOut 250ms ease;
-}
-/*# sourceMappingURL=Modal.css.map */
+}/*# sourceMappingURL=Modal.css.map */

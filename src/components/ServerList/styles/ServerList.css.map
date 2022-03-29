@@ -1,9 +1,1 @@
-{
-    "version": 3,
-    "mappings": "AAAA,AAAA,WAAW,CAAC;EAGV,SAAS,EAAE,uBAAuB;EAClC,MAAM,EAAE,KAAK;EACb,gBAAgB,EAJP,OAAO;EAKhB,UAAU,EAAE,MAAM;EAClB,eAAe,EAAE,IAAI;EACrB,OAAO,EAAE,IAAI;EACb,cAAc,EAAE,MAAM;EACtB,WAAW,EAAE,MAAM;EACnB,aAAa,EAAE,OAAO;EACtB,GAAG,EAAE,MAAM;CAQZ;;AApBD,AAcE,WAdS,CAcT,UAAU,CAAC;EACT,UAAU,EAAE,GAAG;EACf,KAAK,EAAE,IAAI;EACX,gBAAgB,EAAE,OAAO;EACzB,aAAa,EAAE,KAAK;CACrB",
-    "sources": [
-        "ServerList.scss"
-    ],
-    "names": [],
-    "file": "ServerList.css"
-}
+{"version":3,"sources":["ServerList.scss","ServerList.css"],"names":[],"mappings":"AAAA;EAGE,kCAAA;EACA,aAAA;EACA,yBAJS;EAKT,kBAAA;EACA,qBAAA;EACA,aAAA;EACA,sBAAA;EACA,mBAAA;EACA,sBAAA;EACA,WAAA;ACDF;ADGE;EACE,eAAA;EACA,WAAA;EACA,yBAAA;EACA,oBAAA;ACDJ","file":"ServerList.css"}

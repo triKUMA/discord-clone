@@ -35,7 +35,14 @@ function ServerList(props: ServerListProps) {
     <ContextMenuCtx.Consumer>
       {(contextMenuCtx) => (
         <div className="serverList">
-          <ServerIcon icon={FaDiscord} text="Home" variant="discord" />
+          <ServerIcon
+            icon={FaDiscord}
+            onClick={() => {
+              dispatch(setActiveServer("home"));
+            }}
+            text="Home"
+            variant="discord"
+          />
 
           <div className="separator" />
 
@@ -233,6 +240,9 @@ function ServerList(props: ServerListProps) {
           <ServerIcon
             icon={IoCompassSharp}
             text="Explore Public Servers"
+            onClick={() => {
+              dispatch(setActiveServer("explore"));
+            }}
             variant="green"
           />
 

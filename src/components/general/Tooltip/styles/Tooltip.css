@@ -4,82 +4,55 @@
   background-color: #18191c;
   border-radius: var(--border-radius);
   color: #d6d7d8;
-  -webkit-box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.25);
-          box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.25);
   -webkit-animation: fadePopIn 100ms ease;
           animation: fadePopIn 100ms ease;
 }
-
 .tooltip .contents {
   padding: 0.35rem 0.65rem 0.45rem;
   position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  align-items: center;
+  justify-content: center;
 }
-
 .tooltip .triangle {
   position: absolute;
   width: 1rem;
   height: 1rem;
   color: #18191c;
 }
-
 .tooltip.sm {
   font-size: 0.85rem;
   font-weight: 600;
 }
-
 .tooltip.md {
   font-size: 1rem;
   font-weight: 600;
 }
-
 .tooltip.left {
-  -webkit-transform-origin: right;
-          transform-origin: right;
+  transform-origin: right;
 }
-
 .tooltip.left .triangle {
   right: -0.65rem;
-  -webkit-transform: rotate(180deg);
-          transform: rotate(180deg);
+  transform: rotate(180deg);
 }
-
 .tooltip.right {
-  -webkit-transform-origin: left;
-          transform-origin: left;
+  transform-origin: left;
 }
-
 .tooltip.right .triangle {
   left: -0.65rem;
 }
-
 .tooltip.top {
-  -webkit-transform-origin: bottom;
-          transform-origin: bottom;
+  transform-origin: bottom;
 }
-
 .tooltip.top .triangle {
   bottom: -0.65rem;
-  -webkit-transform: rotate(270deg);
-          transform: rotate(270deg);
+  transform: rotate(270deg);
 }
-
 .tooltip.bottom {
-  -webkit-transform-origin: top;
-          transform-origin: top;
+  transform-origin: top;
 }
-
 .tooltip.bottom .triangle {
   top: -0.65rem;
-  -webkit-transform: rotate(90deg);
-          transform: rotate(90deg);
-}
-/*# sourceMappingURL=Tooltip.css.map */
+  transform: rotate(90deg);
+}/*# sourceMappingURL=Tooltip.css.map */

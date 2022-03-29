@@ -1,22 +1,14 @@
 .notificationBanner {
   min-height: 2.25rem;
   width: 100%;
-  background-image: -webkit-gradient(linear, left top, right top, from(#b473f5), to(#e292aa));
   background-image: linear-gradient(to right, #b473f5, #e292aa);
   border-top-left-radius: 0.5rem;
   position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  align-items: center;
+  justify-content: center;
   color: white;
 }
-
 .notificationBanner::before {
   content: "";
   position: absolute;
@@ -24,38 +16,25 @@
   right: 0;
   width: 100%;
   height: 3px;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.2)), to(transparent));
   background-image: linear-gradient(rgba(0, 0, 0, 0.2), transparent);
 }
-
 .notificationBanner .close {
   position: absolute;
   right: 0;
   width: 2.25rem;
   height: 2.25rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
   color: #f0c8d5;
-  -webkit-transition: color var(--colourTransition-toBase);
   transition: color var(--colourTransition-toBase);
 }
-
 .notificationBanner .close:hover {
   color: white;
-  -webkit-transition: color var(--colourTransition-toAlt);
   transition: color var(--colourTransition-toAlt);
 }
-
 .notificationBanner .close .close-icon {
   width: 1.25rem;
   height: 1.25rem;
-}
-/*# sourceMappingURL=NotificationBanner.css.map */
+}/*# sourceMappingURL=NotificationBanner.css.map */

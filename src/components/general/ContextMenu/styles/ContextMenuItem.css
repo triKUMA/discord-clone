@@ -1,37 +1,27 @@
 .contextMenuItem {
   width: 100%;
   padding: 0.5rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: space-between;
+  align-items: center;
   color: #a7a9ac;
   border-radius: var(--border-radius);
 }
-
 .contextMenuItem .text {
   text-align: left;
   font-size: 0.85rem;
   font-weight: 600;
   white-space: nowrap;
 }
-
 .contextMenuItem .icon {
   width: 1.15rem;
   height: 1.15rem;
   margin-left: 0.5rem;
 }
-
 .contextMenuItem:hover:not(.disabled) {
   background-color: #4752c4;
   color: white;
 }
-
 .contextMenuItem:hover:not(.disabled) .icon {
   color: white;
 }
@@ -39,7 +29,6 @@
 .active.contextMenuItem .icon {
   color: #8a92e9;
 }
-
 .active.contextMenuItem:hover:not(.disabled) .icon {
   color: white;
 }
@@ -47,7 +36,6 @@
 .discord.contextMenuItem {
   color: #8a92e9;
 }
-
 .discord.contextMenuItem:hover:not(.disabled) {
   color: white;
 }
@@ -55,7 +43,6 @@
 .red.contextMenuItem {
   color: var(--danger-colour);
 }
-
 .red.contextMenuItem:hover:not(.disabled) {
   background-color: var(--danger-colour);
   color: white;
@@ -64,7 +51,6 @@
 .pink.contextMenuItem .icon {
   color: #ff73fa;
 }
-
 .pink.contextMenuItem:hover:not(.disabled) .icon {
   color: white;
 }
@@ -72,5 +58,4 @@
 .disabled.contextMenuItem {
   opacity: 0.5;
   cursor: default;
-}
-/*# sourceMappingURL=ContextMenuItem.css.map */
+}/*# sourceMappingURL=ContextMenuItem.css.map */

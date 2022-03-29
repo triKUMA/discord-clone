@@ -1,9 +1,1 @@
-{
-    "version": 3,
-    "mappings": "AAAA,AAAA,YAAY,CAAC;EACX,QAAQ,EAAE,QAAQ;EAClB,OAAO,EAAE,GAAG;EACZ,OAAO,EAAE,MAAM;EACf,SAAS,EAAE,OAAO;EAClB,gBAAgB,EAAE,OAAO;EACzB,aAAa,EAAE,oBAAoB;EACnC,eAAe,EAAE,IAAI;EACrB,OAAO,EAAE,IAAI;EACb,cAAc,EAAE,MAAM;EACtB,UAAU,EAAE,GAAG,CAAC,GAAG,CAAC,IAAI,CAAC,GAAG,CAAC,mBAAmB;CAMjD;;AAhBD,AAYE,YAZU,CAYV,UAAU,CAAC;EACT,MAAM,EAAE,OAAO;EACf,aAAa,EAAE,iBAAiB;CACjC",
-    "sources": [
-        "ContextMenu.scss"
-    ],
-    "names": [],
-    "file": "ContextMenu.css"
-}
+{"version":3,"sources":["ContextMenu.scss","ContextMenu.css"],"names":[],"mappings":"AAAA;EACE,kBAAA;EACA,YAAA;EACA,eAAA;EACA,kBAAA;EACA,yBAAA;EACA,mCAAA;EACA,qBAAA;EACA,aAAA;EACA,sBAAA;EACA,gDAAA;ACCF;ADCE;EACE,eAAA;EACA,gCAAA;ACCJ","file":"ContextMenu.css"}

@@ -1,9 +1,9 @@
 import { useSelector } from "react-redux";
 import "./App.css";
 import { StoreType } from "./app/store";
-import ChannelFeed from "./components/ServerPage/ChannelFeed/ChannelFeed";
+import ChannelFeed from "./components/content pages/Server/ChannelFeed/ChannelFeed";
 import ServerList from "./components/ServerList/ServerList";
-import ServerSidebar from "./components/ServerPage/ServerSidebar/ServerSidebar";
+import ServerSidebar from "./components/content pages/Server/ServerSidebar/ServerSidebar";
 import NotificationBanner from "./components/general/NotificationBanner/NotificationBanner";
 import NitroIcon from "./components/general/NitroIcon/NitroIcon";
 import Tooltip, {
@@ -15,10 +15,9 @@ import ContextMenu, {
   ContextMenuCtx,
   ContextMenuProps,
 } from "./components/general/ContextMenu/ContextMenu";
+import ServerContent from "./components/content pages/Server/ServerContent";
 
 function App() {
-  const [displayBanner, setDisplayBanner] = useState(false);
-
   // Context Menu Properties
   const [contextMenuDetails, setContextMenuDetails] =
     useState<ContextMenuProps>({ event: null, menuItems: [] });
@@ -31,6 +30,10 @@ function App() {
     size: "sm",
   });
 
+  const activeUserID = useSelector(
+    (state: StoreType) => state.users.activeUser
+  );
+
   const activeUser = useSelector((state: StoreType) => {
     if (state.users.activeUser === null) {
       return null;
@@ -42,6 +45,10 @@ function App() {
       return typeof activeUser !== "undefined" ? activeUser : null;
     }
   });
+
+  const activeServerID = useSelector(
+    (state: StoreType) => state.servers.activeServer
+  );
 
   const activeServer = useSelector((state: StoreType) => {
     if (state.servers.activeServer === null) {
@@ -87,27 +94,26 @@ function App() {
             },
           }}
         >
-          {activeUser === null ? (
-            <></>
-          ) : (
+          {activeUser !== null && (
             <>
               <ServerList activeUser={activeUser} activeServer={activeServer} />
-              <div className="mainArea-wrapper">
-                {displayBanner && (
-                  <NotificationBanner>
-                    <NitroIcon className="icon" />
-                    <p className="text">
-                      Hey, you have something waiting for you in your gift
-                      inventory! Don't forget to claim it before it's lost.
-                    </p>
-                    <button>Take me there</button>
-                  </NotificationBanner>
-                )}
-                <div className="mainArea">
-                  <ServerSidebar activeServer={activeServer} />
-                  <ChannelFeed />
-                </div>
-              </div>
+              {activeServerID === "home" ? (
+                <>
+                  <div className="testArea"></div>
+                </>
+              ) : activeServerID === "explore" ? (
+                <></>
+              ) : activeServer !== null ? (
+                <ServerContent
+                  activeServer={activeServer}
+                  activeUser={activeUser}
+                />
+              ) : (
+                <>
+                  <div className="sidebarPlaceholder" />
+                  <div className="feedPlaceholder" />
+                </>
+              )}
             </>
           )}
         </TooltipCtx.Provider>

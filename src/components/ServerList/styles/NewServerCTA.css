@@ -2,105 +2,74 @@
   background-color: white;
   width: 27.5rem;
 }
-
 .newServerCTA .pageChange {
   min-height: 4rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
   border: 1px solid #ebebec;
   border-radius: 0.5rem;
-  -webkit-transition: color var(--colourTransition-toBase), background-color var(--colourTransition-toBase);
   transition: color var(--colourTransition-toBase), background-color var(--colourTransition-toBase);
 }
-
 .newServerCTA .pageChange:hover {
   background-color: #f4f5f6;
   border-color: #e1e2e4;
-  -webkit-transition: color var(--colourTransition-toAlt), background-color var(--colourTransition-toAlt);
   transition: color var(--colourTransition-toAlt), background-color var(--colourTransition-toAlt);
 }
-
 .newServerCTA .pageChange .icon {
   min-width: 3rem;
   min-height: 3rem;
   margin-left: 1rem;
   margin-right: 0.5rem;
 }
-
 .newServerCTA .pageChange .content {
   width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   text-align: left;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  justify-content: center;
 }
-
 .newServerCTA .pageChange .title {
   font-size: 0.95rem;
   font-weight: 700;
   color: #2e3338;
 }
-
 .newServerCTA .pageChange .continueIcon {
   width: 2.75rem;
   height: 2.75rem;
   color: #4f5660;
   margin-right: 0.75rem;
 }
-
 .newServerCTA .header {
   padding: 1.5rem;
   text-align: center;
 }
-
 .newServerCTA .header .title {
   margin-bottom: 0.5rem;
   font-weight: 700;
   font-size: 1.55rem;
   color: #060607;
 }
-
 .newServerCTA .header .desc {
   color: #4f5660;
   font-size: 0.95rem;
 }
-
 .newServerCTA .pageChange-wrapper {
   padding: 1rem;
   padding-top: 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   gap: 0.5rem;
 }
-
 .newServerCTA .pageChange-wrapper.scroll {
   max-height: 20rem;
   overflow-y: scroll;
   scrollbar-width: thin;
   padding-right: calc(1rem / 2);
 }
-
 .newServerCTA .serverDetails-wrapper {
   padding: 1rem;
   padding-top: 0;
 }
-
 .newServerCTA .serverDetails-wrapper input {
   margin-top: 0.5rem;
   width: 100%;
@@ -109,49 +78,35 @@
   border-radius: var(--border-radius);
   border: 1px solid #c8c9cc;
   outline: none;
-  -webkit-transition: border-color var(--colourTransition-toBase);
   transition: border-color var(--colourTransition-toBase);
 }
-
 .newServerCTA .serverDetails-wrapper input:focus-within {
   border-color: #0068e0;
-  -webkit-transition: border-color var(--colourTransition-toAlt);
   transition: border-color var(--colourTransition-toAlt);
 }
-
 .newServerCTA .icon-wrapper {
   width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
   margin-bottom: 1.5rem;
   position: relative;
 }
-
 .newServerCTA .icon-wrapper .img-wrapper {
   width: 5rem;
   height: 5rem;
   border-radius: 10rem;
   overflow: hidden;
 }
-
 .newServerCTA .icon-wrapper .img-wrapper img {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
 }
-
 .newServerCTA .icon-wrapper input {
   position: absolute;
-  -webkit-box-sizing: content-box;
-          box-sizing: content-box;
+  box-sizing: content-box;
   min-width: 5rem;
   min-height: 5rem;
   max-width: 5rem;
@@ -161,29 +116,18 @@
   opacity: 0;
   cursor: pointer;
 }
-
 .newServerCTA .icon-wrapper .icon {
   width: 5rem;
   height: 5rem;
   border-radius: 10rem;
   border: 3px dashed #4f5660;
   color: #4f5660;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   position: relative;
 }
-
 .newServerCTA .icon-wrapper .icon:after {
   content: "+";
   position: absolute;
@@ -191,15 +135,9 @@
   right: -0.35rem;
   width: 1.5rem;
   height: 1.5rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  align-items: flex-end;
+  justify-content: center;
   border-radius: 10rem;
   border: 4px solid white;
   background-color: var(--discord-colour);
@@ -207,18 +145,15 @@
   font-size: 1.5rem;
   font-weight: 300;
 }
-
 .newServerCTA .icon-wrapper .icon .camera {
   width: 1.25rem;
   height: 1.25rem;
 }
-
 .newServerCTA .icon-wrapper .icon p {
   text-transform: uppercase;
   font-weight: 800;
   font-size: 0.75rem;
 }
-
 .newServerCTA .section-title {
   margin-top: 0.45rem;
   font-size: 0.75rem;
@@ -226,7 +161,6 @@
   color: #4f5660;
   text-transform: uppercase;
 }
-
 .newServerCTA .skip {
   margin-top: 0.25rem;
   margin-bottom: 1.5rem;
@@ -234,36 +168,29 @@
   font-size: 0.825rem;
   color: #4f5660;
 }
-
 .newServerCTA .skip-button {
   color: #0068e0;
 }
-
 .newServerCTA .skip-button:hover {
   border-bottom: 1px solid #0068e0;
 }
-
 .newServerCTA .guidelines {
   margin-top: 0.6rem;
   margin-bottom: 0.25rem;
   font-size: 0.7rem;
   color: #747f8d;
 }
-
 .newServerCTA .guidelines-button {
   color: #0068e0;
   font-weight: 700;
 }
-
 .newServerCTA .guidelines-button:hover {
   border-bottom: 1px solid #0068e0;
 }
-
 .newServerCTA .footer {
   padding: 1rem;
   background-color: #f6f6f7;
 }
-
 .newServerCTA .footer .title {
   color: #060607;
   text-align: center;
@@ -271,19 +198,12 @@
   font-weight: 600;
   margin-bottom: 0.5rem;
 }
-
 .newServerCTA .footer .nav-wrapper {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  justify-content: space-between;
 }
-
 .newServerCTA .footer .back {
   font-weight: 600;
   margin-left: 0.25rem;
   margin-block: 0.625rem;
-}
-/*# sourceMappingURL=NewServerCTA.css.map */
+}/*# sourceMappingURL=NewServerCTA.css.map */

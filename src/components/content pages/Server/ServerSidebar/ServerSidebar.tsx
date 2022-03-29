@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
-import { ServerType } from "../../../types/ServerType";
-import Button from "../../general/Button/Button";
+import { ServerType } from "../../../../types/ServerType";
+import Button from "../../../general/Button/Button";
 import "./styles/ServerSidebar.css";
-import { ChannelCategoryType, ChannelType } from "../../../types/ChannelType";
-import ContextMenuItem from "../../general/ContextMenu/ContextMenuItem";
+import {
+  ChannelCategoryType,
+  ChannelType,
+} from "../../../../types/ChannelType";
+import ContextMenuItem from "../../../general/ContextMenu/ContextMenuItem";
 import { IoMdClose, IoMdAdd } from "react-icons/io";
 import { IoChevronDown, IoChevronForward } from "react-icons/io5";
 import { RiSettings5Fill, RiShieldFlashFill } from "react-icons/ri";
@@ -12,7 +15,12 @@ import { BsBellFill, BsArrowLeftCircleFill } from "react-icons/bs";
 import { FaPen } from "react-icons/fa";
 import { BiHash } from "react-icons/bi";
 import { MdVolumeUp, MdPersonAddAlt1 } from "react-icons/md";
-import { TooltipCtx } from "../../general/Tooltip/Tooltip";
+import { TooltipCtx } from "../../../general/Tooltip/Tooltip";
+import { useDispatch } from "react-redux";
+import {
+  removeServer,
+  setActiveServer,
+} from "../../../../features/servers/serversSlice";
 
 interface ChannelProps {
   details: ChannelType;
@@ -68,12 +76,14 @@ function Channel(props: ChannelProps) {
 }
 
 interface ServerSidebarProps {
-  activeServer: ServerType | null;
+  activeServer: ServerType;
 }
 
 function ServerSidebar(props: ServerSidebarProps) {
   const [displayInvitePeopleCTA, setDisplayInvitePeopleCTA] = useState(false);
   const [headerMenuActive, setHeaderMenuActive] = useState(false);
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
     document.addEventListener("mouseup", (e) => {
@@ -166,8 +176,11 @@ function ServerSidebar(props: ServerSidebarProps) {
                 <ContextMenuItem
                   text="Leave Server"
                   icon={BsArrowLeftCircleFill}
+                  onClick={() => {
+                    dispatch(setActiveServer(""));
+                    dispatch(removeServer(props.activeServer.id));
+                  }}
                   colour="red"
-                  disabled={true}
                 />
               </div>
             )}

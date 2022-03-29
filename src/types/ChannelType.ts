@@ -4,6 +4,7 @@ export interface ChannelType {
   type: "text" | "voice";
   name: string;
   feed: PostGroupType[];
+  id: string;
 }
 
 export interface ChannelCategoryType {
