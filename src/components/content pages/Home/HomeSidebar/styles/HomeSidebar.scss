@@ -1,18 +1,24 @@
-.channelFeed {
-  $bg-col: #36393f;
-  width: 100%;
+.homeSidebar {
+  $bg-col: #2f3136;
+  min-width: var(--sidebar-width);
+  max-width: var(--sidebar-width);
   height: 100%;
   background-color: $bg-col;
+  display: flex;
+  flex-direction: column;
 
   .header {
     min-height: var(--header-height);
     width: 100%;
     position: relative;
 
+    transition: background-color var(--colourTransition-toBase);
+
     &::before {
       content: "";
       position: absolute;
       top: var(--header-height);
+      left: 0;
       min-width: 100%;
       height: 3px;
       background-image: linear-gradient(rgba(0, 0, 0, 0.2), transparent);

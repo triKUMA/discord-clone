@@ -1,18 +1,18 @@
-.channelFeed {
+.homeFeed {
   width: 100%;
   height: 100%;
   background-color: #36393f;
 }
-.channelFeed .header {
+.homeFeed .header {
   min-height: var(--header-height);
   width: 100%;
   position: relative;
 }
-.channelFeed .header::before {
+.homeFeed .header::before {
   content: "";
   position: absolute;
   top: var(--header-height);
   min-width: 100%;
   height: 3px;
   background-image: linear-gradient(rgba(0, 0, 0, 0.2), transparent);
-}/*# sourceMappingURL=ChannelFeed.css.map */
+}/*# sourceMappingURL=HomeFeed.css.map */

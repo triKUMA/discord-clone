@@ -3,7 +3,7 @@ import "./styles/ChannelFeed.css";
 function ChannelFeed() {
   return (
     <div className="channelFeed">
-      <header></header>
+      <div className="header"></div>
     </div>
   );
 }

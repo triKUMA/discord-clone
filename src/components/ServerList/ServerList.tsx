@@ -29,6 +29,9 @@ function ServerList(props: ServerListProps) {
   const [newServerModalStartingPage, setNewServerModalStartingPage] =
     useState(1);
   const servers = useSelector((state: StoreType) => state.servers.servers);
+  const activeServerID = useSelector(
+    (state: StoreType) => state.servers.activeServer
+  );
   const dispatch = useDispatch();
 
   return (
@@ -41,6 +44,7 @@ function ServerList(props: ServerListProps) {
               dispatch(setActiveServer("home"));
             }}
             text="Home"
+            active={activeServerID === "home"}
             variant="discord"
           />
 
@@ -50,7 +54,7 @@ function ServerList(props: ServerListProps) {
             <ServerIcon
               imgSrc={item.iconSrc !== null ? item.iconSrc : undefined}
               text={item.name}
-              active={item.id === props.activeServer?.id}
+              active={item.id === activeServerID}
               onClick={() => {
                 dispatch(setActiveServer(item.id));
               }}
@@ -243,6 +247,7 @@ function ServerList(props: ServerListProps) {
             onClick={() => {
               dispatch(setActiveServer("explore"));
             }}
+            active={activeServerID === "explore"}
             variant="green"
           />
 

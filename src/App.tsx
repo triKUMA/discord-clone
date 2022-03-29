@@ -16,6 +16,7 @@ import ContextMenu, {
   ContextMenuProps,
 } from "./components/general/ContextMenu/ContextMenu";
 import ServerContent from "./components/content pages/Server/ServerContent";
+import HomeContent from "./components/content pages/Home/HomeContent";
 
 function App() {
   const [displayBanner, setDisplayBanner] = useState(false);
@@ -114,11 +115,9 @@ function App() {
                     activeUser={activeUser}
                     activeServer={activeServer}
                   />
+
                   {activeServerID === "home" ? (
-                    <>
-                      <div className="sidebarPlaceholder" />
-                      <div className="feedPlaceholder" />
-                    </>
+                    <HomeContent />
                   ) : activeServerID === "explore" ? (
                     <>
                       <div className="sidebarPlaceholder" />
