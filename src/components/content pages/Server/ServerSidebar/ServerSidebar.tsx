@@ -82,6 +82,71 @@ function Channel(props: ChannelProps) {
   );
 }
 
+interface ChannelCategoryProps {
+  details: ChannelCategoryType;
+  activeChannel: string;
+}
+
+function ChannelCategory(props: ChannelCategoryProps) {
+  const [collapsed, setCollapsed] = useState(false);
+
+  const dispatch = useDispatch();
+
+  return (
+    <TooltipCtx.Consumer>
+      {(tooltipCtx) => (
+        <>
+          <div className="channelCategory">
+            <IoMdAdd
+              className="add-icon"
+              onMouseEnter={(e) => {
+                tooltipCtx.setTooltipDetails({
+                  text: "Create Channel",
+                  parent: e.currentTarget as EventTarget as HTMLElement,
+                  parentSide: "top",
+                  size: "sm",
+                });
+              }}
+              onMouseLeave={() => {
+                tooltipCtx.disableTooltip();
+              }}
+            />
+            <div className="details">
+              {!collapsed ? (
+                <IoChevronDown
+                  className="expand-icon"
+                  onClick={() => {
+                    setCollapsed(true);
+                  }}
+                />
+              ) : (
+                <IoChevronForward
+                  className="expand-icon"
+                  onClick={() => {
+                    setCollapsed(false);
+                  }}
+                />
+              )}
+              <p className="name">{props.details.name}</p>
+            </div>
+          </div>
+          {props.details.channels.map((item) =>
+            !collapsed || item.id === props.activeChannel ? (
+              <Channel
+                details={item}
+                onClick={() => {
+                  dispatch(setActiveChannel(item.id));
+                }}
+                active={item.id === props.activeChannel}
+              />
+            ) : null
+          )}
+        </>
+      )}
+    </TooltipCtx.Consumer>
+  );
+}
+
 interface ServerSidebarProps {
   activeServer: ServerType;
 }
@@ -247,42 +312,10 @@ function ServerSidebar(props: ServerSidebarProps) {
                   active={item.id === props.activeServer.activeChannel}
                 />
               ) : (
-                <TooltipCtx.Consumer>
-                  {(tooltipCtx) => (
-                    <>
-                      <div className="channelCategory">
-                        <IoMdAdd
-                          className="add-icon"
-                          onMouseEnter={(e) => {
-                            tooltipCtx.setTooltipDetails({
-                              text: "Create Channel",
-                              parent:
-                                e.currentTarget as EventTarget as HTMLElement,
-                              parentSide: "top",
-                              size: "sm",
-                            });
-                          }}
-                          onMouseLeave={() => {
-                            tooltipCtx.disableTooltip();
-                          }}
-                        />
-                        <div className="details">
-                          <IoChevronDown className="expand-icon" />
-                          <p className="name">{item.name}</p>
-                        </div>
-                      </div>
-                      {item.channels.map((item) => (
-                        <Channel
-                          details={item}
-                          onClick={() => {
-                            dispatch(setActiveChannel(item.id));
-                          }}
-                          active={item.id === props.activeServer.activeChannel}
-                        />
-                      ))}
-                    </>
-                  )}
-                </TooltipCtx.Consumer>
+                <ChannelCategory
+                  details={item}
+                  activeChannel={props.activeServer.activeChannel}
+                />
               )
             )}
           </div>
