@@ -1,17 +1,16 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { ServerPrototypeType, ServerType } from "../../types/ServerType";
 import { v4 as uuidv4 } from "uuid";
+import { ChannelCategoryType, ChannelType } from "../../types/ChannelType";
 
 interface ServersSliceType {
   servers: ServerType[];
   activeServer: string | null;
-  activeChannel: string;
 }
 
 const serversSliceInitState: ServersSliceType = {
   servers: [],
   activeServer: "home",
-  activeChannel: "",
 };
 
 function createServerFromPrototype(prototype: ServerPrototypeType): ServerType {
@@ -21,6 +20,7 @@ function createServerFromPrototype(prototype: ServerPrototypeType): ServerType {
     iconSrc: prototype.iconSrc,
     channels: [],
     members: [prototype.creator],
+    activeChannel: "",
   };
 
   switch (prototype.template) {
@@ -193,6 +193,17 @@ const serversSlice = createSlice({
   initialState: serversSliceInitState,
   reducers: {
     addServer: (state: ServersSliceType, action: PayloadAction<ServerType>) => {
+      if (
+        typeof (action.payload.channels[0] as ChannelType).type !== "undefined"
+      ) {
+        action.payload.activeChannel = (
+          action.payload.channels[0] as ChannelType
+        ).id;
+      } else {
+        action.payload.activeChannel = (
+          action.payload.channels[0] as ChannelCategoryType
+        ).channels[0].id;
+      }
       state.servers = state.servers.concat(action.payload);
       state.activeServer = action.payload.id;
     },
@@ -201,6 +212,13 @@ const serversSlice = createSlice({
       action: PayloadAction<ServerPrototypeType>
     ) => {
       const newServer = createServerFromPrototype(action.payload);
+      if (typeof (newServer.channels[0] as ChannelType).type !== "undefined") {
+        newServer.activeChannel = (newServer.channels[0] as ChannelType).id;
+      } else {
+        newServer.activeChannel = (
+          newServer.channels[0] as ChannelCategoryType
+        ).channels[0].id;
+      }
       state.servers = state.servers.concat(newServer);
       state.activeServer = newServer.id;
     },
@@ -209,12 +227,10 @@ const serversSlice = createSlice({
       action: PayloadAction<string>
     ) => {
       state.activeServer = action.payload;
-      state.activeChannel = "0";
     },
     removeServer: (state: ServersSliceType, action: PayloadAction<string>) => {
       if (state.activeServer === action.payload) {
         state.activeServer = null;
-        state.activeChannel = "";
       }
 
       state.servers.splice(
@@ -224,6 +240,17 @@ const serversSlice = createSlice({
         1
       );
     },
+    setActiveChannel: (
+      state: ServersSliceType,
+      action: PayloadAction<string>
+    ) => {
+      // state.activeChannel = action.payload;
+      state.servers.forEach((server) => {
+        if (server.id === state.activeServer) {
+          server.activeChannel = action.payload;
+        }
+      });
+    },
   },
 });
 
@@ -232,6 +259,7 @@ export const {
   addServerFromPrototype,
   setActiveServer,
   removeServer,
+  setActiveChannel,
 } = serversSlice.actions;
 
 export const serversReducer = serversSlice.reducer;

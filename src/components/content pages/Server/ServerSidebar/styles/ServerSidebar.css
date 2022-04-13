@@ -135,6 +135,7 @@
   right: 0.5rem;
   width: 1.2rem;
   height: 1.2rem;
+  cursor: pointer;
 }
 .serverSidebar .channelCategory .add-icon:hover {
   color: #dcddde;
@@ -154,13 +155,13 @@
   color: #8e9297;
   border-radius: var(--border-radius);
 }
-.serverSidebar .channel:hover {
+.serverSidebar .channel:hover, .serverSidebar .channel.active {
   background-color: #393c42;
 }
-.serverSidebar .channel:hover .name {
+.serverSidebar .channel:hover .name, .serverSidebar .channel.active .name {
   color: white;
 }
-.serverSidebar .channel:hover .channel-icons {
+.serverSidebar .channel:hover .channel-icons, .serverSidebar .channel.active .channel-icons {
   display: flex;
 }
 .serverSidebar .channel .details {

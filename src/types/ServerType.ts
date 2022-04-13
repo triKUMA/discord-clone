@@ -6,6 +6,7 @@ export interface ServerType {
   iconSrc: string | null;
   channels: (ChannelType | ChannelCategoryType)[];
   members: string[];
+  activeChannel: string;
 }
 
 export interface ServerPrototypeType {

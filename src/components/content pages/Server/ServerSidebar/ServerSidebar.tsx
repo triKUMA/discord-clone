@@ -16,19 +16,26 @@ import { FaPen } from "react-icons/fa";
 import { BiHash } from "react-icons/bi";
 import { MdVolumeUp, MdPersonAddAlt1 } from "react-icons/md";
 import { TooltipCtx } from "../../../general/Tooltip/Tooltip";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   removeServer,
+  setActiveChannel,
   setActiveServer,
 } from "../../../../features/servers/serversSlice";
+import { StoreType } from "../../../../app/store";
 
 interface ChannelProps {
   details: ChannelType;
+  onClick?: () => void;
+  active: boolean;
 }
 
 function Channel(props: ChannelProps) {
   return (
-    <button className="channel">
+    <button
+      className={"channel" + (props.active ? " active" : "")}
+      onClick={props.onClick}
+    >
       <div className="details">
         {props.details.type === "text" ? (
           <BiHash className="type-icon text" />
@@ -232,7 +239,13 @@ function ServerSidebar(props: ServerSidebarProps) {
           <div className="channels-feed">
             {props.activeServer.channels.map((item) =>
               isChannel(item) ? (
-                <Channel details={item} />
+                <Channel
+                  details={item}
+                  onClick={() => {
+                    dispatch(setActiveChannel(item.id));
+                  }}
+                  active={item.id === props.activeServer.activeChannel}
+                />
               ) : (
                 <TooltipCtx.Consumer>
                   {(tooltipCtx) => (
@@ -259,7 +272,13 @@ function ServerSidebar(props: ServerSidebarProps) {
                         </div>
                       </div>
                       {item.channels.map((item) => (
-                        <Channel details={item} />
+                        <Channel
+                          details={item}
+                          onClick={() => {
+                            dispatch(setActiveChannel(item.id));
+                          }}
+                          active={item.id === props.activeServer.activeChannel}
+                        />
                       ))}
                     </>
                   )}
