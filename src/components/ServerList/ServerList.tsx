@@ -188,7 +188,7 @@ function ServerList(props: ServerListProps) {
                         {
                           text: "Leave Server",
                           onClick: () => {
-                            dispatch(setActiveServer(""));
+                            dispatch(setActiveServer("home"));
                             dispatch(removeServer(item.id));
                             contextMenuCtx.disableMenu();
                           },

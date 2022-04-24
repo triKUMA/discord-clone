@@ -249,7 +249,7 @@ function ServerSidebar(props: ServerSidebarProps) {
                   text="Leave Server"
                   icon={BsArrowLeftCircleFill}
                   onClick={() => {
-                    dispatch(setActiveServer(""));
+                    dispatch(setActiveServer("home"));
                     dispatch(removeServer(props.activeServer.id));
                   }}
                   colour="red"
