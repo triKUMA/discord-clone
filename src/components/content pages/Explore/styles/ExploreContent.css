@@ -1,0 +1,15 @@
+.exploreContent {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+.exploreContent .sidebar {
+  min-width: var(--sidebar-width);
+  height: 100%;
+  background-color: #2f3136;
+}
+.exploreContent .feed {
+  width: 100%;
+  height: 100%;
+  background-color: #36393f;
+}/*# sourceMappingURL=ExploreContent.css.map */

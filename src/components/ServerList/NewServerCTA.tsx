@@ -8,6 +8,7 @@ import { ServerPrototypeType } from "../../types/ServerType";
 import { UserType } from "../../types/UserType";
 import { useDispatch } from "react-redux";
 import { addServerFromPrototype } from "../../features/servers/serversSlice";
+import NotYetImplemented from "../general/NotYetImplemented/NotYetImplemented";
 
 interface PageChangeProps {
   iconSrc: string;
@@ -294,7 +295,11 @@ function NewServerPage3(
 }
 
 function NewServerPage4(props: PageProps) {
-  return <div className="page4"></div>;
+  return (
+    <div className="page4">
+      <NotYetImplemented />
+    </div>
+  );
 }
 
 interface NewServerCTAProps {
