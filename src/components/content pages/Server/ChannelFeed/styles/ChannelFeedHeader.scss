@@ -19,13 +19,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 0.4rem;
     padding-inline: 1rem;
 
     .type-icon {
-      $size: 1.6rem;
+      $size: 1.7rem;
       width: $size;
       height: $size;
-      margin-right: 0.4rem;
       color: #8e9297;
     }
 
@@ -41,6 +41,65 @@
     min-height: 100%;
     margin-left: auto;
     display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding-inline: 1rem;
     z-index: 2;
+
+    .icon {
+      $size: 1.5rem;
+      width: $size;
+      height: $size;
+      color: #b9bbbe;
+
+      &.active {
+        color: white;
+      }
+
+      &.bell {
+        $size: 1.3rem;
+        width: $size;
+        height: $size;
+      }
+
+      &:hover {
+        color: #dcddde;
+      }
+    }
+
+    .search-wrapper {
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
+
+    .search {
+      background-color: #202225;
+      height: 1.5rem;
+      width: 9rem;
+      border: none;
+      outline: none;
+      border-radius: var(--border-radius);
+      color: #dcddde;
+      padding-left: 0.35rem;
+      padding-right: 1.5rem;
+      font-weight: 600;
+
+      transition: width 200ms ease-in-out;
+
+      &:focus-within {
+        width: 15rem;
+
+        transition: width 200ms ease-out;
+      }
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 100%;
+      margin-left: -1.3rem;
+      color: #a3a6aa;
+    }
   }
 }

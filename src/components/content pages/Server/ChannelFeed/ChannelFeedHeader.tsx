@@ -1,6 +1,10 @@
 import { useState } from "react";
+import { AiFillPushpin } from "react-icons/ai";
 import { BiHash } from "react-icons/bi";
-import { MdVolumeUp } from "react-icons/md";
+import { BsBellFill } from "react-icons/bs";
+import { HiOutlineSearch } from "react-icons/hi";
+import { IoMdChatboxes, IoMdHelpCircle } from "react-icons/io";
+import { MdInbox, MdPeopleAlt, MdVolumeUp } from "react-icons/md";
 import { useSelector } from "react-redux";
 import { StoreType } from "../../../../app/store";
 import {
@@ -8,6 +12,7 @@ import {
   ChannelType,
 } from "../../../../types/ChannelType";
 import { ServerType } from "../../../../types/ServerType";
+import { TooltipCtx } from "../../../general/Tooltip/Tooltip";
 import "./styles/ChannelFeedHeader.css";
 
 interface ChannelFeedHeaderProps {
@@ -56,7 +61,104 @@ function ChannelFeedHeader(props: ChannelFeedHeaderProps) {
         )}
         <p className="channel-name">{activeChannel.name}</p>
       </div>
-      <div className="icons"></div>
+      <TooltipCtx.Consumer>
+        {(tooltipCtx) => (
+          <div className="icons">
+            <IoMdChatboxes
+              className="icon"
+              onMouseEnter={(e) => {
+                tooltipCtx.setTooltipDetails({
+                  text: "Threads",
+                  parent: e.currentTarget as unknown as HTMLElement,
+                  parentSide: "bottom",
+                  size: "sm",
+                });
+              }}
+              onMouseLeave={() => {
+                tooltipCtx.disableTooltip();
+              }}
+            />
+            <BsBellFill
+              className="icon bell"
+              onMouseEnter={(e) => {
+                tooltipCtx.setTooltipDetails({
+                  text: "Notification Settings",
+                  parent: e.currentTarget as unknown as HTMLElement,
+                  parentSide: "bottom",
+                  size: "sm",
+                });
+              }}
+              onMouseLeave={() => {
+                tooltipCtx.disableTooltip();
+              }}
+            />
+            <AiFillPushpin
+              className="icon"
+              onMouseEnter={(e) => {
+                tooltipCtx.setTooltipDetails({
+                  text: "Pinned Messages",
+                  parent: e.currentTarget as unknown as HTMLElement,
+                  parentSide: "bottom",
+                  size: "sm",
+                });
+              }}
+              onMouseLeave={() => {
+                tooltipCtx.disableTooltip();
+              }}
+            />
+            <MdPeopleAlt
+              className={"icon" + (memberPanelActive ? " active" : "")}
+              onClick={() => {
+                setMemberPanelActive(!memberPanelActive);
+              }}
+              onMouseEnter={(e) => {
+                tooltipCtx.setTooltipDetails({
+                  text: "Toggle Member List",
+                  parent: e.currentTarget as unknown as HTMLElement,
+                  parentSide: "bottom",
+                  size: "sm",
+                });
+              }}
+              onMouseLeave={() => {
+                tooltipCtx.disableTooltip();
+              }}
+            />
+            <div className="search-wrapper">
+              <input className="search" placeholder="Search" />
+              <HiOutlineSearch className="search-icon" />
+            </div>
+
+            <MdInbox
+              className="icon"
+              onMouseEnter={(e) => {
+                tooltipCtx.setTooltipDetails({
+                  text: "Inbox",
+                  parent: e.currentTarget as unknown as HTMLElement,
+                  parentSide: "bottom",
+                  size: "sm",
+                });
+              }}
+              onMouseLeave={() => {
+                tooltipCtx.disableTooltip();
+              }}
+            />
+            <IoMdHelpCircle
+              className="icon"
+              onMouseEnter={(e) => {
+                tooltipCtx.setTooltipDetails({
+                  text: "Help",
+                  parent: e.currentTarget as unknown as HTMLElement,
+                  parentSide: "bottom",
+                  size: "sm",
+                });
+              }}
+              onMouseLeave={() => {
+                tooltipCtx.disableTooltip();
+              }}
+            />
+          </div>
+        )}
+      </TooltipCtx.Consumer>
     </div>
   );
 }
