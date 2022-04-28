@@ -1,9 +1,15 @@
+import { ServerType } from "../../../../types/ServerType";
+import ChannelFeedHeader from "./ChannelFeedHeader";
 import "./styles/ChannelFeed.css";
 
-function ChannelFeed() {
+interface ChannelFeedProps {
+  activeServer: ServerType;
+}
+
+function ChannelFeed(props: ChannelFeedProps) {
   return (
     <div className="channelFeed">
-      <div className="header"></div>
+      <ChannelFeedHeader activeServer={props.activeServer} />
     </div>
   );
 }

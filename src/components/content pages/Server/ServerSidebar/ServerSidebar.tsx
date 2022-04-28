@@ -16,7 +16,7 @@ import { FaPen } from "react-icons/fa";
 import { BiHash } from "react-icons/bi";
 import { MdVolumeUp, MdPersonAddAlt1 } from "react-icons/md";
 import { TooltipCtx } from "../../../general/Tooltip/Tooltip";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import {
   removeServer,
   setActiveChannel,
