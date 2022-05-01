@@ -1,9 +1,7 @@
 import { useSelector } from "react-redux";
 import "./App.css";
 import { StoreType } from "./app/store";
-import ChannelFeed from "./components/content pages/Server/ChannelFeed/ChannelFeed";
 import ServerList from "./components/ServerList/ServerList";
-import ServerSidebar from "./components/content pages/Server/ServerSidebar/ServerSidebar";
 import NotificationBanner from "./components/general/NotificationBanner/NotificationBanner";
 import NitroIcon from "./components/general/NitroIcon/NitroIcon";
 import Tooltip, {

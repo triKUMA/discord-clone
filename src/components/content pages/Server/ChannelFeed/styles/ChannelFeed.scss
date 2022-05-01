@@ -1,8 +1,14 @@
-.channelFeed {
+.channelFeed-wrapper {
   $bg-col: #36393f;
   width: 100%;
   height: 100%;
   background-color: $bg-col;
+  display: flex;
+  flex-direction: column;
+}
 
-  
+.channelFeed {
+  width: 100%;
+  height: 100%;
+  display: flex;
 }

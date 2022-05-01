@@ -17,10 +17,16 @@ import "./styles/ChannelFeedHeader.css";
 
 interface ChannelFeedHeaderProps {
   activeServer: ServerType;
+  setMemberListActive: (value: boolean) => void;
 }
 
 function ChannelFeedHeader(props: ChannelFeedHeaderProps) {
   const [memberPanelActive, setMemberPanelActive] = useState(false);
+
+  function setMemberListActive(value: boolean) {
+    setMemberPanelActive(value);
+    props.setMemberListActive(value);
+  }
 
   function isChannel(
     item: ChannelType | ChannelCategoryType
@@ -109,7 +115,7 @@ function ChannelFeedHeader(props: ChannelFeedHeaderProps) {
             <MdPeopleAlt
               className={"icon" + (memberPanelActive ? " active" : "")}
               onClick={() => {
-                setMemberPanelActive(!memberPanelActive);
+                setMemberListActive(!memberPanelActive);
               }}
               onMouseEnter={(e) => {
                 tooltipCtx.setTooltipDetails({
