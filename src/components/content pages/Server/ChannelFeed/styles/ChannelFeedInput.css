@@ -1,0 +1,26 @@
+.channelFeedInput-wrapper {
+  width: 100%;
+  min-height: 3.75rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.channelFeedInput-wrapper::before {
+  content: "";
+  width: 1.5rem;
+  height: 0.5rem;
+  position: absolute;
+  top: -0.5rem;
+  left: 0;
+  background-image: linear-gradient(to bottom, transparent, #36393f);
+}
+
+.channelFeedInput {
+  width: calc(100% - 2rem);
+  height: 2.75rem;
+  position: absolute;
+  top: -0.5rem;
+  background-color: #40444b;
+  border-radius: 0.5rem;
+}/*# sourceMappingURL=ChannelFeedInput.css.map */

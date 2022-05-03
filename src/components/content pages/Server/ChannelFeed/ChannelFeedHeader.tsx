@@ -21,7 +21,7 @@ interface ChannelFeedHeaderProps {
 }
 
 function ChannelFeedHeader(props: ChannelFeedHeaderProps) {
-  const [memberPanelActive, setMemberPanelActive] = useState(false);
+  const [memberPanelActive, setMemberPanelActive] = useState(true);
 
   function setMemberListActive(value: boolean) {
     setMemberPanelActive(value);
