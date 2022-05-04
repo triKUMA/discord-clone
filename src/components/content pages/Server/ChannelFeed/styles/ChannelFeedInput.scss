@@ -1,27 +1,69 @@
 .channelFeedInput-wrapper {
   width: 100%;
-  min-height: 3.75rem;
   position: relative;
+  padding-inline: 1rem;
+  margin-bottom: 1rem;
+  z-index: 1;
+}
+
+.channelFeedInput {
+  width: 100%;
+  min-height: 2.75rem;
+  background-color: #40444b;
+  border-radius: 0.5rem;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  padding-inline: 0.5rem;
+  gap: 0.5rem;
+  margin-top: -0.5rem;
+  position: relative;
 
   &::before {
     content: "";
     width: 1.5rem;
     height: 0.5rem;
     position: absolute;
-    top: -0.5rem;
-    left: 0;
+    top: 0;
+    left: -1rem;
     background-image: linear-gradient(to bottom, transparent, #36393f);
+    z-index: -1;
   }
-}
 
-.channelFeedInput {
-  width: calc(100% - 2rem);
-  height: 2.75rem;
-  position: absolute;
-  top: -0.5rem;
-  background-color: #40444b;
-  border-radius: 0.5rem;
+  .input-left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 2.9rem;
+  }
+
+  .input-field {
+    background: none;
+    border: none;
+    outline: none;
+    color: #dcddde;
+    padding-block: 0.75rem;
+    width: 100%;
+    resize: none;
+    max-height: 20rem;
+
+    scrollbar-width: none;
+  }
+
+  .input-right {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .input-icon {
+    box-sizing: content-box;
+    $size: 1.55rem;
+    width: $size;
+    height: $size;
+    padding: 0.6rem 0.5rem;
+    color: #b9bbbe;
+    cursor: pointer;
+
+    &:hover {
+      color: #dcddde;
+    }
+  }
 }

@@ -3,9 +3,8 @@ export interface PostType {
   text: string;
   date: Date;
   edited: boolean;
-  reacts: string[];
+  reacts: { emote: string; count: number } | null;
   replyTo: null | PostType;
-  group: PostGroupType;
 }
 
 export interface PostGroupType {
