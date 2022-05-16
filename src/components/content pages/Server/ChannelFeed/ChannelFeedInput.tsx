@@ -1,5 +1,7 @@
 import { useEffect } from "react";
 import { IoMdAddCircle } from "react-icons/io";
+import { useDispatch } from "react-redux";
+import { addPostToActiveChannel } from "../../../../features/servers/serversSlice";
 import { ChannelType } from "../../../../types/ChannelType";
 import "./styles/ChannelFeedInput.css";
 
@@ -8,7 +10,21 @@ interface ChannelFeedInputProps {
 }
 
 function ChannelFeedInput(props: ChannelFeedInputProps) {
-  useEffect(() => {}, []);
+  const dispatch = useDispatch();
+
+  function setInputSize(textArea: HTMLTextAreaElement) {
+    textArea.style.height = "1rem";
+    textArea.style.height = textArea.scrollHeight + "px";
+
+    const mainWrapper = document.getElementById("channelFeedInput-wrapper");
+
+    const input = document.getElementById("channelFeedInput");
+
+    if (mainWrapper != null && input != null) {
+      mainWrapper.style.height = "2.75rem";
+      mainWrapper.style.height = textArea.getBoundingClientRect().height + "px";
+    }
+  }
 
   return (
     <div className="channelFeedInput-wrapper" id="channelFeedInput-wrapper">
@@ -21,20 +37,44 @@ function ChannelFeedInput(props: ChannelFeedInputProps) {
           placeholder={"Message #" + props.activeChannel.name}
           rows={1}
           onChange={(e) => {
-            const textArea = e.currentTarget as HTMLTextAreaElement;
-            textArea.style.height = "1rem";
-            textArea.style.height = textArea.scrollHeight + "px";
+            // const textArea = e.currentTarget as HTMLTextAreaElement;
+            // textArea.style.height = "1rem";
+            // textArea.style.height = textArea.scrollHeight + "px";
 
-            const mainWrapper = document.getElementById(
-              "channelFeedInput-wrapper"
-            );
+            // const mainWrapper = document.getElementById(
+            //   "channelFeedInput-wrapper"
+            // );
 
-            const input = document.getElementById("channelFeedInput");
+            // const input = document.getElementById("channelFeedInput");
 
-            if (mainWrapper != null && input != null) {
-              mainWrapper.style.height = "2.75rem";
-              mainWrapper.style.height =
-                e.currentTarget.getBoundingClientRect().height + "px";
+            // if (mainWrapper != null && input != null) {
+            //   mainWrapper.style.height = "2.75rem";
+            //   mainWrapper.style.height =
+            //     textArea.getBoundingClientRect().height + "px";
+            // }
+            setInputSize(e.currentTarget as HTMLTextAreaElement);
+          }}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              dispatch(
+                addPostToActiveChannel({
+                  post: {
+                    id: "1",
+                    text: (e.currentTarget as HTMLTextAreaElement).value,
+                    date: new Date(),
+                    edited: false,
+                    reacts: null,
+                    replyTo: null,
+                  },
+                  userID: "1",
+                })
+              );
+            }
+          }}
+          onKeyUp={(e) => {
+            if (e.key === "Enter") {
+              (e.currentTarget as HTMLTextAreaElement).value = "";
+              setInputSize(e.currentTarget as HTMLTextAreaElement);
             }
           }}
         />

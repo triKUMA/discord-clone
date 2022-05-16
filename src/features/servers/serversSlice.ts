@@ -2,6 +2,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { ServerPrototypeType, ServerType } from "../../types/ServerType";
 import { v4 as uuidv4 } from "uuid";
 import { ChannelCategoryType, ChannelType } from "../../types/ChannelType";
+import { PostType } from "../../types/PostType";
 
 interface ServersSliceType {
   servers: ServerType[];
@@ -188,6 +189,12 @@ function createServerFromPrototype(prototype: ServerPrototypeType): ServerType {
   return newServer;
 }
 
+function isChannel(
+  item: ChannelType | ChannelCategoryType
+): item is ChannelType {
+  return typeof (item as ChannelType).type !== "undefined";
+}
+
 const serversSlice = createSlice({
   name: "servers",
   initialState: serversSliceInitState,
@@ -251,6 +258,48 @@ const serversSlice = createSlice({
         }
       });
     },
+    addPostToActiveChannel: (
+      state: ServersSliceType,
+      action: PayloadAction<{ post: PostType; userID: string }>
+    ) => {
+      state.servers.forEach((server) => {
+        if (server.id === state.activeServer) {
+          server.channels.forEach((channel) => {
+            if (isChannel(channel)) {
+              if (channel.id === server.activeChannel) {
+                if (
+                  channel.feed.length > 0 &&
+                  channel.feed[0].userID === action.payload.userID
+                ) {
+                  channel.feed[0].posts.push(action.payload.post);
+                } else {
+                  channel.feed.splice(0, 0, {
+                    userID: action.payload.userID,
+                    posts: [action.payload.post],
+                  });
+                }
+              }
+            } else {
+              channel.channels.forEach((c) => {
+                if (c.id === server.activeChannel) {
+                  if (
+                    c.feed.length > 0 &&
+                    c.feed[0].userID === action.payload.userID
+                  ) {
+                    c.feed[0].posts.push(action.payload.post);
+                  } else {
+                    c.feed.splice(0, 0, {
+                      userID: action.payload.userID,
+                      posts: [action.payload.post],
+                    });
+                  }
+                }
+              });
+            }
+          });
+        }
+      });
+    },
   },
 });
 
@@ -260,6 +309,7 @@ export const {
   setActiveServer,
   removeServer,
   setActiveChannel,
+  addPostToActiveChannel,
 } = serversSlice.actions;
 
 export const serversReducer = serversSlice.reducer;

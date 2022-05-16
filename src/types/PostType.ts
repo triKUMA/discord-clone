@@ -8,6 +8,6 @@ export interface PostType {
 }
 
 export interface PostGroupType {
-  user: string;
+  userID: string;
   posts: PostType[];
 }

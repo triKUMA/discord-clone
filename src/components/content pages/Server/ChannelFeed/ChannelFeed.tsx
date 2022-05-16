@@ -7,6 +7,7 @@ import {
 } from "../../../../types/ChannelType";
 import { ServerType } from "../../../../types/ServerType";
 import MemberList from "../MemberList/MemberList";
+import PostGroup from "../Posts/PostGroup";
 import ChannelFeedHeader from "./ChannelFeedHeader";
 import ChannelFeedInput from "./ChannelFeedInput";
 import "./styles/ChannelFeed.css";
@@ -58,8 +59,8 @@ function ChannelFeed(props: ChannelFeedProps) {
       <div className="channelFeed-area">
         <div className="channelFeed-wrapper">
           <div className="channelFeed">
-            {[...Array(15)].map((item, index) => (
-              <div className="test" key={index}>{index}</div>
+            {activeChannel.feed.map((group) => (
+              <PostGroup details={group} />
             ))}
           </div>
           <ChannelFeedInput activeChannel={activeChannel} />
